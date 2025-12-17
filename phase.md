@@ -25,7 +25,7 @@
 ---
 
 ## Phase 3 - ML Model (Training & Prediction)
-**Status**: Pending
+**Status**: ✅ Completed
 **Files**:
 - `backend/pipeline/data_loader.py` - Loads processed training data
 - `backend/pipeline/feature_engineering.py` - Converts text to TF-IDF vectors
@@ -39,7 +39,7 @@
 ---
 
 ## Phase 4 - Knowledge Base & Response Selection
-**Status**: Pending
+**Status**: ✅ Completed
 **Files**:
 - `backend/knowledge_base/sfgc_intents.json` - Final training dataset (intent + patterns + response)
 - `backend/knowledge_base/responses.py` - Maps intent → official answer
@@ -103,6 +103,30 @@
 
 ---
 
+## Completion Summary
+
+### ✅ Completed Phases (4/8)
+1. **Phase 1** - Data Layer ✅
+2. **Phase 2** - NLP Pipeline ✅
+3. **Phase 3** - ML Model ✅
+4. **Phase 4** - Knowledge Base & Response ✅
+
+### ⏳ Pending Phases (4/8)
+5. **Phase 5** - API & Backend Infrastructure
+6. **Phase 6** - Frontend UI
+7. **Phase 7** - Testing, Requirements & Deployment
+8. **Phase 8** - ML Operations (Optional)
+
+### 📦 Dependencies
+All required dependencies have been installed successfully from `requirements.txt`:
+- FastAPI, Uvicorn (Web Framework)
+- Streamlit (Frontend)
+- Scikit-learn, Pandas, NumPy (ML)
+- BeautifulSoup4 (Web Scraping)
+- Pytest (Testing)
+
+---
+
 ## Data Flow Diagram
 ```
 scrape_sfgc.py
@@ -123,7 +147,7 @@ train.py
     ↓
 intent_model.pkl + vectorizer.pkl
     ↓
-predict.py
+predict.py → confidence.py
     ↓
 response_selector.py
     ↓
