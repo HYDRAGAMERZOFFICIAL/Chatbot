@@ -253,14 +253,14 @@ export function ChatInterface() {
   const renderMessageContent = (message: Message) => {
     if (message.endOfTurn === true) {
       return (
-        <div className="mt-4 space-y-3 pt-2 border-t border-slate-200/50">
-           <p className="text-sm font-medium">Was this helpful?</p>
+        <div className="mt-4 space-y-3 pt-2 border-t border-slate-300">
+           <p className="text-sm font-semibold text-slate-700">Was this helpful?</p>
           <div className="flex gap-2">
             <Button 
               variant="outline" 
               size="sm" 
               onClick={() => handleFollowUp(true)}
-              className="flex-1 rounded-lg border-slate-300 hover:bg-blue-50 hover:border-blue-400 transition-colors"
+              className="flex-1 rounded-lg border-slate-400 text-slate-700 hover:bg-green-50 hover:border-green-500 hover:text-green-700 transition-colors font-medium"
             >
               ✓ Yes
             </Button>
@@ -268,7 +268,7 @@ export function ChatInterface() {
               variant="outline" 
               size="sm" 
               onClick={() => handleFollowUp(false)}
-              className="flex-1 rounded-lg border-slate-300 hover:bg-red-50 hover:border-red-400 transition-colors"
+              className="flex-1 rounded-lg border-slate-400 text-slate-700 hover:bg-red-50 hover:border-red-500 hover:text-red-700 transition-colors font-medium"
             >
               ✗ No
             </Button>
@@ -278,12 +278,12 @@ export function ChatInterface() {
     }
     if (message.endOfTurn === 'feedback' as any) {
       return (
-         <div className="mt-4 flex gap-2 pt-2 border-t border-slate-200/50">
+         <div className="mt-4 flex gap-2 pt-2 border-t border-slate-300">
             <Button 
               variant="outline" 
               size="icon" 
               onClick={() => handleFeedbackSubmit('good')}
-              className="rounded-lg border-slate-300 hover:bg-green-50 hover:border-green-400 transition-colors"
+              className="rounded-lg border-slate-400 text-green-600 hover:bg-green-50 hover:border-green-500 transition-colors"
               title="Helpful response"
             >
                 <ThumbsUp size={18} />
@@ -292,7 +292,7 @@ export function ChatInterface() {
               variant="outline" 
               size="icon" 
               onClick={() => handleFeedbackSubmit('bad')}
-              className="rounded-lg border-slate-300 hover:bg-red-50 hover:border-red-400 transition-colors"
+              className="rounded-lg border-slate-400 text-red-600 hover:bg-red-50 hover:border-red-500 transition-colors"
               title="Not helpful"
             >
                 <ThumbsDown size={18} />
@@ -302,17 +302,17 @@ export function ChatInterface() {
     }
     if (message.suggestions && message.suggestions.length > 0) {
       return (
-        <div className="mt-4 space-y-2 pt-2 border-t border-slate-200/50">
-          <p className="text-xs font-medium text-slate-500 uppercase tracking-wide">Suggested questions:</p>
+        <div className="mt-4 space-y-2 pt-2 border-t border-slate-300">
+          <p className="text-xs font-semibold text-slate-600 uppercase tracking-wider">Suggested questions:</p>
           {message.suggestions.map((s, i) => (
             <Button
               key={i}
               variant="outline"
               size="sm"
-              className="h-auto w-full justify-start whitespace-normal text-left rounded-lg border-slate-200 hover:border-indigo-400 hover:bg-indigo-50 transition-all duration-200 text-slate-700 hover:text-indigo-700"
+              className="h-auto w-full justify-start whitespace-normal text-left rounded-lg border-slate-300 text-slate-700 hover:border-indigo-500 hover:bg-indigo-50 hover:text-indigo-700 transition-all duration-200 font-medium"
               onClick={() => handleSuggestionClick(s)}
             >
-              <span className="text-indigo-500 mr-2">→</span>
+              <span className="text-indigo-600 mr-2">→</span>
               {s}
             </Button>
           ))}
@@ -326,8 +326,8 @@ export function ChatInterface() {
     <div className="flex h-full w-full flex-col bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       <div className="flex-1 overflow-hidden flex flex-col">
         <ScrollArea className="flex-1" ref={scrollAreaRef}>
-          <div className="flex w-full justify-center">
-            <div className="w-full max-w-4xl space-y-4 px-4 py-8">
+          <div className="flex w-full justify-center h-full">
+            <div className="w-full space-y-4 px-4 py-8 max-w-7xl">
               {messages.map(m => (
                 <div 
                   key={m.id} 
@@ -349,13 +349,13 @@ export function ChatInterface() {
                       </Avatar>
                     )}
                   </div>
-                  <div className={cn('flex flex-col gap-3 max-w-md', m.role === 'user' && 'items-end')}>
+                  <div className={cn('flex flex-col gap-3 max-w-2xl', m.role === 'user' && 'items-end')}>
                     <div
                       className={cn(
                         'rounded-2xl px-4 py-3 shadow-md break-words border transition-all duration-200',
                         m.role === 'user'
-                          ? 'bg-gradient-to-r from-blue-500 to-indigo-600 text-white border-blue-400/50 rounded-br-none'
-                          : 'bg-white text-slate-900 border-slate-200/80 rounded-bl-none',
+                          ? 'bg-gradient-to-r from-blue-600 to-indigo-700 text-white border-blue-500 rounded-br-none'
+                          : 'bg-white text-slate-800 border-slate-300 rounded-bl-none shadow-sm',
                       )}
                     >
                       <p className="whitespace-pre-wrap text-sm leading-relaxed">{m.text}</p>
@@ -384,14 +384,14 @@ export function ChatInterface() {
           </div>
         </ScrollArea>
       </div>
-      <div className="border-t border-slate-200/50 bg-white/50 backdrop-blur-sm px-4 py-4 shadow-lg">
+      <div className="border-t border-slate-300 bg-white/60 backdrop-blur-md px-4 py-4 shadow-lg">
         <div className="flex w-full justify-center">
           <form
             onSubmit={e => {
               e.preventDefault();
               handleSubmit();
             }}
-            className="flex w-full max-w-4xl items-end gap-3"
+            className="flex w-full max-w-7xl items-end gap-3"
           >
             <Button 
               variant="ghost" 
@@ -409,7 +409,7 @@ export function ChatInterface() {
               onChange={e => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Ask me anything about Collegewala..."
-              className="flex-1 resize-none border-2 border-slate-200/80 rounded-2xl bg-white text-slate-900 shadow-md focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-400 placeholder:text-slate-400 transition-all duration-200 px-4 py-3"
+              className="flex-1 resize-none border-2 border-slate-300 rounded-2xl bg-white text-slate-900 shadow-md focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 placeholder:text-slate-500 transition-all duration-200 px-4 py-3"
               rows={1}
               disabled={isPending}
             />
