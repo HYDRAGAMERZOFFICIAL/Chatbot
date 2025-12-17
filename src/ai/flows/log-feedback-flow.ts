@@ -5,16 +5,14 @@ import {z} from 'genkit';
 import fs from 'fs/promises';
 import path from 'path';
 
-const FeedbackSchema = z.object({
-  history: z.array(z.object({
-    role: z.enum(['user', 'bot']),
-    text: z.string(),
-  })),
-  feedback: z.enum(['good', 'bad']),
-  timestamp: z.string(),
-});
-
-type Feedback = z.infer<typeof FeedbackSchema>;
+type Feedback = {
+  history: Array<{
+    role: 'user' | 'bot';
+    text: string;
+  }>;
+  feedback: 'good' | 'bad';
+  timestamp: string;
+};
 
 const LogFeedbackInputSchema = z.object({
   history: z.array(z.object({
@@ -44,8 +42,8 @@ const logFeedbackFlow = ai.defineFlow(
       try {
         const data = await fs.readFile(filePath, 'utf-8');
         feedbackData = JSON.parse(data);
-      } catch (error: any) {
-        if (error.code !== 'ENOENT') {
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code !== 'ENOENT') {
           throw error;
         }
       }

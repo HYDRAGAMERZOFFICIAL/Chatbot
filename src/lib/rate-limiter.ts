@@ -1,7 +1,7 @@
 export interface RateLimiterConfig {
   maxRequests: number;
   windowMs: number;
-  keyGenerator?: (context: any) => string;
+  keyGenerator?: (context: unknown) => string;
   onLimitExceeded?: (key: string) => void;
 }
 
@@ -9,31 +9,31 @@ class RateLimiter {
   private requests: Map<string, number[]> = new Map();
   private maxRequests: number;
   private windowMs: number;
-  private keyGenerator: (context: any) => string;
+  private keyGenerator: (context: unknown) => string;
   private onLimitExceeded?: (key: string) => void;
 
   constructor(config: RateLimiterConfig) {
     this.maxRequests = config.maxRequests || 30;
     this.windowMs = config.windowMs || 60000;
-    this.keyGenerator = config.keyGenerator || this.defaultKeyGenerator;
+    this.keyGenerator = config.keyGenerator || this.defaultKeyGenerator.bind(this);
     this.onLimitExceeded = config.onLimitExceeded;
 
     this.startCleanupInterval();
   }
 
-  private defaultKeyGenerator(context: any): string {
+  private defaultKeyGenerator(context: unknown): string {
     if (typeof window === 'undefined') {
       return 'server';
     }
 
-    if (typeof context?.sessionId === 'string') {
-      return context.sessionId;
+    if (context && typeof context === 'object' && typeof (context as Record<string, unknown>).sessionId === 'string') {
+      return (context as Record<string, unknown>).sessionId as string;
     }
 
     return 'client-default';
   }
 
-  isAllowed(context?: any): boolean {
+  isAllowed(context?: unknown): boolean {
     const key = this.keyGenerator(context);
     const now = Date.now();
 
@@ -54,7 +54,7 @@ class RateLimiter {
     return true;
   }
 
-  getRemaining(context?: any): number {
+  getRemaining(context?: unknown): number {
     const key = this.keyGenerator(context);
     const now = Date.now();
 
@@ -64,7 +64,7 @@ class RateLimiter {
     return Math.max(0, this.maxRequests - recentRequests.length);
   }
 
-  getReset(context?: any): number {
+  getReset(context?: unknown): number {
     const key = this.keyGenerator(context);
     const now = Date.now();
 
@@ -78,7 +78,7 @@ class RateLimiter {
     return oldestRequest + this.windowMs;
   }
 
-  reset(context?: any): void {
+  reset(context?: unknown): void {
     const key = this.keyGenerator(context);
     this.requests.delete(key);
   }
@@ -136,7 +136,8 @@ export function createQueryRateLimiter(): RateLimiter {
       if (typeof window === 'undefined') {
         return 'server-queries';
       }
-      return context?.sessionId || 'client-queries';
+      const sessionId = context && typeof context === 'object' ? (context as Record<string, unknown>).sessionId : undefined;
+      return typeof sessionId === 'string' ? sessionId : 'client-queries';
     },
   });
 }
@@ -148,7 +149,7 @@ export interface RateLimitInfo {
   retryAfter?: number;
 }
 
-export function checkRateLimit(limiter: RateLimiter, context?: any): RateLimitInfo {
+export function checkRateLimit(limiter: RateLimiter, context?: unknown): RateLimitInfo {
   const isAllowed = limiter.isAllowed(context);
   const remaining = limiter.getRemaining(context);
   const resetTime = new Date(limiter.getReset(context));

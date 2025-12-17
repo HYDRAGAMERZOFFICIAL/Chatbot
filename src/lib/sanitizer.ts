@@ -189,7 +189,7 @@ export function decodeFromURL(input: string): string {
 
   try {
     return decodeURIComponent(input);
-  } catch (error) {
+  } catch {
     return '';
   }
 }

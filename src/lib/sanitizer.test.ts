@@ -24,7 +24,7 @@ describe('sanitizer.ts', () => {
     });
 
     it('should handle non-string input', () => {
-      expect(sanitizeHTML(123 as any)).toBe('');
+      expect(sanitizeHTML(123 as unknown as string)).toBe('');
     });
   });
 

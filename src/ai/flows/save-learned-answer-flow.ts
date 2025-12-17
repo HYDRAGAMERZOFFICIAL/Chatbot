@@ -9,13 +9,11 @@ import {z} from 'genkit';
 import fs from 'fs/promises';
 import path from 'path';
 
-const LearnedAnswerSchema = z.object({
-  question: z.string(),
-  answer: z.string(),
-  timestamp: z.string(),
-});
-
-type LearnedAnswer = z.infer<typeof LearnedAnswerSchema>;
+type LearnedAnswer = {
+  question: string;
+  answer: string;
+  timestamp: string;
+};
 
 const SaveLearnedAnswerInputSchema = z.object({
   question: z.string().describe("The user's question."),
@@ -49,8 +47,8 @@ const saveLearnedAnswerFlow = ai.defineFlow(
         if (data.trim()) {
             learnedAnswers = JSON.parse(data);
         }
-      } catch (error: any) {
-        if (error.code !== 'ENOENT') {
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code !== 'ENOENT') {
           throw error;
         }
       }

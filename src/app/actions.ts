@@ -34,7 +34,7 @@ interface LearnedAnswerItem {
     answer: string;
 }
 
-const intents: Intent[] = (intentsData as any).intents;
+const intents: Intent[] = (intentsData as { intents: Intent[] }).intents;
 const faqs: FaqItem[] = Object.entries(faqData).map(([question, details]) => ({
   question,
   ...(details as Omit<FaqItem, 'question'>),
@@ -43,7 +43,7 @@ const learnedAnswers: LearnedAnswerItem[] = learnedAnswersData as LearnedAnswerI
 
 
 // Function to recursively extract searchable text from the college data
-const extractSearchableText = (obj: any): {text: string, answer: string}[] => {
+const extractSearchableText = (obj: unknown): {text: string, answer: string}[] => {
   let results: {text: string, answer: string}[] = [];
   if (obj && typeof obj === 'object') {
     // For arrays, iterate over items
@@ -57,19 +57,21 @@ const extractSearchableText = (obj: any): {text: string, answer: string}[] => {
       let answer = '';
       
       if ('q' in obj && 'a' in obj) { // FAQ format
-         return [{text: obj.q, answer: obj.a}];
+         const objWithQA = obj as { q: string; a: string };
+         return [{text: objWithQA.q, answer: objWithQA.a}];
       }
       
       const searchableKeys = ['name', 'code', 'description', 'eligibility', 'duration_years', 'overview', 'mission', 'vision', 'facilities', 'activities'];
       
-      let currentAnswerParts : string[] = [];
+      const currentAnswerParts : string[] = [];
+      const objRecord = obj as Record<string, unknown>;
 
-      for(const key in obj) {
-          if(typeof obj[key] === 'string' || typeof obj[key] === 'number') {
+      for(const key in objRecord) {
+          if(typeof objRecord[key] === 'string' || typeof objRecord[key] === 'number') {
               if(searchableKeys.includes(key)) {
-                  textParts.push(String(obj[key]));
+                  textParts.push(String(objRecord[key]));
               }
-              currentAnswerParts.push(`${key}: ${obj[key]}`);
+              currentAnswerParts.push(`${key}: ${objRecord[key]}`);
           }
       }
 
@@ -149,8 +151,9 @@ export async function handleUserQuery(query: string): Promise<{ answer: string; 
   let searchItems = searchCorpus;
   if (prioritizeKeyword) {
     searchItems = searchCorpus.sort((a, b) => {
-      const aScore = (queryTypeMap as any)[prioritizeKeyword]?.filter((kw: string) => a.text.toLowerCase().includes(kw)).length || 0;
-      const bScore = (queryTypeMap as any)[prioritizeKeyword]?.filter((kw: string) => b.text.toLowerCase().includes(kw)).length || 0;
+      const keywords = queryTypeMap[prioritizeKeyword as keyof typeof queryTypeMap];
+      const aScore = keywords?.filter((kw: string) => a.text.toLowerCase().includes(kw)).length || 0;
+      const bScore = keywords?.filter((kw: string) => b.text.toLowerCase().includes(kw)).length || 0;
       return bScore - aScore;
     });
   }

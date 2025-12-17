@@ -2,8 +2,6 @@ import { GraduationCap } from 'lucide-react';
 
 export function Logo() {
   return (
-    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm">
-      <GraduationCap className="h-6 w-6" />
-    </div>
+    <GraduationCap className="h-8 w-8 text-white" />
   );
 }

@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useRef, useEffect, useTransition } from 'react';
-import { Send, ThumbsDown, ThumbsUp, PlusCircle } from 'lucide-react';
+import React, { useState, useRef, useEffect, useTransition, useCallback } from 'react';
+import { Send, ThumbsDown, ThumbsUp, PlusCircle, GraduationCap } from 'lucide-react';
 import { Bot, User } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
@@ -58,6 +58,32 @@ export function ChatInterface() {
     }
   };
 
+  const startNewSession = useCallback(() => {
+    const newId = `session-${Date.now()}`;
+    setMessages(initialMessages);
+    setCurrentSessionId(newId);
+    localStorage.setItem('currentChatSessionId', newId);
+    saveChatHistory(newId, 'New Chat', initialMessages);
+    // This will trigger the ChatHistory component to update
+    window.dispatchEvent(new StorageEvent('storage', { key: 'chatHistory' }));
+  }, []);
+
+  const loadSession = useCallback((sessionId: string) => {
+    try {
+      const chatHistoryStr = localStorage.getItem('chatHistory') || '{}';
+      const history = JSON.parse(chatHistoryStr);
+      if (history[sessionId]) {
+        setMessages(history[sessionId].messages);
+        setCurrentSessionId(sessionId);
+      } else {
+        startNewSession();
+      }
+    } catch {
+      console.warn('Failed to load chat history, starting new session');
+      startNewSession();
+    }
+  }, [startNewSession]);
+
   useEffect(() => {
     const handleSessionChanged = (event: Event) => {
       const customEvent = event as CustomEvent;
@@ -87,33 +113,7 @@ export function ChatInterface() {
       window.removeEventListener('sessionChanged', handleSessionChanged);
       window.removeEventListener('storage', handleStorageChange);
     }
-  }, []);
-
-  const loadSession = (sessionId: string) => {
-    try {
-      const chatHistoryStr = localStorage.getItem('chatHistory') || '{}';
-      const history = JSON.parse(chatHistoryStr);
-      if (history[sessionId]) {
-        setMessages(history[sessionId].messages);
-        setCurrentSessionId(sessionId);
-      } else {
-        startNewSession();
-      }
-    } catch (error) {
-      console.warn('Failed to load chat history, starting new session');
-      startNewSession();
-    }
-  };
-
-  const startNewSession = () => {
-    const newId = `session-${Date.now()}`;
-    setMessages(initialMessages);
-    setCurrentSessionId(newId);
-    localStorage.setItem('currentChatSessionId', newId);
-    saveChatHistory(newId, 'New Chat', initialMessages);
-    // This will trigger the ChatHistory component to update
-    window.dispatchEvent(new StorageEvent('storage', { key: 'chatHistory' }));
-  };
+  }, [loadSession, startNewSession]);
   
   useEffect(() => {
     if(currentSessionId && messages.length > 1) { // more than initial message
@@ -214,7 +214,7 @@ export function ChatInterface() {
         id: `bot-feedback-prompt-${Date.now()}`,
         role: 'bot',
         text: "Thank you for using Collegewala! Your feedback is valuable to us. How would you rate your experience?",
-        endOfTurn: 'feedback' as any, // Special state for feedback
+        endOfTurn: 'feedback' as unknown as boolean, // Special state for feedback
       };
       setMessages(prev => [...prev, botMessage]);
     }
@@ -276,7 +276,7 @@ export function ChatInterface() {
         </div>
       );
     }
-    if (message.endOfTurn === 'feedback' as any) {
+    if (message.endOfTurn === 'feedback' as unknown as boolean) {
       return (
          <div className="mt-4 flex gap-2 pt-2 border-t border-slate-300">
             <Button 
@@ -327,7 +327,17 @@ export function ChatInterface() {
       <div className="flex-1 overflow-hidden flex flex-col">
         <ScrollArea className="flex-1" ref={scrollAreaRef}>
           <div className="flex w-full justify-center h-full">
-            <div className="w-full space-y-4 px-4 py-8 max-w-7xl">
+            <div className="w-full space-y-4 px-4 py-4 max-w-7xl">
+              <div className="flex items-center gap-3 px-2 mb-2">
+                <div className="p-2 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-700">
+                  <GraduationCap className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <h2 className="font-bold text-lg bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-transparent">Collegewala</h2>
+                  <p className="text-xs text-slate-500">AI College Assistant</p>
+                </div>
+              </div>
+              <div className="h-2" />
               {messages.map(m => (
                 <div 
                   key={m.id} 
@@ -384,7 +394,7 @@ export function ChatInterface() {
           </div>
         </ScrollArea>
       </div>
-      <div className="border-t border-slate-300 bg-white/60 backdrop-blur-md px-4 py-4 shadow-lg">
+      <div className="border-t border-slate-300 bg-white/60 backdrop-blur-md px-4 py-2 shadow-lg">
         <div className="flex w-full justify-center">
           <form
             onSubmit={e => {

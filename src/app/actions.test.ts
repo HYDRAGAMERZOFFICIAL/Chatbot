@@ -1,7 +1,7 @@
 describe('actions.ts - Security & Input Validation Unit Tests', () => {
   describe('Input Validation - Type Safety', () => {
     it('should reject null/undefined inputs safely', () => {
-      const validateInput = (input: any) => {
+      const validateInput = (input: unknown) => {
         if (!input || typeof input !== 'string') {
           throw new Error('Invalid input');
         }
@@ -248,7 +248,7 @@ describe('actions.ts - Security & Input Validation Unit Tests', () => {
 
   describe('Response Validation', () => {
     it('should validate response structure consistency', () => {
-      const validateResponse = (response: any) => {
+      const validateResponse = (response: unknown) => {
         return (
           response &&
           typeof response.answer === 'string' &&
@@ -278,7 +278,7 @@ describe('actions.ts - Security & Input Validation Unit Tests', () => {
     });
 
     it('should validate suggestion format', () => {
-      const validateSuggestions = (suggestions: any[]) => {
+      const validateSuggestions = (suggestions: unknown[]) => {
         return (
           Array.isArray(suggestions) &&
           suggestions.every(s => typeof s === 'string' && s.length > 0)

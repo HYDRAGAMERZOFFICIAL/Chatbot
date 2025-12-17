@@ -6,32 +6,31 @@ export interface LogEntry {
   level: LogLevel;
   message: string;
   timestamp: string;
-  context?: Record<string, any>;
+  context?: Record<string, unknown>;
 }
 
 class Logger {
   private isDevelopment = process.env.NODE_ENV === 'development';
-  private maxLogLength = 1000;
 
-  debug(message: string, context?: Record<string, any>): void {
+  debug(message: string, context?: Record<string, unknown>): void {
     if (this.isDevelopment) {
       console.debug(`[DEBUG] ${message}`, context);
     }
   }
 
-  info(message: string, context?: Record<string, any>): void {
+  info(message: string, context?: Record<string, unknown>): void {
     if (this.isDevelopment) {
       console.info(`[INFO] ${message}`, context);
     }
   }
 
-  warn(message: string, context?: Record<string, any>): void {
+  warn(message: string, context?: Record<string, unknown>): void {
     const sanitizedContext = this.sanitizeContext(context);
     console.warn(`[WARN] ${message}`, sanitizedContext);
   }
 
-  error(message: string, error?: Error | Record<string, any>): void {
-    let sanitizedError: any;
+  error(message: string, error?: Error | Record<string, unknown>): void {
+    let sanitizedError: Record<string, unknown> | undefined;
 
     if (error instanceof Error) {
       sanitizedError = {
@@ -49,10 +48,10 @@ class Logger {
     console.error(`[ERROR] ${message}`, sanitizedError);
   }
 
-  private sanitizeContext(context?: Record<string, any>): Record<string, any> {
+  private sanitizeContext(context?: Record<string, unknown>): Record<string, unknown> {
     if (!context) return {};
 
-    const sanitized: Record<string, any> = {};
+    const sanitized: Record<string, unknown> = {};
     const sensitiveKeys = [
       'password',
       'apiKey',
@@ -69,7 +68,7 @@ class Logger {
       } else if (typeof value === 'string') {
         sanitized[key] = sanitizeForLog(value);
       } else if (typeof value === 'object' && value !== null) {
-        sanitized[key] = this.sanitizeContext(value);
+        sanitized[key] = this.sanitizeContext(value as Record<string, unknown>);
       } else {
         sanitized[key] = value;
       }
@@ -81,7 +80,7 @@ class Logger {
   createEntry(
     level: LogLevel,
     message: string,
-    context?: Record<string, any>
+    context?: Record<string, unknown>
   ): LogEntry {
     return {
       level,
@@ -98,21 +97,21 @@ export function getLogger(): Logger {
   return logger;
 }
 
-export const logDebug = (message: string, context?: Record<string, any>) => {
+export const logDebug = (message: string, context?: Record<string, unknown>) => {
   logger.debug(message, context);
 };
 
-export const logInfo = (message: string, context?: Record<string, any>) => {
+export const logInfo = (message: string, context?: Record<string, unknown>) => {
   logger.info(message, context);
 };
 
-export const logWarn = (message: string, context?: Record<string, any>) => {
+export const logWarn = (message: string, context?: Record<string, unknown>) => {
   logger.warn(message, context);
 };
 
 export const logError = (
   message: string,
-  error?: Error | Record<string, any>
+  error?: Error | Record<string, unknown>
 ) => {
   logger.error(message, error);
 };

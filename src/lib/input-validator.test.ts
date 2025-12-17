@@ -9,12 +9,12 @@ import {
 describe('input-validator.ts', () => {
   describe('validateInput', () => {
     it('should reject null input', () => {
-      const result = validateInput(null as any);
+      const result = validateInput(null as unknown as string);
       expect(result.isValid).toBe(false);
     });
 
     it('should reject non-string input', () => {
-      const result = validateInput(123 as any);
+      const result = validateInput(123 as unknown as string);
       expect(result.isValid).toBe(false);
     });
 
@@ -119,12 +119,12 @@ describe('input-validator.ts', () => {
     });
 
     it('should reject non-array input', () => {
-      const result = validateFeedbackHistory('not array' as any);
+      const result = validateFeedbackHistory('not array' as unknown);
       expect(result.isValid).toBe(false);
     });
 
     it('should reject invalid role', () => {
-      const history = [{ role: 'invalid', text: 'text' }] as any;
+      const history = [{ role: 'invalid', text: 'text' }] as unknown;
       const result = validateFeedbackHistory(history);
       expect(result.isValid).toBe(false);
     });

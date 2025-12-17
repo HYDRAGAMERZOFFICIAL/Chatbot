@@ -5,12 +5,10 @@ import {z} from 'genkit';
 import fs from 'fs/promises';
 import path from 'path';
 
-const UnansweredQuestionSchema = z.object({
-  question: z.string(),
-  timestamp: z.string(),
-});
-
-type UnansweredQuestion = z.infer<typeof UnansweredQuestionSchema>;
+type UnansweredQuestion = {
+  question: string;
+  timestamp: string;
+};
 
 const LogUnansweredQuestionInputSchema = z.object({
   question: z.string().describe("The user's question that could not be answered."),
@@ -36,8 +34,8 @@ const logUnansweredQuestionFlow = ai.defineFlow(
       try {
         const data = await fs.readFile(filePath, 'utf-8');
         questions = JSON.parse(data);
-      } catch (error: any) {
-        if (error.code !== 'ENOENT') {
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code !== 'ENOENT') {
           throw error;
         }
       }
