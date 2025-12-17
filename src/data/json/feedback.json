@@ -878,5 +878,51 @@
     ],
     "feedback": "good",
     "timestamp": "2025-12-17T16:36:18.385Z"
+  },
+  {
+    "history": [
+      {
+        "role": "bot",
+        "text": "Hello! I'm Collegewala. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?"
+      },
+      {
+        "role": "user",
+        "text": "hello"
+      },
+      {
+        "role": "bot",
+        "text": "Hello! I'm Collegewala chatbot. I'm here to help you with any questions about our college - admissions, courses, fees, placements, facilities, and much more. What would you like to know?"
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "How can I apply for admission?"
+      },
+      {
+        "role": "bot",
+        "text": "Applying for admission to Collegewala is quite straightforward! You can either apply online or in person. To apply online, just visit our website at www.collegewala.edu, fill out the online application form with your details, upload your required documents like mark sheets and ID proof, pay the application fee, and then submit your form. You will receive the merit list within two weeks, and if you're selected, you can complete your admission at our office. If you prefer to apply in person, you can visit our college office during office hours, which are Monday to Friday, from 9 AM to 5 PM."
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "where vsn i find the application "
+      },
+      {
+        "role": "bot",
+        "text": "Apply in two simple ways: (1) Online: Visit www.collegewala.edu, fill the application form, upload documents, pay fee, submit. Merit list comes in 2 weeks. (2) Offline: Visit our office with documents. After merit list is announced, complete your admission at our office with original documents. We'll help guide you through every step!"
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using Collegewala! Your feedback is valuable to us. How would you rate your experience?"
+      }
+    ],
+    "feedback": "good",
+    "timestamp": "2025-12-17T16:45:17.916Z"
   }
 ]
