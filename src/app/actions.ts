@@ -102,7 +102,7 @@ const searchCorpus: { text: string; answer: string }[] = [
   ...facultySearchCorpus
 ];
 
-const SIMILARITY_THRESHOLD = 0.15;
+const SIMILARITY_THRESHOLD = 0.1;
 
 export async function handleUserQuery(query: string): Promise<{ answer: string; suggestions: string[] }> {
   if (!query.trim()) {
@@ -111,8 +111,21 @@ export async function handleUserQuery(query: string): Promise<{ answer: string; 
       suggestions: [],
     };
   }
+
+  const queryLower = query.toLowerCase();
+  const contactKeywords = ['contact', 'phone', 'number', 'call', 'email', 'reach', 'address', 'telephone'];
+  const isContactQuery = contactKeywords.some(kw => queryLower.includes(kw));
   
-  const { bestMatch, bestScore } = findBestMatch(query, searchCorpus, (item) => item.text);
+  let searchItems = searchCorpus;
+  if (isContactQuery) {
+    searchItems = searchCorpus.sort((a, b) => {
+      const aContactScore = contactKeywords.filter(kw => a.text.toLowerCase().includes(kw)).length;
+      const bContactScore = contactKeywords.filter(kw => b.text.toLowerCase().includes(kw)).length;
+      return bContactScore - aContactScore;
+    });
+  }
+  
+  const { bestMatch, bestScore } = findBestMatch(query, searchItems, (item) => item.text);
 
   if (bestMatch && bestScore > SIMILARITY_THRESHOLD) {
     try {

@@ -640,5 +640,55 @@
     ],
     "feedback": "bad",
     "timestamp": "2025-12-17T14:54:51.235Z"
+  },
+  {
+    "history": [
+      {
+        "role": "bot",
+        "text": "Hello! I'm the CollegeConnect Chatbot. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?"
+      },
+      {
+        "role": "user",
+        "text": "Is hostel facility available?"
+      },
+      {
+        "role": "bot",
+        "text": "Yes, separate hostels are available for boys and girls with modern facilities including WiFi, sports grounds, common rooms, laundry services, 24/7 security, and medical facilities on campus."
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "where is the college located"
+      },
+      {
+        "role": "bot",
+        "text": "I'm sorry, but the provided context does not contain information about the college's location."
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using Collegewala! Your feedback is valuable to us. How would you rate your experience?"
+      },
+      {
+        "role": "bot",
+        "text": "Thanks for your feedback! If you have more questions, just ask."
+      },
+      {
+        "role": "user",
+        "text": "contact number"
+      },
+      {
+        "role": "bot",
+        "text": "I'm sorry, but I couldn't find a specific contact number in the information I have. If you're looking for admissions, you can check the official college website or the admissions portal."
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using Collegewala! Your feedback is valuable to us. How would you rate your experience?"
+      }
+    ],
+    "feedback": "bad",
+    "timestamp": "2025-12-17T15:00:37.504Z"
   }
 ]

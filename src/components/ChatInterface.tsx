@@ -264,60 +264,68 @@ export function ChatInterface() {
     <div className="flex h-full w-full flex-col bg-background">
       <div className="flex-1 overflow-hidden flex flex-col">
         <ScrollArea className="flex-1" ref={scrollAreaRef}>
-          <div className="mx-auto max-w-3xl space-y-4 px-4 py-6">
-            {messages.map(m => (
-              <div key={m.id} className={cn('flex items-start gap-3', m.role === 'user' && 'justify-end')}>
-                {m.role === 'bot' && (
-                  <Avatar className="h-8 w-8 border shrink-0">
-                    <AvatarFallback className="bg-primary text-primary-foreground">
-                      <Bot size={20} />
-                    </AvatarFallback>
-                  </Avatar>
-                )}
-                <div
-                  className={cn(
-                    'rounded-lg p-3 shadow-sm',
-                    m.role === 'user'
-                      ? 'bg-primary text-primary-foreground max-w-xs'
-                      : 'bg-card text-card-foreground max-w-2xl',
-                  )}
-                >
-                  <p className="whitespace-pre-wrap text-sm">{m.text}</p>
-                  {renderMessageContent(m)}
+          <div className="flex w-full justify-center">
+            <div className="w-full max-w-4xl space-y-4 px-4 py-6">
+              {messages.map(m => (
+                <div key={m.id} className={cn('flex gap-3 items-start', m.role === 'user' && 'flex-row-reverse')}>
+                  <div className="shrink-0">
+                    {m.role === 'bot' && (
+                      <Avatar className="h-8 w-8 border">
+                        <AvatarFallback className="bg-primary text-primary-foreground text-xs">
+                          <Bot size={18} />
+                        </AvatarFallback>
+                      </Avatar>
+                    )}
+                    {m.role === 'user' && (
+                      <Avatar className="h-8 w-8 border">
+                        <AvatarFallback className="bg-accent text-accent-foreground text-xs">
+                          <User size={18} />
+                        </AvatarFallback>
+                      </Avatar>
+                    )}
+                  </div>
+                  <div className={cn('flex flex-col gap-2 max-w-md', m.role === 'user' && 'items-end')}>
+                    <div
+                      className={cn(
+                        'rounded-lg p-3 shadow-sm break-words',
+                        m.role === 'user'
+                          ? 'bg-primary text-primary-foreground'
+                          : 'bg-card text-card-foreground',
+                      )}
+                    >
+                      <p className="whitespace-pre-wrap text-sm">{m.text}</p>
+                      {renderMessageContent(m)}
+                    </div>
+                  </div>
                 </div>
-                {m.role === 'user' && (
-                  <Avatar className="h-8 w-8 border shrink-0">
-                     <AvatarFallback className="bg-accent text-accent-foreground">
-                      <User size={20} />
-                    </AvatarFallback>
-                  </Avatar>
-                )}
-              </div>
-            ))}
-           {isPending && (
-              <div className="flex items-start gap-3">
-                <Avatar className="h-8 w-8 border shrink-0">
-                  <AvatarFallback className="bg-primary text-primary-foreground">
-                    <Bot size={20} />
-                  </AvatarFallback>
-                </Avatar>
-                <div className="max-w-2xl space-y-2 rounded-lg bg-card p-3 shadow-sm">
-                  <Skeleton className="h-4 w-48" />
-                  <Skeleton className="h-4 w-32" />
+              ))}
+              {isPending && (
+                <div className="flex gap-3 items-start">
+                  <div className="shrink-0">
+                    <Avatar className="h-8 w-8 border">
+                      <AvatarFallback className="bg-primary text-primary-foreground text-xs">
+                        <Bot size={18} />
+                      </AvatarFallback>
+                    </Avatar>
+                  </div>
+                  <div className="space-y-2 rounded-lg bg-card p-3 shadow-sm">
+                    <Skeleton className="h-4 w-48" />
+                    <Skeleton className="h-4 w-32" />
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </ScrollArea>
       </div>
       <div className="border-t bg-card/50 px-4 py-3">
-        <div className="mx-auto max-w-3xl">
+        <div className="flex w-full justify-center">
           <form
             onSubmit={e => {
               e.preventDefault();
               handleSubmit();
             }}
-            className="flex items-end gap-2"
+            className="flex w-full max-w-4xl items-end gap-2"
           >
             <Button variant="ghost" size="icon" onClick={startNewSession} className="shrink-0">
               <PlusCircle className="h-5 w-5" />
