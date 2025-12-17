@@ -31,7 +31,7 @@ const initialMessages: Message[] = [
   {
     id: 'init-1',
     role: 'bot',
-    text: "Hello! I'm the CollegeConnect Chatbot. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?",
+    text: "Hello! I'm Collegewala. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?",
     suggestions: [
       "What courses are offered?",
       "How can I apply for admission?",
@@ -179,7 +179,7 @@ export function ChatInterface() {
       const botMessage: Message = {
         id: `bot-feedback-prompt-${Date.now()}`,
         role: 'bot',
-        text: "Thank you for using CollegeConnect Chat! Your feedback is valuable to us. How would you rate your experience?",
+        text: "Thank you for using Collegewala! Your feedback is valuable to us. How would you rate your experience?",
         endOfTurn: 'feedback' as any, // Special state for feedback
       };
       setMessages(prev => [...prev, botMessage]);
@@ -261,80 +261,84 @@ export function ChatInterface() {
   };
 
   return (
-    <div className="container mx-auto flex h-full max-w-4xl flex-col p-4">
-      <ScrollArea className="flex-1" ref={scrollAreaRef}>
-        <div className="space-y-6 pr-4">
-          {messages.map(m => (
-            <div key={m.id} className={cn('flex items-start gap-3', m.role === 'user' && 'justify-end')}>
-              {m.role === 'bot' && (
-                <Avatar className="h-8 w-8 border">
+    <div className="flex h-full w-full flex-col bg-background">
+      <div className="flex-1 overflow-hidden flex flex-col">
+        <ScrollArea className="flex-1" ref={scrollAreaRef}>
+          <div className="mx-auto max-w-3xl space-y-4 px-4 py-6">
+            {messages.map(m => (
+              <div key={m.id} className={cn('flex items-start gap-3', m.role === 'user' && 'justify-end')}>
+                {m.role === 'bot' && (
+                  <Avatar className="h-8 w-8 border shrink-0">
+                    <AvatarFallback className="bg-primary text-primary-foreground">
+                      <Bot size={20} />
+                    </AvatarFallback>
+                  </Avatar>
+                )}
+                <div
+                  className={cn(
+                    'rounded-lg p-3 shadow-sm',
+                    m.role === 'user'
+                      ? 'bg-primary text-primary-foreground max-w-xs'
+                      : 'bg-card text-card-foreground max-w-2xl',
+                  )}
+                >
+                  <p className="whitespace-pre-wrap text-sm">{m.text}</p>
+                  {renderMessageContent(m)}
+                </div>
+                {m.role === 'user' && (
+                  <Avatar className="h-8 w-8 border shrink-0">
+                     <AvatarFallback className="bg-accent text-accent-foreground">
+                      <User size={20} />
+                    </AvatarFallback>
+                  </Avatar>
+                )}
+              </div>
+            ))}
+           {isPending && (
+              <div className="flex items-start gap-3">
+                <Avatar className="h-8 w-8 border shrink-0">
                   <AvatarFallback className="bg-primary text-primary-foreground">
                     <Bot size={20} />
                   </AvatarFallback>
                 </Avatar>
-              )}
-              <div
-                className={cn(
-                  'max-w-md rounded-lg p-3 shadow-sm',
-                  m.role === 'user'
-                    ? 'bg-primary text-primary-foreground'
-                    : 'bg-card text-card-foreground',
-                )}
-              >
-                <p className="whitespace-pre-wrap text-sm">{m.text}</p>
-                {renderMessageContent(m)}
+                <div className="max-w-2xl space-y-2 rounded-lg bg-card p-3 shadow-sm">
+                  <Skeleton className="h-4 w-48" />
+                  <Skeleton className="h-4 w-32" />
+                </div>
               </div>
-              {m.role === 'user' && (
-                <Avatar className="h-8 w-8 border">
-                   <AvatarFallback className="bg-accent text-accent-foreground">
-                    <User size={20} />
-                  </AvatarFallback>
-                </Avatar>
-              )}
-            </div>
-          ))}
-           {isPending && (
-            <div className="flex items-start gap-3">
-              <Avatar className="h-8 w-8 border">
-                <AvatarFallback className="bg-primary text-primary-foreground">
-                  <Bot size={20} />
-                </AvatarFallback>
-              </Avatar>
-              <div className="max-w-md space-y-2 rounded-lg bg-card p-3 shadow-sm">
-                <Skeleton className="h-4 w-48" />
-                <Skeleton className="h-4 w-32" />
-              </div>
-            </div>
-          )}
+            )}
+          </div>
+        </ScrollArea>
+      </div>
+      <div className="border-t bg-card/50 px-4 py-3">
+        <div className="mx-auto max-w-3xl">
+          <form
+            onSubmit={e => {
+              e.preventDefault();
+              handleSubmit();
+            }}
+            className="flex items-end gap-2"
+          >
+            <Button variant="ghost" size="icon" onClick={startNewSession} className="shrink-0">
+              <PlusCircle className="h-5 w-5" />
+              <span className="sr-only">New Chat</span>
+            </Button>
+            <Textarea
+              ref={inputRef}
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Ask a question..."
+              className="flex-1 resize-none border rounded-md bg-background shadow-sm focus-visible:ring-1"
+              rows={1}
+              disabled={isPending}
+            />
+            <Button type="submit" size="icon" disabled={isPending || !input.trim()} className="shrink-0">
+              <Send size={20} />
+              <span className="sr-only">Send</span>
+            </Button>
+          </form>
         </div>
-      </ScrollArea>
-      <div className="mt-4 rounded-lg border bg-card p-2 shadow-sm">
-        <form
-          onSubmit={e => {
-            e.preventDefault();
-            handleSubmit();
-          }}
-          className="flex items-end gap-2"
-        >
-          <Button variant="ghost" size="icon" onClick={startNewSession}>
-            <PlusCircle />
-            <span className="sr-only">New Chat</span>
-          </Button>
-          <Textarea
-            ref={inputRef}
-            value={input}
-            onChange={e => setInput(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="Ask a question..."
-            className="flex-1 resize-none border-0 shadow-none focus-visible:ring-0"
-            rows={1}
-            disabled={isPending}
-          />
-          <Button type="submit" size="icon" disabled={isPending || !input.trim()}>
-            <Send size={20} />
-            <span className="sr-only">Send</span>
-          </Button>
-        </form>
       </div>
     </div>
   );

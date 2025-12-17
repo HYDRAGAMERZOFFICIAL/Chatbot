@@ -2,122 +2,219 @@
     "intents": [
       {
         "intent": "admission_documents",
-        "keywords": ["admission", "documents", "certificate", "marksheet", "tc"],
-        "answer": "Students must submit mark sheets, transfer certificate, ID proof, passport-size photographs, and application form.",
+        "keywords": ["admission", "documents", "certificate", "marksheet", "tc", "required documents"],
+        "answer": "Students must submit mark sheets, transfer certificate, ID proof, passport-size photographs, and application form. For SC/ST students, caste certificate is required. Additional documents may include migration certificate.",
         "questions": [
           "What documents are required for admission?",
           "Which certificates are needed during admission?",
           "Do I need to submit documents for college admission?",
           "What paperwork is required for admission?",
-          "Is transfer certificate required for admission?"
+          "Is transfer certificate required for admission?",
+          "What documents do I need to bring on admission day?"
         ]
       },
       {
         "intent": "admission_process",
-        "keywords": ["apply", "admission", "application", "registration"],
-        "answer": "Applications can be submitted online through the college website or offline at the college office.",
+        "keywords": ["apply", "admission", "application", "registration", "enroll"],
+        "answer": "Applications can be submitted online through the college website or offline at the college office. The process involves filling the online form, submitting required documents, and paying the admission fee. Merit list is declared within 2 weeks of application closure.",
         "questions": [
           "How can I apply for admission?",
           "What is the admission process?",
           "How do I register for college admission?",
           "Can I apply online for admission?",
-          "Where do I submit the admission form?"
+          "Where do I submit the admission form?",
+          "How long does the admission process take?"
         ]
       },
       {
         "intent": "campus_security",
-        "keywords": ["cctv", "security", "safety", "campus"],
-        "answer": "Yes, the campus is under 24/7 CCTV surveillance for safety and security.",
+        "keywords": ["cctv", "security", "safety", "campus", "guards"],
+        "answer": "Yes, the campus is under 24/7 CCTV surveillance with trained security personnel stationed at all entry points. We have an emergency response team and security protocols for student safety.",
         "questions": [
           "Is the campus CCTV monitored?",
           "Are there cameras on campus?",
           "How is campus security maintained?",
           "Is the college safe for students?",
-          "Are students monitored for safety?"
+          "Are students monitored for safety?",
+          "What are the security measures on campus?"
         ]
       },
       {
         "intent": "hostel_facility",
-        "keywords": ["hostel", "accommodation", "stay", "boys hostel", "girls hostel"],
-        "answer": "Yes, separate hostel facilities are available for both boys and girls.",
+        "keywords": ["hostel", "accommodation", "stay", "boys hostel", "girls hostel", "dormitory"],
+        "answer": "Yes, separate hostel facilities are available for both boys and girls with modern amenities including WiFi, common rooms, laundry, 24/7 water supply, and security guards. Each room has a study table and attached bathroom.",
         "questions": [
           "Is hostel facility available?",
           "Does the college provide accommodation?",
           "Are there separate hostels for boys and girls?",
           "Can students stay in college hostel?",
-          "Is hostel compulsory for students?"
+          "Is hostel compulsory for students?",
+          "What are the hostel facilities?",
+          "What is the hostel fee?"
         ]
       },
       {
         "intent": "fee_structure",
-        "keywords": ["fees", "fee structure", "cost", "payment"],
-        "answer": "Undergraduate courses cost Rs. 25,000 per semester, while postgraduate courses cost Rs. 50,000 per semester.",
+        "keywords": ["fees", "fee structure", "cost", "payment", "tuition", "charges"],
+        "answer": "Undergraduate courses cost Rs. 2,50,000 per year, postgraduate courses cost Rs. 5,00,000 per year. B.Sc programs are Rs. 1,50,000 per year. Hostel fees range from Rs. 50,000 to Rs. 75,000 per year. Scholarship options are available for deserving students.",
         "questions": [
           "What is the fee structure?",
           "How much are the college fees?",
           "What is the semester fee?",
           "How much does UG and PG cost?",
-          "What are the course fees?"
+          "What are the course fees?",
+          "Is there a fee waiver or concession?"
         ]
       },
       {
         "intent": "student_portal",
-        "keywords": ["portal", "login", "attendance", "results", "online"],
-        "answer": "Yes, students can access attendance, results, notices, and fees through the online portal.",
+        "keywords": ["portal", "login", "attendance", "results", "online", "gradesheet"],
+        "answer": "Yes, students can access attendance, results, notices, and fees through the online portal. The portal is accessible 24/7 with a unique login ID and password provided during admission.",
         "questions": [
           "Is there an online student portal?",
           "Where can I check attendance and results?",
           "Does the college have a student login?",
           "How do I view notices online?",
-          "Is there a digital portal for students?"
+          "Is there a digital portal for students?",
+          "How do I reset my portal password?"
         ]
       },
       {
         "intent": "remedial_classes",
-        "keywords": ["remedial", "extra classes", "academic support"],
-        "answer": "Yes, remedial classes are conducted for students who need additional academic support.",
+        "keywords": ["remedial", "extra classes", "academic support", "tuition", "coaching"],
+        "answer": "Yes, remedial classes are conducted for students who need additional academic support. These are held twice a week and focus on fundamentals and problem-solving techniques.",
         "questions": [
           "Are remedial classes available?",
           "Do you provide extra classes for weak students?",
           "Is additional academic help available?",
           "Can I get extra coaching?",
-          "Are support classes conducted?"
+          "Are support classes conducted?",
+          "When are remedial classes held?"
         ]
       },
       {
         "intent": "placements",
-        "keywords": ["placements", "jobs", "campus interview", "career"],
-        "answer": "Placements are arranged for final-semester students through the Training and Placement Department.",
+        "keywords": ["placements", "jobs", "campus interview", "career", "recruitment"],
+        "answer": "Placements are arranged for final-year students through the Training and Placement Department. Companies like TCS, Infosys, Wipro, Google, and Amazon visit the campus. Average package is 8 LPA with highest being 25 LPA. Placement rate is over 95%.",
         "questions": [
           "How are the placements?",
           "Does the college provide job placements?",
           "Are campus interviews conducted?",
           "Is there a placement cell?",
-          "Do students get job opportunities?"
+          "Do students get job opportunities?",
+          "What is the average placement salary?",
+          "Which companies recruit from campus?"
         ]
       },
       {
         "intent": "internships",
-        "keywords": ["internship", "industry", "training", "experience"],
-        "answer": "Yes, internships are arranged for students during their final semesters in collaboration with industries.",
+        "keywords": ["internship", "industry", "training", "experience", "summer internship"],
+        "answer": "Yes, internships are arranged for students during their final semesters in collaboration with industries. Summer internships (May-July) and semester internships are available. Partners include Google, Microsoft, Amazon, and various startups.",
         "questions": [
           "Are internships provided?",
           "Does the college help with internships?",
           "Is internship mandatory?",
           "Are industry internships available?",
-          "Do students get practical experience?"
+          "Do students get practical experience?",
+          "Can I do internship during semester?"
         ]
       },
       {
         "intent": "library_resources",
-        "keywords": ["library", "books", "journals", "ebooks"],
-        "answer": "The library has multiple resources for different courses, including books, e-books, journals, newspapers, and magazines.",
+        "keywords": ["library", "books", "journals", "ebooks", "resources", "reading"],
+        "answer": "The library has 50,000+ books, 100+ digital journals, e-books, and online databases including JSTOR, IEEE Xplore, Google Scholar. The library is open 24/7 during semester with a dedicated computer lab and quiet study areas.",
         "questions": [
           "How are the library resources?",
           "Does the library have e-books?",
           "What facilities are available in the library?",
           "Are journals available in the library?",
-          "Can students access digital library resources?"
+          "Can students access digital library resources?",
+          "What is the library timing?"
+        ]
+      },
+      {
+        "intent": "campus_location",
+        "keywords": ["location", "address", "where", "situated", "campus"],
+        "answer": "The college is located in Yelahanka New Town, Bangalore with easy access via public transport. The campus is spread across 25 acres with modern infrastructure. Coordinates: 13.1845°N, 77.5937°E. Main entrance is on Jala Hobli Road.",
+        "questions": [
+          "Where is the college located?",
+          "What is the college address?",
+          "How to reach the college?",
+          "Is the college near public transport?",
+          "What is the campus location?"
+        ]
+      },
+      {
+        "intent": "contact_details",
+        "keywords": ["contact", "phone", "number", "email", "call", "telephone"],
+        "answer": "Main office: +91-80-6751-2345. Admissions: +91-80-6751-2100. Email: admissions@collegewala.edu. Fax: +91-80-6751-2200. Office hours: 9 AM to 5 PM, Monday to Friday. Emergency contact available 24/7.",
+        "questions": [
+          "What is the college contact number?",
+          "What is the contact email?",
+          "How do I reach the admissions office?",
+          "What is the college phone number?",
+          "How to contact the college?"
+        ]
+      },
+      {
+        "intent": "sports_facilities",
+        "keywords": ["sports", "gymnasium", "cricket", "football", "activities"],
+        "answer": "State-of-the-art sports facilities include cricket ground, football field, basketball court, badminton courts, tennis court, swimming pool, gym with modern equipment, table tennis area, and indoor sports facility.",
+        "questions": [
+          "What are the sports facilities?",
+          "Is there a gymnasium?",
+          "Can I play cricket on campus?",
+          "Are there sports grounds?",
+          "What recreational facilities are available?"
+        ]
+      },
+      {
+        "intent": "eligibility_criteria",
+        "keywords": ["eligibility", "requirements", "criteria", "qualification", "entrance"],
+        "answer": "B.Tech: 12th pass with PCM (50% aggregate) and valid JEE Main score. MBA: Bachelor's degree with 50% marks and valid CAT/MAT score. MCA: B.Sc/B.Tech with 50% marks. B.Sc: 12th pass with Science stream. Relaxations available for SC/ST students.",
+        "questions": [
+          "What are the eligibility criteria?",
+          "Can I apply without JEE Main score?",
+          "What qualifications are needed?",
+          "Do I need entrance exam?",
+          "What is the minimum percentage required?"
+        ]
+      },
+      {
+        "intent": "scholarship_support",
+        "keywords": ["scholarship", "financial aid", "support", "grant", "bursary", "scholarship"],
+        "answer": "Merit scholarships: 10-50% tuition waiver. Need-based financial aid available. SC/ST scholarships: 100% tuition waiver. Minority scholarships for eligible students. Sports scholarships for talented athletes. Apply through Financial Aid Office before Dec 31st.",
+        "questions": [
+          "Are there scholarships available?",
+          "How do I apply for scholarship?",
+          "What is the scholarship amount?",
+          "Can I get financial aid?",
+          "Are merit scholarships available?",
+          "What are the scholarship criteria?"
+        ]
+      },
+      {
+        "intent": "faculty_qualification",
+        "keywords": ["faculty", "professors", "teachers", "staff", "qualification", "experience"],
+        "answer": "All faculty members hold PhD degrees from top universities. Average teaching experience is 10+ years. Faculty has published research papers in international journals. Student-faculty ratio is 12:1 for personalized attention.",
+        "questions": [
+          "What is the faculty qualification?",
+          "Are professors experienced?",
+          "What is the faculty-to-student ratio?",
+          "Do faculty have industry experience?",
+          "How many PhD holders are on campus?"
+        ]
+      },
+      {
+        "intent": "courses_offered",
+        "keywords": ["courses", "programs", "engineering", "mba", "degree", "studies"],
+        "answer": "B.Tech (CSE, ECE, Mechanical, Civil, Electrical - 4 years). MBA (2 years). MCA (3 years). B.Sc (PCM, PCB - 3 years). Diploma programs also available. All programs are NAAC accredited.",
+        "questions": [
+          "What courses are offered?",
+          "Which engineering branches are available?",
+          "Do you offer postgraduate programs?",
+          "Are diploma courses available?",
+          "What is the course duration?"
         ]
       }
     ]

@@ -1,77 +1,107 @@
 {
     "What courses are offered?": {
-      "answer": "The college offers B.Tech, MBA, MCA and B.Sc programs across various disciplines including Computer Science, Electronics, Mechanical, Civil, Information Technology, Electrical Engineering, and Applied Sciences.",
+      "answer": "The college offers B.Tech (CSE, ECE, Mechanical, Civil, Electrical), MBA, MCA and B.Sc programs (PCM, PCB). All programs are NAAC accredited and designed to meet industry standards.",
       "category": "Academics",
-      "tags": ["courses", "programs", "engineering", "degrees"]
+      "tags": ["courses", "programs", "engineering", "degrees", "mba", "mca"]
     },
     "How can I apply for admission?": {
-      "answer": "Admissions are done through the official college website. You need to fill out the online application form, submit the required documents (12th mark sheet, ID proof, address proof), and complete the application fee payment. Check the admissions portal for specific deadlines and merit list announcements.",
+      "answer": "Visit our website www.collegewala.edu and fill the online application form. Attach required documents (12th marks, ID proof, address proof) and submit the application fee. Check the admissions portal for merit list announcements.",
       "category": "Admissions",
-      "tags": ["admission", "application", "enrollment", "online"]
+      "tags": ["admission", "application", "enrollment", "online", "process"]
     },
     "Is hostel facility available?": {
-      "answer": "Yes, separate hostels are available for boys and girls with modern facilities including WiFi, sports grounds, common rooms, laundry services, 24/7 security, and medical facilities on campus.",
+      "answer": "Yes, separate hostels for boys and girls with WiFi, laundry, 24/7 water, common rooms, security guards. Each room has study table and attached bathroom. Hostel fee: Rs. 50,000-75,000/year.",
       "category": "Facilities",
-      "tags": ["hostel", "accommodation", "facilities", "residential"]
+      "tags": ["hostel", "accommodation", "facilities", "residential", "stay"]
     },
     "What is the placement rate?": {
-      "answer": "Our college has a strong placement record with over 95% of students placed in reputed companies. The average package is around 8 LPA (Lakhs Per Annum) with the highest being 25 LPA. Top recruiting companies include TCS, Infosys, Wipro, Google, Amazon, and Microsoft.",
+      "answer": "Placement rate exceeds 95% with average package of 8 LPA and highest at 25 LPA. Top recruiters: TCS, Infosys, Wipro, Google, Amazon, Microsoft, Cognizant, Accenture, and various startups.",
       "category": "Placements",
-      "tags": ["placement", "job", "recruitment", "salary", "companies"]
+      "tags": ["placement", "job", "recruitment", "salary", "companies", "career"]
     },
     "What is the fee structure?": {
-      "answer": "Annual tuition fees vary by program: B.Tech: 2.5 lakhs/year, MBA: 4 lakhs/year, MCA: 3 lakhs/year, B.Sc: 1.5 lakhs/year. Additional hostel fees: 50,000-75,000/year. Scholarships are available for merit and economically weaker students.",
+      "answer": "B.Tech: Rs. 2.5 lakhs/year. MBA: Rs. 4 lakhs/year. MCA: Rs. 3 lakhs/year. B.Sc: Rs. 1.5 lakhs/year. Hostel: Rs. 50,000-75,000/year. Scholarships available for merit and needy students.",
       "category": "Fees",
-      "tags": ["fees", "tuition", "payment", "scholarship", "cost"]
+      "tags": ["fees", "tuition", "payment", "scholarship", "cost", "charges"]
     },
     "Are there scholarships available?": {
-      "answer": "Yes, we offer multiple scholarship options including merit-based scholarships (up to 50% tuition waiver), need-based financial aid, reserved category scholarships (SC/ST/OBC), minority scholarships, and sports scholarships. Students can apply through the financial aid office.",
+      "answer": "Yes, merit scholarships (10-50% tuition waiver), need-based financial aid, SC/ST scholarships (100% waiver), minority scholarships, sports scholarships. Apply before Dec 31 through Financial Aid Office.",
       "category": "Fees",
-      "tags": ["scholarship", "financial aid", "support", "grants"]
+      "tags": ["scholarship", "financial aid", "support", "grants", "merit", "need-based"]
     },
     "What are the library facilities?": {
-      "answer": "Our library has an extensive collection of over 50,000 books, 100+ digital journals, e-books, research papers, and online databases including JSTOR, IEEE Xplore, and Google Scholar. The library is open 24/7 during the semester with a dedicated computer lab and quiet study areas.",
+      "answer": "50,000+ books, 100+ digital journals, e-books, research papers, online databases (JSTOR, IEEE Xplore, Google Scholar). Open 24/7 during semester with computer lab and quiet study areas.",
       "category": "Facilities",
-      "tags": ["library", "resources", "study", "books", "digital"]
+      "tags": ["library", "resources", "study", "books", "digital", "research"]
     },
     "Are there sports facilities on campus?": {
-      "answer": "Yes, we have state-of-the-art sports facilities including cricket ground, football field, basketball court, badminton courts, tennis court, swimming pool, gym with modern equipment, table tennis area, and indoor sports facility.",
+      "answer": "Yes, state-of-the-art facilities: cricket ground, football field, basketball/badminton/tennis courts, swimming pool, gym with modern equipment, table tennis, indoor sports facility.",
       "category": "Facilities",
-      "tags": ["sports", "recreation", "activities", "gym", "fitness"]
+      "tags": ["sports", "recreation", "activities", "gym", "fitness", "facilities"]
     },
     "What are the eligibility criteria for admission?": {
-      "answer": "For B.Tech: 12th pass with Physics, Chemistry, and Maths with minimum 50% aggregate and valid JEE Main score. For MBA: Bachelor's degree with minimum 50% marks and valid CAT/MAT score. For MCA: B.Sc/B.Tech with minimum 50% marks. For B.Sc: 12th pass with Science stream.",
+      "answer": "B.Tech: 12th pass with PCM (50% aggregate) and JEE Main score. MBA: Bachelor's with 50% marks and CAT/MAT score. MCA: B.Sc/B.Tech with 50% marks. B.Sc: 12th pass with Science.",
       "category": "Admissions",
-      "tags": ["eligibility", "requirements", "criteria", "entrance", "exam"]
+      "tags": ["eligibility", "requirements", "criteria", "entrance", "exam", "qualification"]
     },
     "Can I pursue internships during my course?": {
-      "answer": "Yes, internships are highly encouraged and integrated into the curriculum. We partner with leading companies like Google, Microsoft, Amazon, and various startups for internship opportunities. Students can pursue summer internships (May-July) or semester internships as part of their final year projects.",
+      "answer": "Yes, internships are integrated into curriculum. Summer (May-July) and semester internships available. Partners: Google, Microsoft, Amazon, startups. Final year projects can be done as internships.",
       "category": "Academics",
-      "tags": ["internship", "industry", "experience", "training", "placement"]
+      "tags": ["internship", "industry", "experience", "training", "placement", "summer"]
     },
     "What are the cut-off marks for admission?": {
-      "answer": "Cut-off marks vary yearly based on merit and intake capacity. B.Tech general category typically ranges from 70-85%, reserved categories 50-65%. MBA requires CAT 90+ percentile. Please check the latest cut-off list on the admissions portal.",
+      "answer": "B.Tech general: 70-85%, reserved: 50-65% (varies yearly). MBA: CAT 90+ percentile. Check our admissions portal for latest cutoffs and merit list.",
       "category": "Admissions",
-      "tags": ["cut-off", "merit", "marks", "score", "ranking"]
+      "tags": ["cut-off", "merit", "marks", "score", "ranking", "criteria"]
     },
     "Is there campus life and extracurricular activities?": {
-      "answer": "Yes, campus life is vibrant with numerous clubs and societies including Sports Club, Cultural Club, Tech Club, Debate Society, Photography Club, and more. We organize annual fest, cultural programs, technical competitions, and sports tournaments throughout the year.",
+      "answer": "Yes, active clubs: Sports, Cultural, Tech, Debate, Photography, NSS, Literary. Annual fest, cultural programs, tech competitions, sports tournaments, hackathons organized year-round.",
       "category": "Facilities",
-      "tags": ["campus", "extracurricular", "clubs", "activities", "events"]
+      "tags": ["campus", "extracurricular", "clubs", "activities", "events", "fest"]
     },
     "What is the faculty-to-student ratio?": {
-      "answer": "We maintain a faculty-to-student ratio of approximately 1:12, ensuring personalized attention. Our faculty members hold PhD degrees from top national and international universities and have extensive industry experience.",
+      "answer": "Faculty-to-student ratio is 1:12 for personalized attention. All faculty hold PhD from top universities with 10+ years average experience. Regular industry interactions and research publications.",
       "category": "Academics",
-      "tags": ["faculty", "ratio", "teachers", "professors", "staff"]
+      "tags": ["faculty", "ratio", "teachers", "professors", "staff", "academics"]
     },
     "Are there research opportunities?": {
-      "answer": "Yes, we encourage research through our well-equipped laboratories and research centers. Students can pursue research in AI, Machine Learning, IoT, Renewable Energy, and other cutting-edge fields. Faculty supervise thesis work and research papers.",
+      "answer": "Yes, well-equipped labs and research centers in AI, ML, IoT, Renewable Energy. Faculty supervise thesis and research papers. Opportunities for patent filing and conference presentations.",
       "category": "Academics",
-      "tags": ["research", "laboratory", "thesis", "innovation", "projects"]
+      "tags": ["research", "laboratory", "thesis", "innovation", "projects", "ai"]
     },
     "What is the alumni network?": {
-      "answer": "Our college has a strong alumni network of over 20,000 graduates working in leading companies globally. The alumni association organizes networking events, seminars, and mentorship programs to help current students in career development.",
+      "answer": "20,000+ alumni working globally. Active alumni association organizing networking events, seminars, mentorship. Alumni mentor current students for career development.",
       "category": "Facilities",
-      "tags": ["alumni", "network", "graduates", "mentorship", "community"]
+      "tags": ["alumni", "network", "graduates", "mentorship", "community", "support"]
+    },
+    "Where is the college located?": {
+      "answer": "Located in Yelahanka New Town, Bangalore (13.1845°N, 77.5937°E). Main entrance on Jala Hobli Road. Easily accessible by public transport, metro, and buses. Spread over 25 acres.",
+      "category": "General",
+      "tags": ["location", "address", "bangalore", "yelahanka", "transport", "directions"]
+    },
+    "What is the college contact information?": {
+      "answer": "Main: +91-80-6751-2345. Admissions: +91-80-6751-2100. Email: admissions@collegewala.edu. Fax: +91-80-6751-2200. Office hours: 9 AM-5 PM Mon-Fri. Emergency: 24/7.",
+      "category": "General",
+      "tags": ["contact", "phone", "email", "number", "address", "communication"]
+    },
+    "What is the admission timeline?": {
+      "answer": "Applications open: June 1. Last date: July 31. Merit list: Within 2 weeks of closure. Document verification: August. Classes start: August 15. Offline registrations available year-round.",
+      "category": "Admissions",
+      "tags": ["timeline", "dates", "admission", "important", "schedule", "deadlines"]
+    },
+    "Does the college provide campus placement for all?": {
+      "answer": "Yes, dedicated Training and Placement cell ensures 95%+ placements. Resume building, interview coaching, mock tests, aptitude training provided. Off-campus opportunities also facilitated.",
+      "category": "Placements",
+      "tags": ["placement", "training", "job", "recruitment", "support", "career"]
+    },
+    "What is the hostel safety policy?": {
+      "answer": "24/7 security with guards at all entry points. CCTV surveillance throughout hostel. Emergency medical team on campus. Regular health check-ups. In-out register maintained. Safety drills conducted quarterly.",
+      "category": "Facilities",
+      "tags": ["hostel", "safety", "security", "medical", "health", "emergency"]
+    },
+    "Are there any industry collaborations?": {
+      "answer": "Yes, partnerships with TCS, Infosys, Wipro, Google, Microsoft, Amazon, IBM, Accenture. Joint research projects, guest lectures, internship opportunities, and collaborative research centers.",
+      "category": "Academics",
+      "tags": ["industry", "collaboration", "partnership", "training", "research", "companies"]
     }
   }

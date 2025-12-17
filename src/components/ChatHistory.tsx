@@ -47,20 +47,21 @@ export function ChatHistory() {
   const sortedSessions = [...sessions].sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
 
   return (
-    <div className="flex flex-col h-full">
-         <SidebarGroup>
-            {state === 'expanded' && <SidebarGroupLabel>Chat History</SidebarGroupLabel>}
+    <div className="flex flex-col h-full w-full">
+        <SidebarGroup className="pb-2">
+            {state === 'expanded' && <SidebarGroupLabel className="text-xs font-semibold uppercase tracking-wide">Chat History</SidebarGroupLabel>}
         </SidebarGroup>
-        <ScrollArea className="flex-1">
-            <SidebarMenu>
+        <ScrollArea className="flex-1 w-full">
+            <SidebarMenu className="gap-1">
             {sortedSessions.map(session => (
-                <SidebarMenuItem key={session.id}>
+                <SidebarMenuItem key={session.id} className="px-2">
                 <SidebarMenuButton 
                     onClick={() => handleSessionClick(session.id)}
                     tooltip={session.title}
+                    className="rounded-md text-sm"
                 >
-                    <MessageSquare />
-                    <span>{session.title}</span>
+                    <MessageSquare className="h-4 w-4" />
+                    <span className="truncate">{session.title}</span>
                 </SidebarMenuButton>
                 </SidebarMenuItem>
             ))}

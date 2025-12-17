@@ -1,27 +1,141 @@
 {
   "college": {
-    "name": "Tech Institute of Engineering",
-    "code": "TIE2024",
-    "description": "A premier engineering institute focused on innovation and research.",
-    "overview": "Established in 1995, Tech Institute of Engineering has been a leader in technical education.",
-    "mission": "To foster innovation and excellence in engineering education.",
-    "vision": "To be a globally recognized center for technical education and research.",
-    "facilities": ["Library", "Labs", "Hostel", "Sports Complex", "Cafeteria"],
-    "activities": ["Tech Fest", "Cultural Fest", "Hackathons", "Sports Meet"],
+    "name": "Collegewala Institute of Engineering & Technology",
+    "code": "CWET2024",
+    "website": "www.collegewala.edu",
+    "email": "admissions@collegewala.edu",
+    "phone": "+91-80-6751-2345",
+    "admissions_phone": "+91-80-6751-2100",
+    "fax": "+91-80-6751-2200",
+    "emergency_contact": "+91-98765-43210",
+    "description": "A premier engineering institute focused on innovation, research, and holistic student development.",
+    "overview": "Established in 1995, Collegewala has been a leader in technical education with focus on industry collaboration and research excellence.",
+    "mission": "To foster innovation and excellence in engineering education through world-class faculty, modern infrastructure, and strong industry partnerships.",
+    "vision": "To be a globally recognized center for technical education, research, and innovation inspiring students to lead technological transformation.",
+    "accreditation": "NAAC Accredited (A+ Grade), NBA Accredited for CSE, ECE, and Mechanical Engineering",
+    "address": {
+      "street": "Jala Hobli Road",
+      "area": "Yelahanka New Town",
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "postal_code": "560064",
+      "country": "India",
+      "coordinates": "13.1845°N, 77.5937°E"
+    },
+    "campus": {
+      "total_area": "25 acres",
+      "buildings": 12,
+      "classrooms": 45,
+      "labs": 30,
+      "library": "State-of-the-art with 50,000+ books",
+      "parking": "1000+ slots",
+      "wifi": "100% campus coverage"
+    },
+    "facilities": [
+      "Central Library with Digital Resources",
+      "Modern Laboratory Complex (CSE, ECE, Mechanical, Civil)",
+      "Research Centers (AI, ML, IoT, Renewable Energy)",
+      "Separate Hostels for Boys and Girls",
+      "Sports Complex with Multiple Grounds",
+      "Gymnasium with Modern Equipment",
+      "Swimming Pool",
+      "Cafeteria",
+      "Medical Centre",
+      "Auditorium",
+      "Training & Placement Centre",
+      "Student Activity Centre"
+    ],
+    "activities": [
+      "Tech Fest (Annual technology competition)",
+      "Cultural Fest (Annual celebration)",
+      "Hackathons (Quarterly)",
+      "Sports Meet (Annual)",
+      "Entrepreneurship Club",
+      "National Service Scheme (NSS)",
+      "Tech Symposiums",
+      "Industry Seminars",
+      "Research Conferences"
+    ],
     "courses": [
       {
         "name": "Computer Science Engineering",
         "code": "CSE",
+        "degree": "B.Tech",
         "duration_years": 4,
-        "eligibility": "10+2 with Physics, Chemistry, Math",
-        "description": "Focuses on software development, AI, and algorithms."
+        "seats": 120,
+        "eligibility": "10+2 with Physics, Chemistry, Math (50% aggregate) + JEE Main",
+        "description": "Focuses on software development, AI, Machine Learning, Data Science, Web Development, Cloud Computing.",
+        "specializations": ["AI & ML", "Data Science", "Cybersecurity", "Web Development"]
       },
       {
-        "name": "Electronics and Communication",
+        "name": "Electronics and Communication Engineering",
         "code": "ECE",
+        "degree": "B.Tech",
         "duration_years": 4,
-        "eligibility": "10+2 with Physics, Chemistry, Math",
-        "description": "Focuses on circuits, communication systems, and embedded systems."
+        "seats": 80,
+        "eligibility": "10+2 with Physics, Chemistry, Math (50% aggregate) + JEE Main",
+        "description": "Focuses on circuits, communication systems, embedded systems, signal processing, VLSI design.",
+        "specializations": ["Wireless Communication", "VLSI Design", "Signal Processing", "IoT"]
+      },
+      {
+        "name": "Mechanical Engineering",
+        "code": "ME",
+        "degree": "B.Tech",
+        "duration_years": 4,
+        "seats": 60,
+        "eligibility": "10+2 with Physics, Chemistry, Math (50% aggregate) + JEE Main",
+        "description": "Focuses on design, manufacturing, thermodynamics, fluid mechanics, automotive technology.",
+        "specializations": ["Automotive", "Manufacturing", "Renewable Energy", "CAD/CAM"]
+      },
+      {
+        "name": "Civil Engineering",
+        "code": "CE",
+        "degree": "B.Tech",
+        "duration_years": 4,
+        "seats": 60,
+        "eligibility": "10+2 with Physics, Chemistry, Math (50% aggregate) + JEE Main",
+        "description": "Focuses on structural design, construction management, transportation, water resources, surveying.",
+        "specializations": ["Structural Engineering", "Transportation", "Water Resources", "Construction"]
+      },
+      {
+        "name": "Electrical Engineering",
+        "code": "EE",
+        "degree": "B.Tech",
+        "duration_years": 4,
+        "seats": 60,
+        "eligibility": "10+2 with Physics, Chemistry, Math (50% aggregate) + JEE Main",
+        "description": "Focuses on power systems, electrical machines, renewable energy, power electronics.",
+        "specializations": ["Power Systems", "Renewable Energy", "Power Electronics", "Control Systems"]
+      },
+      {
+        "name": "Science",
+        "code": "BSC",
+        "degree": "B.Sc",
+        "duration_years": 3,
+        "seats": 100,
+        "eligibility": "10+2 with Science (50% aggregate)",
+        "description": "Comprehensive science education in PCM/PCB with practical lab experience.",
+        "specializations": ["Physics", "Chemistry", "Mathematics"]
+      },
+      {
+        "name": "Master of Business Administration",
+        "code": "MBA",
+        "degree": "MBA",
+        "duration_years": 2,
+        "seats": 60,
+        "eligibility": "Bachelor's degree (50% marks) + CAT/MAT score",
+        "description": "Focus on management, leadership, business strategy, finance, marketing.",
+        "specializations": ["Finance", "Marketing", "Operations", "Entrepreneurship"]
+      },
+      {
+        "name": "Master of Computer Applications",
+        "code": "MCA",
+        "degree": "MCA",
+        "duration_years": 3,
+        "seats": 60,
+        "eligibility": "B.Sc/B.Tech (50% marks)",
+        "description": "Advanced computing concepts, software development, AI, Machine Learning, databases.",
+        "specializations": ["Full Stack Development", "AI & ML", "Cybersecurity", "Data Science"]
       }
     ]
   },
@@ -29,33 +143,130 @@
     "CSE": [
       {
         "name": "Dr. Alan Turing",
-        "designation": "Professor",
+        "designation": "Professor & Head",
         "department": "CSE",
-        "specialization": ["Artificial Intelligence", "Algorithms"],
-        "research_interests": ["Machine Learning", "Data Science"],
-        "qualification": "Ph.D. in Computer Science",
-        "email": "alan.turing@tie.edu"
+        "specialization": ["Artificial Intelligence", "Machine Learning", "Algorithms"],
+        "research_interests": ["Deep Learning", "Natural Language Processing", "Computer Vision"],
+        "qualification": "Ph.D. in Computer Science (Stanford University)",
+        "email": "alan.turing@collegewala.edu",
+        "phone": "+91-80-6751-2501",
+        "office_hours": "Mon, Wed 2-4 PM"
       },
       {
         "name": "Prof. Ada Lovelace",
         "designation": "Associate Professor",
         "department": "CSE",
-        "specialization": ["Software Engineering", "Programming Languages"],
-        "research_interests": ["Software Architecture", "Compiler Design"],
-        "qualification": "Ph.D. in Software Engineering",
-        "email": "ada.lovelace@tie.edu"
+        "specialization": ["Software Engineering", "Programming Languages", "Design Patterns"],
+        "research_interests": ["Software Architecture", "Cloud Computing", "DevOps"],
+        "qualification": "Ph.D. in Software Engineering (MIT)",
+        "email": "ada.lovelace@collegewala.edu",
+        "phone": "+91-80-6751-2502",
+        "office_hours": "Tue, Thu 3-5 PM"
+      },
+      {
+        "name": "Dr. Donald Knuth",
+        "designation": "Associate Professor",
+        "department": "CSE",
+        "specialization": ["Data Structures", "Algorithms", "Complexity Theory"],
+        "research_interests": ["Algorithm Design", "Computational Theory"],
+        "qualification": "Ph.D. in Computer Science (Berkeley)",
+        "email": "donald.knuth@collegewala.edu",
+        "phone": "+91-80-6751-2503"
       }
     ],
     "ECE": [
       {
         "name": "Dr. Heinrich Hertz",
-        "designation": "Professor",
+        "designation": "Professor & Head",
         "department": "ECE",
-        "specialization": ["Electromagnetics", "Wireless Communication"],
-        "research_interests": ["Antenna Design", "Signal Processing"],
-        "qualification": "Ph.D. in Electronics",
-        "email": "heinrich.hertz@tie.edu"
+        "specialization": ["Electromagnetics", "Wireless Communication", "Antenna Design"],
+        "research_interests": ["5G Technology", "Microwave Engineering", "Signal Processing"],
+        "qualification": "Ph.D. in Electronics (IIT Bombay)",
+        "email": "heinrich.hertz@collegewala.edu",
+        "phone": "+91-80-6751-2601",
+        "office_hours": "Mon, Wed, Fri 10-12 PM"
+      },
+      {
+        "name": "Dr. Nikola Tesla",
+        "designation": "Associate Professor",
+        "department": "ECE",
+        "specialization": ["Power Electronics", "Embedded Systems", "IoT"],
+        "research_interests": ["Smart Grid", "IoT Applications", "VLSI Design"],
+        "qualification": "Ph.D. in Electronics (IISc Bangalore)",
+        "email": "nikola.tesla@collegewala.edu",
+        "phone": "+91-80-6751-2602"
+      }
+    ],
+    "ME": [
+      {
+        "name": "Dr. George Stephenson",
+        "designation": "Professor & Head",
+        "department": "ME",
+        "specialization": ["Thermodynamics", "Fluid Mechanics", "Heat Transfer"],
+        "research_interests": ["Renewable Energy", "Automotive Design", "CFD Simulations"],
+        "qualification": "Ph.D. in Mechanical Engineering (NTU Singapore)",
+        "email": "george.stephenson@collegewala.edu",
+        "phone": "+91-80-6751-2701"
+      }
+    ],
+    "CE": [
+      {
+        "name": "Dr. Isambard Brunel",
+        "designation": "Professor & Head",
+        "department": "CE",
+        "specialization": ["Structural Engineering", "Construction Management"],
+        "research_interests": ["Seismic Design", "Sustainable Building", "Smart Cities"],
+        "qualification": "Ph.D. in Civil Engineering (NUS Singapore)",
+        "email": "isambard.brunel@collegewala.edu",
+        "phone": "+91-80-6751-2801"
+      }
+    ],
+    "EE": [
+      {
+        "name": "Dr. Thomas Edison",
+        "designation": "Professor & Head",
+        "department": "EE",
+        "specialization": ["Power Systems", "Electrical Machines", "Power Quality"],
+        "research_interests": ["Smart Grid", "Renewable Energy Integration", "Electrical Safety"],
+        "qualification": "Ph.D. in Electrical Engineering (EPFL Switzerland)",
+        "email": "thomas.edison@collegewala.edu",
+        "phone": "+91-80-6751-2901"
       }
     ]
+  },
+  "administration": {
+    "principal": {
+      "name": "Dr. Marie Curie",
+      "email": "principal@collegewala.edu",
+      "phone": "+91-80-6751-2001"
+    },
+    "vice_principal_academics": {
+      "name": "Prof. Stephen Hawking",
+      "email": "vpacademics@collegewala.edu",
+      "phone": "+91-80-6751-2002"
+    },
+    "registrar": {
+      "name": "Dr. Carl Sagan",
+      "email": "registrar@collegewala.edu",
+      "phone": "+91-80-6751-2003"
+    },
+    "placement_head": {
+      "name": "Prof. Steve Jobs",
+      "email": "placements@collegewala.edu",
+      "phone": "+91-80-6751-2100"
+    }
+  },
+  "key_statistics": {
+    "total_students": 2500,
+    "total_faculty": 200,
+    "faculty_with_phd": "95%",
+    "placement_rate": "95%+",
+    "average_package": "8 LPA",
+    "highest_package": "25 LPA",
+    "research_papers_published_annually": 150,
+    "patents_filed": 45,
+    "industry_partnerships": 80,
+    "international_collaborations": 25,
+    "alumni_worldwide": 20000
   }
 }

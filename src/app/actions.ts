@@ -102,7 +102,7 @@ const searchCorpus: { text: string; answer: string }[] = [
   ...facultySearchCorpus
 ];
 
-const SIMILARITY_THRESHOLD = 0.2;
+const SIMILARITY_THRESHOLD = 0.15;
 
 export async function handleUserQuery(query: string): Promise<{ answer: string; suggestions: string[] }> {
   if (!query.trim()) {
@@ -176,9 +176,17 @@ export async function handleUserQuery(query: string): Promise<{ answer: string; 
     console.error('Failed to log unanswered question:', error);
   }
   
+  const suggestedFAQs = [
+    "What courses are offered?",
+    "How can I apply for admission?",
+    "What is the fee structure?",
+    "Where is the college located?",
+    "What is the placement rate?"
+  ];
+
   return {
-    answer: "I'm sorry, I couldn't find an answer to your question. Would you like to talk with someone?",
-    suggestions: [],
+    answer: "I'm sorry, I don't have specific information about that. However, you can contact our admissions office at +91-80-6751-2100 or email admissions@collegewala.edu for more details. Would you like to know about any of our popular topics?",
+    suggestions: suggestedFAQs,
   };
 }
 
