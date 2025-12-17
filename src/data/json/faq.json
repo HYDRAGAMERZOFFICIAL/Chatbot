@@ -1,0 +1,77 @@
+{
+    "What courses are offered?": {
+      "answer": "The college offers B.Tech, MBA, MCA and B.Sc programs across various disciplines including Computer Science, Electronics, Mechanical, Civil, Information Technology, Electrical Engineering, and Applied Sciences.",
+      "category": "Academics",
+      "tags": ["courses", "programs", "engineering", "degrees"]
+    },
+    "How can I apply for admission?": {
+      "answer": "Admissions are done through the official college website. You need to fill out the online application form, submit the required documents (12th mark sheet, ID proof, address proof), and complete the application fee payment. Check the admissions portal for specific deadlines and merit list announcements.",
+      "category": "Admissions",
+      "tags": ["admission", "application", "enrollment", "online"]
+    },
+    "Is hostel facility available?": {
+      "answer": "Yes, separate hostels are available for boys and girls with modern facilities including WiFi, sports grounds, common rooms, laundry services, 24/7 security, and medical facilities on campus.",
+      "category": "Facilities",
+      "tags": ["hostel", "accommodation", "facilities", "residential"]
+    },
+    "What is the placement rate?": {
+      "answer": "Our college has a strong placement record with over 95% of students placed in reputed companies. The average package is around 8 LPA (Lakhs Per Annum) with the highest being 25 LPA. Top recruiting companies include TCS, Infosys, Wipro, Google, Amazon, and Microsoft.",
+      "category": "Placements",
+      "tags": ["placement", "job", "recruitment", "salary", "companies"]
+    },
+    "What is the fee structure?": {
+      "answer": "Annual tuition fees vary by program: B.Tech: 2.5 lakhs/year, MBA: 4 lakhs/year, MCA: 3 lakhs/year, B.Sc: 1.5 lakhs/year. Additional hostel fees: 50,000-75,000/year. Scholarships are available for merit and economically weaker students.",
+      "category": "Fees",
+      "tags": ["fees", "tuition", "payment", "scholarship", "cost"]
+    },
+    "Are there scholarships available?": {
+      "answer": "Yes, we offer multiple scholarship options including merit-based scholarships (up to 50% tuition waiver), need-based financial aid, reserved category scholarships (SC/ST/OBC), minority scholarships, and sports scholarships. Students can apply through the financial aid office.",
+      "category": "Fees",
+      "tags": ["scholarship", "financial aid", "support", "grants"]
+    },
+    "What are the library facilities?": {
+      "answer": "Our library has an extensive collection of over 50,000 books, 100+ digital journals, e-books, research papers, and online databases including JSTOR, IEEE Xplore, and Google Scholar. The library is open 24/7 during the semester with a dedicated computer lab and quiet study areas.",
+      "category": "Facilities",
+      "tags": ["library", "resources", "study", "books", "digital"]
+    },
+    "Are there sports facilities on campus?": {
+      "answer": "Yes, we have state-of-the-art sports facilities including cricket ground, football field, basketball court, badminton courts, tennis court, swimming pool, gym with modern equipment, table tennis area, and indoor sports facility.",
+      "category": "Facilities",
+      "tags": ["sports", "recreation", "activities", "gym", "fitness"]
+    },
+    "What are the eligibility criteria for admission?": {
+      "answer": "For B.Tech: 12th pass with Physics, Chemistry, and Maths with minimum 50% aggregate and valid JEE Main score. For MBA: Bachelor's degree with minimum 50% marks and valid CAT/MAT score. For MCA: B.Sc/B.Tech with minimum 50% marks. For B.Sc: 12th pass with Science stream.",
+      "category": "Admissions",
+      "tags": ["eligibility", "requirements", "criteria", "entrance", "exam"]
+    },
+    "Can I pursue internships during my course?": {
+      "answer": "Yes, internships are highly encouraged and integrated into the curriculum. We partner with leading companies like Google, Microsoft, Amazon, and various startups for internship opportunities. Students can pursue summer internships (May-July) or semester internships as part of their final year projects.",
+      "category": "Academics",
+      "tags": ["internship", "industry", "experience", "training", "placement"]
+    },
+    "What are the cut-off marks for admission?": {
+      "answer": "Cut-off marks vary yearly based on merit and intake capacity. B.Tech general category typically ranges from 70-85%, reserved categories 50-65%. MBA requires CAT 90+ percentile. Please check the latest cut-off list on the admissions portal.",
+      "category": "Admissions",
+      "tags": ["cut-off", "merit", "marks", "score", "ranking"]
+    },
+    "Is there campus life and extracurricular activities?": {
+      "answer": "Yes, campus life is vibrant with numerous clubs and societies including Sports Club, Cultural Club, Tech Club, Debate Society, Photography Club, and more. We organize annual fest, cultural programs, technical competitions, and sports tournaments throughout the year.",
+      "category": "Facilities",
+      "tags": ["campus", "extracurricular", "clubs", "activities", "events"]
+    },
+    "What is the faculty-to-student ratio?": {
+      "answer": "We maintain a faculty-to-student ratio of approximately 1:12, ensuring personalized attention. Our faculty members hold PhD degrees from top national and international universities and have extensive industry experience.",
+      "category": "Academics",
+      "tags": ["faculty", "ratio", "teachers", "professors", "staff"]
+    },
+    "Are there research opportunities?": {
+      "answer": "Yes, we encourage research through our well-equipped laboratories and research centers. Students can pursue research in AI, Machine Learning, IoT, Renewable Energy, and other cutting-edge fields. Faculty supervise thesis work and research papers.",
+      "category": "Academics",
+      "tags": ["research", "laboratory", "thesis", "innovation", "projects"]
+    },
+    "What is the alumni network?": {
+      "answer": "Our college has a strong alumni network of over 20,000 graduates working in leading companies globally. The alumni association organizes networking events, seminars, and mentorship programs to help current students in career development.",
+      "category": "Facilities",
+      "tags": ["alumni", "network", "graduates", "mentorship", "community"]
+    }
+  }

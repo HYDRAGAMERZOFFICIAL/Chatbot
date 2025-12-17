@@ -1,0 +1,610 @@
+[
+  {
+    "history": [
+      {
+        "id": "user-1765964517947",
+        "role": "user",
+        "text": "How can I apply for admission?"
+      },
+      {
+        "id": "bot-1765964522848",
+        "role": "bot",
+        "text": "Applications can be submitted online through the college website or offline at the college office.",
+        "endOfTurn": true
+      },
+      {
+        "id": "user-1765964541242",
+        "role": "user",
+        "text": "what is the website to apply "
+      },
+      {
+        "id": "bot-1765964543840",
+        "role": "bot",
+        "text": "Applications can be submitted online through the college website or offline at the college office.",
+        "endOfTurn": true
+      },
+      {
+        "id": "user-1765964560803",
+        "role": "user",
+        "text": "on which website do i get the application form"
+      },
+      {
+        "id": "bot-1765964561122",
+        "role": "bot",
+        "text": "I'm sorry, I couldn't find an answer to your question. Would you like to talk with someone?",
+        "endOfTurn": true
+      }
+    ],
+    "feedback": "good",
+    "timestamp": "2025-12-17T09:42:47.119Z"
+  },
+  {
+    "history": [
+      {
+        "id": "user-1765964581671",
+        "role": "user",
+        "text": "can you tell about the college"
+      },
+      {
+        "id": "bot-1765964581985",
+        "role": "bot",
+        "text": "I'm sorry, I couldn't find an answer to your question. Would you like to talk with someone?",
+        "endOfTurn": true
+      },
+      {
+        "id": "user-1765964597224",
+        "role": "user",
+        "text": "where is the college located"
+      },
+      {
+        "id": "bot-1765964597605",
+        "role": "bot",
+        "text": "I'm sorry, I couldn't find an answer to your question. Would you like to talk with someone?",
+        "endOfTurn": true
+      }
+    ],
+    "feedback": "bad",
+    "timestamp": "2025-12-17T09:43:21.358Z"
+  },
+  {
+    "history": [
+      {
+        "id": "user-1765964633894",
+        "role": "user",
+        "text": "What courses are offered?"
+      },
+      {
+        "id": "bot-1765964637048",
+        "role": "bot",
+        "text": "The college offers B.Tech, MBA, MCA and B.Sc programs across various disciplines including Computer Science, Electronics, Mechanical, Civil, Information Technology, Electrical Engineering, and Applied Sciences.",
+        "endOfTurn": true
+      },
+      {
+        "id": "user-1765964657744",
+        "role": "user",
+        "text": "specify the bca fee strcture"
+      },
+      {
+        "id": "bot-1765964660222",
+        "role": "bot",
+        "text": "Undergraduate courses cost Rs. 25,000 per semester, while postgraduate courses cost Rs. 50,000 per semester.",
+        "endOfTurn": true
+      }
+    ],
+    "feedback": "good",
+    "timestamp": "2025-12-17T09:44:30.009Z"
+  },
+  {
+    "history": [
+      {
+        "id": "user-1765964804543",
+        "role": "user",
+        "text": "what is the collge location]"
+      },
+      {
+        "id": "bot-1765964804933",
+        "role": "bot",
+        "text": "I'm sorry, I couldn't find an answer to your question. Would you like to talk with someone?",
+        "endOfTurn": true
+      }
+    ],
+    "feedback": "bad",
+    "timestamp": "2025-12-17T09:46:55.723Z"
+  },
+  {
+    "history": [
+      {
+        "role": "bot",
+        "text": "Hello! I'm the CollegeConnect Chatbot. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?"
+      },
+      {
+        "role": "user",
+        "text": "What is the fee structure?"
+      },
+      {
+        "role": "bot",
+        "text": "For our undergraduate courses, the fee is Rs. 25,000 per semester. If you're looking at postgraduate courses, the fee is Rs. 50,000 per semester."
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using CollegeConnect Chat! Your feedback is valuable to us. How would you rate your experience?"
+      }
+    ],
+    "feedback": "bad",
+    "timestamp": "2025-12-17T09:48:06.964Z"
+  },
+  {
+    "history": [
+      {
+        "role": "bot",
+        "text": "Hello! I'm the CollegeConnect Chatbot. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?"
+      },
+      {
+        "role": "user",
+        "text": "What is the fee structure?"
+      },
+      {
+        "role": "bot",
+        "text": "For our undergraduate courses, the fee is Rs. 25,000 per semester. If you're looking at postgraduate courses, the fee is Rs. 50,000 per semester."
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using CollegeConnect Chat! Your feedback is valuable to us. How would you rate your experience?"
+      },
+      {
+        "role": "bot",
+        "text": "Thanks for your feedback! If you have more questions, just ask."
+      },
+      {
+        "role": "user",
+        "text": "location"
+      },
+      {
+        "role": "bot",
+        "text": "I'm sorry, I couldn't find an answer to your question. Would you like to talk with someone?"
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "contact info of college"
+      },
+      {
+        "role": "bot",
+        "text": "I'm sorry, I couldn't find an answer to your question. Would you like to talk with someone?"
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "whats the contact number"
+      },
+      {
+        "role": "bot",
+        "text": "9876543210"
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "whats the collge locstion"
+      },
+      {
+        "role": "bot",
+        "text": "Yelahanka New town "
+      },
+      {
+        "role": "user",
+        "text": "llocation ?"
+      },
+      {
+        "role": "bot",
+        "text": "I'm sorry, I couldn't find an answer to your question. Would you like to talk with someone?"
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "where is the collge located"
+      },
+      {
+        "role": "bot",
+        "text": "Yelahanka New town "
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using CollegeConnect Chat! Your feedback is valuable to us. How would you rate your experience?"
+      }
+    ],
+    "feedback": "bad",
+    "timestamp": "2025-12-17T09:53:14.006Z"
+  },
+  {
+    "history": [
+      {
+        "role": "bot",
+        "text": "Hello! I'm the CollegeConnect Chatbot. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?"
+      },
+      {
+        "role": "user",
+        "text": "What is the fee structure?"
+      },
+      {
+        "role": "bot",
+        "text": "For our undergraduate courses, the fee is Rs. 25,000 per semester. If you're looking at postgraduate courses, the fee is Rs. 50,000 per semester."
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using CollegeConnect Chat! Your feedback is valuable to us. How would you rate your experience?"
+      },
+      {
+        "role": "bot",
+        "text": "Thanks for your feedback! If you have more questions, just ask."
+      },
+      {
+        "role": "user",
+        "text": "location"
+      },
+      {
+        "role": "bot",
+        "text": "I'm sorry, I couldn't find an answer to your question. Would you like to talk with someone?"
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "contact info of college"
+      },
+      {
+        "role": "bot",
+        "text": "I'm sorry, I couldn't find an answer to your question. Would you like to talk with someone?"
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "whats the contact number"
+      },
+      {
+        "role": "bot",
+        "text": "9876543210"
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "whats the collge locstion"
+      },
+      {
+        "role": "bot",
+        "text": "Yelahanka New town "
+      },
+      {
+        "role": "user",
+        "text": "llocation ?"
+      },
+      {
+        "role": "bot",
+        "text": "I'm sorry, I couldn't find an answer to your question. Would you like to talk with someone?"
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "where is the collge located"
+      },
+      {
+        "role": "bot",
+        "text": "Yelahanka New town "
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using CollegeConnect Chat! Your feedback is valuable to us. How would you rate your experience?"
+      },
+      {
+        "role": "bot",
+        "text": "Thanks for your feedback! If you have more questions, just ask."
+      },
+      {
+        "role": "user",
+        "text": "hostel ?"
+      },
+      {
+        "role": "bot",
+        "text": "Yes, separate hostel facilities are available for both boys and girls."
+      },
+      {
+        "role": "user",
+        "text": "what are the documnets required for admission'"
+      },
+      {
+        "role": "bot",
+        "text": "Students must submit mark sheets, transfer certificate, ID proof, passport-size photographs, and application form."
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using CollegeConnect Chat! Your feedback is valuable to us. How would you rate your experience?"
+      }
+    ],
+    "feedback": "good",
+    "timestamp": "2025-12-17T09:55:01.229Z"
+  },
+  {
+    "history": [
+      {
+        "role": "bot",
+        "text": "Hello! I'm the CollegeConnect Chatbot. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?"
+      },
+      {
+        "role": "user",
+        "text": "What is the fee structure?"
+      },
+      {
+        "role": "bot",
+        "text": "For our undergraduate courses, the fee is Rs. 25,000 per semester. If you're looking at postgraduate courses, the fee is Rs. 50,000 per semester."
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using CollegeConnect Chat! Your feedback is valuable to us. How would you rate your experience?"
+      },
+      {
+        "role": "bot",
+        "text": "Thanks for your feedback! If you have more questions, just ask."
+      },
+      {
+        "role": "user",
+        "text": "location"
+      },
+      {
+        "role": "bot",
+        "text": "I'm sorry, I couldn't find an answer to your question. Would you like to talk with someone?"
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "contact info of college"
+      },
+      {
+        "role": "bot",
+        "text": "I'm sorry, I couldn't find an answer to your question. Would you like to talk with someone?"
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "whats the contact number"
+      },
+      {
+        "role": "bot",
+        "text": "9876543210"
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "whats the collge locstion"
+      },
+      {
+        "role": "bot",
+        "text": "Yelahanka New town "
+      },
+      {
+        "role": "user",
+        "text": "llocation ?"
+      },
+      {
+        "role": "bot",
+        "text": "I'm sorry, I couldn't find an answer to your question. Would you like to talk with someone?"
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "where is the collge located"
+      },
+      {
+        "role": "bot",
+        "text": "Yelahanka New town "
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using CollegeConnect Chat! Your feedback is valuable to us. How would you rate your experience?"
+      },
+      {
+        "role": "bot",
+        "text": "Thanks for your feedback! If you have more questions, just ask."
+      },
+      {
+        "role": "user",
+        "text": "hostel ?"
+      },
+      {
+        "role": "bot",
+        "text": "Yes, separate hostel facilities are available for both boys and girls."
+      },
+      {
+        "role": "user",
+        "text": "what are the documnets required for admission'"
+      },
+      {
+        "role": "bot",
+        "text": "Students must submit mark sheets, transfer certificate, ID proof, passport-size photographs, and application form."
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using CollegeConnect Chat! Your feedback is valuable to us. How would you rate your experience?"
+      },
+      {
+        "role": "bot",
+        "text": "Thanks for your feedback! If you have more questions, just ask."
+      },
+      {
+        "role": "user",
+        "text": "give a short summary about college ?"
+      },
+      {
+        "role": "bot",
+        "text": "I'm sorry, I couldn't find an answer to your question. Would you like to talk with someone?"
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using CollegeConnect Chat! Your feedback is valuable to us. How would you rate your experience?"
+      }
+    ],
+    "feedback": "bad",
+    "timestamp": "2025-12-17T09:57:20.659Z"
+  },
+  {
+    "history": [
+      {
+        "role": "bot",
+        "text": "Hello! I'm the CollegeConnect Chatbot. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?"
+      },
+      {
+        "role": "user",
+        "text": "Is hostel facility available?"
+      },
+      {
+        "role": "bot",
+        "text": "Yes, separate hostel facilities are available for both boys and girls."
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "whats the collge name"
+      },
+      {
+        "role": "bot",
+        "text": "Yelahanka New town "
+      },
+      {
+        "role": "user",
+        "text": "hello"
+      },
+      {
+        "role": "bot",
+        "text": "I'm sorry, I couldn't find an answer to your question. Would you like to talk with someone?"
+      },
+      {
+        "role": "user",
+        "text": "hey"
+      },
+      {
+        "role": "user",
+        "text": "hey"
+      },
+      {
+        "role": "bot",
+        "text": "I'm sorry, I couldn't find an answer to your question. Would you like to talk with someone?"
+      },
+      {
+        "role": "user",
+        "text": "hey"
+      },
+      {
+        "role": "bot",
+        "text": "Hello! I'm the CollegeConnect Chatbot. How can I assist you today?"
+      },
+      {
+        "role": "user",
+        "text": "can you tell me about the admission process"
+      },
+      {
+        "role": "bot",
+        "text": "Applications can be submitted online through the college website or offline at the college office."
+      },
+      {
+        "role": "user",
+        "text": "where can i get application"
+      },
+      {
+        "role": "bot",
+        "text": "Admissions are done through the official college website. You need to fill out the online application form, submit the required documents (12th mark sheet, ID proof, address proof), and complete the application fee payment. Check the admissions portal for specific deadlines and merit list announcements."
+      },
+      {
+        "role": "user",
+        "text": "are transport facilities available"
+      },
+      {
+        "role": "bot",
+        "text": "Yes, separate hostels are available for boys and girls with modern facilities including WiFi, sports grounds, common rooms, laundry services, 24/7 security, and medical facilities on campus."
+      },
+      {
+        "role": "user",
+        "text": "admin number"
+      },
+      {
+        "role": "bot",
+        "text": "9876543210"
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using CollegeConnect Chat! Your feedback is valuable to us. How would you rate your experience?"
+      }
+    ],
+    "feedback": "good",
+    "timestamp": "2025-12-17T10:33:08.624Z"
+  },
+  {
+    "history": [
+      {
+        "role": "bot",
+        "text": "Hello! I'm the CollegeConnect Chatbot. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?"
+      },
+      {
+        "role": "user",
+        "text": "Is hostel facility available?"
+      },
+      {
+        "role": "bot",
+        "text": "Yes, separate hostel facilities are available for both boys and girls."
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "college name"
+      },
+      {
+        "role": "bot",
+        "text": "name: Seshadripuram First Grade College, short_name: SFGC, affiliation: Dr. M. S. Bengaluru City University"
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using CollegeConnect Chat! Your feedback is valuable to us. How would you rate your experience?"
+      }
+    ],
+    "feedback": "bad",
+    "timestamp": "2025-12-17T13:57:29.244Z"
+  }
+]

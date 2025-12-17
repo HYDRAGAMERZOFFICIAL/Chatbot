@@ -1,0 +1,124 @@
+{
+    "intents": [
+      {
+        "intent": "admission_documents",
+        "keywords": ["admission", "documents", "certificate", "marksheet", "tc"],
+        "answer": "Students must submit mark sheets, transfer certificate, ID proof, passport-size photographs, and application form.",
+        "questions": [
+          "What documents are required for admission?",
+          "Which certificates are needed during admission?",
+          "Do I need to submit documents for college admission?",
+          "What paperwork is required for admission?",
+          "Is transfer certificate required for admission?"
+        ]
+      },
+      {
+        "intent": "admission_process",
+        "keywords": ["apply", "admission", "application", "registration"],
+        "answer": "Applications can be submitted online through the college website or offline at the college office.",
+        "questions": [
+          "How can I apply for admission?",
+          "What is the admission process?",
+          "How do I register for college admission?",
+          "Can I apply online for admission?",
+          "Where do I submit the admission form?"
+        ]
+      },
+      {
+        "intent": "campus_security",
+        "keywords": ["cctv", "security", "safety", "campus"],
+        "answer": "Yes, the campus is under 24/7 CCTV surveillance for safety and security.",
+        "questions": [
+          "Is the campus CCTV monitored?",
+          "Are there cameras on campus?",
+          "How is campus security maintained?",
+          "Is the college safe for students?",
+          "Are students monitored for safety?"
+        ]
+      },
+      {
+        "intent": "hostel_facility",
+        "keywords": ["hostel", "accommodation", "stay", "boys hostel", "girls hostel"],
+        "answer": "Yes, separate hostel facilities are available for both boys and girls.",
+        "questions": [
+          "Is hostel facility available?",
+          "Does the college provide accommodation?",
+          "Are there separate hostels for boys and girls?",
+          "Can students stay in college hostel?",
+          "Is hostel compulsory for students?"
+        ]
+      },
+      {
+        "intent": "fee_structure",
+        "keywords": ["fees", "fee structure", "cost", "payment"],
+        "answer": "Undergraduate courses cost Rs. 25,000 per semester, while postgraduate courses cost Rs. 50,000 per semester.",
+        "questions": [
+          "What is the fee structure?",
+          "How much are the college fees?",
+          "What is the semester fee?",
+          "How much does UG and PG cost?",
+          "What are the course fees?"
+        ]
+      },
+      {
+        "intent": "student_portal",
+        "keywords": ["portal", "login", "attendance", "results", "online"],
+        "answer": "Yes, students can access attendance, results, notices, and fees through the online portal.",
+        "questions": [
+          "Is there an online student portal?",
+          "Where can I check attendance and results?",
+          "Does the college have a student login?",
+          "How do I view notices online?",
+          "Is there a digital portal for students?"
+        ]
+      },
+      {
+        "intent": "remedial_classes",
+        "keywords": ["remedial", "extra classes", "academic support"],
+        "answer": "Yes, remedial classes are conducted for students who need additional academic support.",
+        "questions": [
+          "Are remedial classes available?",
+          "Do you provide extra classes for weak students?",
+          "Is additional academic help available?",
+          "Can I get extra coaching?",
+          "Are support classes conducted?"
+        ]
+      },
+      {
+        "intent": "placements",
+        "keywords": ["placements", "jobs", "campus interview", "career"],
+        "answer": "Placements are arranged for final-semester students through the Training and Placement Department.",
+        "questions": [
+          "How are the placements?",
+          "Does the college provide job placements?",
+          "Are campus interviews conducted?",
+          "Is there a placement cell?",
+          "Do students get job opportunities?"
+        ]
+      },
+      {
+        "intent": "internships",
+        "keywords": ["internship", "industry", "training", "experience"],
+        "answer": "Yes, internships are arranged for students during their final semesters in collaboration with industries.",
+        "questions": [
+          "Are internships provided?",
+          "Does the college help with internships?",
+          "Is internship mandatory?",
+          "Are industry internships available?",
+          "Do students get practical experience?"
+        ]
+      },
+      {
+        "intent": "library_resources",
+        "keywords": ["library", "books", "journals", "ebooks"],
+        "answer": "The library has multiple resources for different courses, including books, e-books, journals, newspapers, and magazines.",
+        "questions": [
+          "How are the library resources?",
+          "Does the library have e-books?",
+          "What facilities are available in the library?",
+          "Are journals available in the library?",
+          "Can students access digital library resources?"
+        ]
+      }
+    ]
+  }

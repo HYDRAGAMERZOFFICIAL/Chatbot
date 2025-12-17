@@ -1,1 +1,0 @@
-Stores all user–bot conversations
