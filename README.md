@@ -1,11 +1,11 @@
-# SFGC AI College Chatbot
+# AI College Chatbot
 
-An AI-powered intelligent chatbot system designed to automatically answer queries about Sri Satya Sai Group of Colleges (SFGC) using Natural Language Processing (NLP) and Machine Learning (ML).
+An AI-powered intelligent chatbot system designed to automatically answer queries about Sri Satya Sai Group of Colleges () using Natural Language Processing (NLP) and Machine Learning (ML).
 
 ## 📋 Project Overview
 
 The chatbot system:
-- **Extracts** official data from SFGC website (sfgc.ac.in) via automated web scraping
+- **Extracts** official data from  website () via automated web scraping
 - **Processes** raw text using NLP techniques (tokenization, lemmatization, preprocessing)
 - **Trains** ML intent classification model using TF-IDF vectorization and Naive Bayes
 - **Predicts** user intent and provides confident responses with fallback mechanisms
@@ -110,11 +110,11 @@ Chaton/
 │   ├── ui_components.py         # Reusable components
 ├── data/                         # Data files
 │   ├── raw/
-│   │   └── scraped_sfgc_data.json
+│   │   └── scraped__data.json
 │   ├── processed/
-│   │   └── sfgc_intents.json
+│   │   └── _intents.json
 │   └── scraper/
-│       ├── scrape_sfgc.py      # Web scraper
+│       ├── scrape_.py      # Web scraper
 │       ├── page_parser.py      # HTML parser
 │       └── intent_mapper.py    # Intent mapping
 ├── tests/                        # Test suite
@@ -134,7 +134,7 @@ Chaton/
 run.bat
 ```
 This script automatically:
-1. Scrapes SFGC website data
+1. Scrapes  website data
 2. Trains the ML model
 3. Starts backend API (port 8000)
 4. Launches Streamlit UI (port 8501)
@@ -165,7 +165,7 @@ UI will be available at: `http://localhost:8501`
 
 **Scrape website:**
 ```bash
-python data/scraper/scrape_sfgc.py
+python data/scraper/scrape_.py
 ```
 
 **Train ML model:**
@@ -321,7 +321,7 @@ See `phase.md` for detailed implementation status.
 
 To extend the chatbot:
 
-1. **Add new intents:** Update `data/processed/sfgc_intents.json`
+1. **Add new intents:** Update `data/processed/_intents.json`
 2. **Improve NLP:** Enhance `backend/nlp/` modules
 3. **Retrain model:** Run `python backend/ml/retrain.py`
 4. **Test changes:** Add tests to `tests/` directory
