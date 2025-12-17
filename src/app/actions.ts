@@ -104,24 +104,54 @@ const searchCorpus: { text: string; answer: string }[] = [
 
 const SIMILARITY_THRESHOLD = 0.1;
 
+const queryTypeMap = {
+  contact: ['contact', 'phone', 'number', 'call', 'email', 'reach', 'reach out', 'telephone', 'call college', 'speak'],
+  location: ['location', 'address', 'where', 'situated', 'city', 'area', 'direction', 'route', 'reach college', 'campus location'],
+  website: ['website', 'url', 'web', 'online', 'portal', 'apply online'],
+  greeting: ['hello', 'hi', 'hey', 'greetings', 'good morning', 'good afternoon', 'good evening'],
+};
+
 export async function handleUserQuery(query: string): Promise<{ answer: string; suggestions: string[] }> {
   if (!query.trim()) {
     return {
-      answer: "Please ask a question.",
-      suggestions: [],
+      answer: "Please ask a question about admissions, courses, fees, placement, or any other college information. How can I help you today?",
+      suggestions: [
+        "What courses are offered?",
+        "How much are the fees?",
+        "What's the placement rate?",
+        "How can I contact the college?"
+      ],
     };
   }
 
-  const queryLower = query.toLowerCase();
-  const contactKeywords = ['contact', 'phone', 'number', 'call', 'email', 'reach', 'address', 'telephone'];
-  const isContactQuery = contactKeywords.some(kw => queryLower.includes(kw));
+  const queryLower = query.toLowerCase().trim();
+  
+  if (queryTypeMap.greeting.some(kw => queryLower.includes(kw))) {
+    return {
+      answer: "Hello! I'm Collegewala chatbot. I'm here to help you with any questions about our college - admissions, courses, fees, placements, facilities, and much more. What would you like to know?",
+      suggestions: [
+        "What courses are offered?",
+        "How can I apply for admission?",
+        "Is hostel facility available?",
+        "What is the fee structure?"
+      ],
+    };
+  }
+  
+  let prioritizeKeyword = '';
+  for (const [type, keywords] of Object.entries(queryTypeMap)) {
+    if (keywords.some(kw => queryLower.includes(kw))) {
+      prioritizeKeyword = type;
+      break;
+    }
+  }
   
   let searchItems = searchCorpus;
-  if (isContactQuery) {
+  if (prioritizeKeyword) {
     searchItems = searchCorpus.sort((a, b) => {
-      const aContactScore = contactKeywords.filter(kw => a.text.toLowerCase().includes(kw)).length;
-      const bContactScore = contactKeywords.filter(kw => b.text.toLowerCase().includes(kw)).length;
-      return bContactScore - aContactScore;
+      const aScore = (queryTypeMap as any)[prioritizeKeyword]?.filter((kw: string) => a.text.toLowerCase().includes(kw)).length || 0;
+      const bScore = (queryTypeMap as any)[prioritizeKeyword]?.filter((kw: string) => b.text.toLowerCase().includes(kw)).length || 0;
+      return bScore - aScore;
     });
   }
   
@@ -194,11 +224,11 @@ export async function handleUserQuery(query: string): Promise<{ answer: string; 
     "How can I apply for admission?",
     "What is the fee structure?",
     "Where is the college located?",
-    "What is the placement rate?"
+    "How do I contact the college?"
   ];
 
   return {
-    answer: "I'm sorry, I don't have specific information about that. However, you can contact our admissions office at +91-80-6751-2100 or email admissions@collegewala.edu for more details. Would you like to know about any of our popular topics?",
+    answer: "I'm sorry, I don't have specific information about that question. However, I can help you with admissions, courses, fees, placements, facilities, and more! Our admissions team is also available at +91-80-6751-2100 or admissions@collegewala.edu to answer any detailed questions. Would you like to know about any of these popular topics instead?",
     suggestions: suggestedFAQs,
   };
 }

@@ -1,340 +1,459 @@
-# AI College Chatbot
+# Collegewala - AI College Inquiry Chatbot
 
-An AI-powered intelligent chatbot system designed to automatically answer queries about Sri Satya Sai Group of Colleges () using Natural Language Processing (NLP) and Machine Learning (ML).
+An intelligent AI-powered chatbot system built with **Next.js, React, and Google Genkit** designed to automatically answer student inquiries about Collegewala Institute of Engineering & Technology using Natural Language Processing (NLP) and semantic similarity matching.
 
 ## 📋 Project Overview
 
-The chatbot system:
-- **Extracts** official data from  website () via automated web scraping
-- **Processes** raw text using NLP techniques (tokenization, lemmatization, preprocessing)
-- **Trains** ML intent classification model using TF-IDF vectorization and Naive Bayes
-- **Predicts** user intent and provides confident responses with fallback mechanisms
-- **Logs** conversations and low-confidence queries for continuous improvement
-- **Provides** interactive web interface (Streamlit) and REST API (FastAPI)
+The Collegewala chatbot is a modern web application that:
+- **Understands** student queries using advanced text similarity algorithms (cosine similarity)
+- **Matches** user questions to the most relevant college information
+- **Generates** contextual AI responses using Google Generative AI (Gemini)
+- **Learns** from new questions and stores responses for continuous improvement
+- **Provides** a responsive, user-friendly chat interface with conversation history
+- **Manages** multiple chat sessions for better user experience
+
+### Key Technologies
+- **Frontend**: Next.js 14, React 18, TypeScript, Tailwind CSS, Radix UI
+- **Backend**: Next.js Server Actions, Node.js
+- **AI**: Google Genkit 1.26.0, Generative AI API
+- **Database**: JSON-based storage (learning and feedback logs)
+- **UI Components**: Shadcn UI, Lucide Icons, Embla Carousel
 
 ## 🚀 Features
 
-✨ **Smart Intent Classification** - Identifies user intent with confidence scoring  
-🛡️ **Confidence-Based Fallback** - Safe responses when uncertain  
-📊 **Chat Analytics** - Track conversations and performance metrics  
-🔄 **Continuous Learning** - Low-confidence queries logged for retraining  
-⚡ **Fast API** - RESTful endpoints for easy integration  
-🎨 **Modern UI** - Interactive Streamlit interface  
-🔐 **Secure** - Input validation and error handling  
+✨ **Smart Intent Recognition** - Identifies query types (contact, location, fees, etc.)
+🤖 **AI-Powered Responses** - Uses Google Gemini to generate contextual answers
+📝 **18+ Detailed Intents** - Comprehensive knowledge base covering all college aspects
+❓ **20+ FAQs** - Frequently asked questions with clear, simple answers
+💾 **Conversation History** - Save and load multiple chat sessions
+📱 **Responsive Design** - Works perfectly on desktop, tablet, and mobile
+🔄 **Continuous Learning** - Logs unanswered questions and learns from interactions
+🎯 **Keyword Elaboration** - Simple, easy-to-understand explanations with examples
+⚡ **Fast Performance** - Optimized rendering and minimal latency
 
 ## 📦 Installation
 
 ### Requirements
-- **Python 3.9+**
-- **Windows OS** (tested on Windows 10+)
-- **~500MB disk space** for dependencies
+- **Node.js**: 18.0+ (LTS recommended)
+- **npm** or **yarn**: Latest version
+- **Google API Key**: For Generative AI access
+- **~600MB disk space** for dependencies
 
-### Step 1: Clone and Navigate
+### Step 1: Clone/Navigate to Project
 ```bash
 cd c:\laragon\www\Chaton
 ```
 
-### Step 2: Create Virtual Environment (Optional but Recommended)
+### Step 2: Install Dependencies
 ```bash
-python -m venv venv
-venv\Scripts\activate
+npm install
 ```
 
-### Step 3: Install Dependencies
+This installs:
+- **Next.js & React**: Frontend framework
+- **TypeScript**: Type safety
+- **Tailwind CSS**: Styling
+- **Radix UI**: Component library
+- **Genkit & Google GenAI**: AI capabilities
+- **Zod**: Validation
+- All supporting libraries
+
+### Step 3: Configure Environment
+Create `.env.local` file in project root:
 ```bash
-pip install -r requirements.txt
+GOOGLE_GENAI_API_KEY=your_google_api_key_here
 ```
 
-All required packages will be installed:
-- **Backend**: FastAPI, Uvicorn, Pydantic
-- **Frontend**: Streamlit
-- **ML/NLP**: Scikit-learn, Pandas, NumPy, BeautifulSoup4
-- **Testing**: Pytest, Pytest-asyncio
-- **Utilities**: Requests, Python-dotenv, Werkzeug
+**Get API Key:**
+1. Go to [Google AI Studio](https://aistudio.google.com/app/apikey)
+2. Click "Create API Key"
+3. Copy and paste in `.env.local`
 
-## 🔧 Configuration
-
-Configuration is managed via `backend/config.py`:
-
-```python
-CONFIDENCE_THRESHOLD = 0.5      # Minimum confidence for KB response (default: 50%)
-MIN_CONFIDENCE = 0.3            # Minimum acceptable confidence
-MAX_CONFIDENCE = 1.0            # Maximum confidence score
-LOG_LEVEL = "INFO"              # Logging level (DEBUG, INFO, WARNING, ERROR)
-DEBUG = False                   # Debug mode toggle
-```
-
-Environment variables can override defaults via `.env` file:
-```
-CONFIDENCE_THRESHOLD=0.6
-LOG_LEVEL=DEBUG
-```
-
-## 📂 Project Structure
-
-```
-Chaton/
-├── backend/                      # FastAPI backend
-│   ├── main.py                  # Application entry point
-│   ├── config.py                # Configuration settings
-│   ├── database.py              # SQLite setup and logging
-│   ├── api/                     # API endpoints
-│   │   ├── chat_api.py         # Chat endpoint
-│   │   ├── health.py           # Health check endpoints
-│   ├── ml/                      # Machine learning
-│   │   ├── train.py            # Model training
-│   │   ├── predict.py          # Intent prediction
-│   │   ├── evaluator.py        # Model evaluation
-│   │   ├── retrain.py          # Retraining pipeline
-│   ├── nlp/                     # NLP processing
-│   │   ├── preprocess.py       # Text cleaning
-│   │   ├── tokenizer.py        # Tokenization
-│   │   ├── lemmatizer.py       # Lemmatization
-│   ├── pipeline/                # Data processing
-│   │   ├── data_loader.py      # Load training data
-│   │   ├── feature_engineering.py  # TF-IDF vectorization
-│   │   ├── response_selector.py    # Response selection
-│   │   ├── confidence.py       # Confidence checking
-│   ├── knowledge_base/          # Knowledge base
-│   │   ├── responses.py        # Intent to response mapping
-│   │   ├── fallback.json       # Fallback responses
-│   ├── models/                  # Trained model artifacts
-│   │   ├── intent_model.pkl
-│   │   ├── vectorizer.pkl
-│   │   ├── label_encoder.pkl
-│   └── logs/                    # Logging
-│       ├── chat_logs.txt
-│       └── low_confidence_queries.json
-├── frontend/                     # Streamlit UI
-│   ├── app.py                   # Main interface
-│   ├── ui_components.py         # Reusable components
-├── data/                         # Data files
-│   ├── raw/
-│   │   └── scraped__data.json
-│   ├── processed/
-│   │   └── _intents.json
-│   └── scraper/
-│       ├── scrape_.py      # Web scraper
-│       ├── page_parser.py      # HTML parser
-│       └── intent_mapper.py    # Intent mapping
-├── tests/                        # Test suite
-│   ├── test_scraper.py
-│   ├── test_nlp.py
-│   ├── test_ml.py
-│   └── test_api.py
-├── requirements.txt             # Python dependencies
-├── phase.md                     # Development phases
-└── README.md                    # This file
-```
-
-## 🚀 Quick Start
-
-### Option 1: Run Everything (Automatic - Windows)
+### Step 4: Build Project (Optional but Recommended)
 ```bash
-run.bat
+npm run build
 ```
-This script automatically:
-1. Scrapes  website data
-2. Trains the ML model
-3. Starts backend API (port 8000)
-4. Launches Streamlit UI (port 8501)
 
-### Option 2: Manual Startup
+This creates optimized production build in `.next` directory.
 
-**Terminal 1 - Backend API:**
+## 🔧 Running the Application
+
+### Development Mode (Hot Reload)
 ```bash
-cd backend
-python main.py
+npm run dev
 ```
-Or using Uvicorn directly:
+Application will be available at: `http://localhost:3000`
+
+**Features in Dev Mode:**
+- Hot module reloading (auto-refresh on code changes)
+- Detailed error messages
+- Debug mode enabled
+- Slower performance (expected)
+
+### Production Mode (Optimized)
 ```bash
-uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+npm run build
+npm start
 ```
-API will be available at: `http://localhost:8000`
-- Swagger Docs: `http://localhost:8000/docs`
-- Health Check: `http://localhost:8000/health/status`
+Application will be available at: `http://localhost:3000`
 
-**Terminal 2 - Frontend UI:**
+**Better Performance:**
+- Optimized bundle size
+- Faster page loads
+- Production-ready performance
+
+### Build Only (No Run)
 ```bash
-cd frontend
-streamlit run app.py
+npm run build
 ```
-UI will be available at: `http://localhost:8501`
+Generates `.next` directory with compiled assets.
 
-### Option 3: Prepare Data and Train Model
+## 🐛 Fixing Common Issues
 
-**Scrape website:**
+### Issue 1: MODULE_TYPELESS_PACKAGE_JSON Warning
+**Error Message:**
+```
+[MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///path/to/next.config.js 
+is not specified and it doesn't parse as CommonJS.
+```
+
+**Root Cause:** Next.js can't determine module type for config files.
+
+**Solution (Choose One):**
+
+**Option A: Add "type": "module" to package.json (May cause PostCSS issues)**
+```json
+{
+  "type": "module",
+  "name": "collegewala"
+}
+```
+
+**Option B: Use .mjs extension (Recommended)**
+Rename `next.config.js` to `next.config.mjs`
+
+**Option C: Ignore Warning (Current Approach)**
+The warning is non-critical and doesn't affect functionality. Build completes successfully. You can safely ignore it.
+
+**⚠️ Why we don't add "type": "module":**
+- Causes PostCSS compatibility issues
+- Breaks tailwind.config.ts processing
+- Build fails during CSS compilation
+- Better to keep as-is or use `.mjs` approach
+
+### Issue 2: ENOENT Error - prerender-manifest.json Not Found
+**Error Message:**
+```
+Error: ENOENT: no such file or directory, open '.next/prerender-manifest.json'
+```
+
+**Root Cause:** Running `npm start` without building first. The `.next` directory doesn't exist.
+
+**Solution:**
+Always build before starting production mode:
 ```bash
-python data/scraper/scrape_.py
+# Step 1: Build the project
+npm run build
+
+# Step 2: Start production server
+npm start
 ```
 
-**Train ML model:**
+**Why This Happens:**
+- `npm start` expects pre-built files in `.next` directory
+- `npm run dev` creates temporary build on-the-fly
+- `.next` directory is gitignored and not version controlled
+
+### Issue 3: Dependencies Installation Fails
+**Error:** `npm ERR! ERESOLVE unable to resolve dependency tree`
+
+**Solution:**
 ```bash
-python backend/ml/train.py
+# Clear cache and reinstall
+npm cache clean --force
+rm package-lock.json
+npm install
+
+# Or use npm legacy peer deps flag
+npm install --legacy-peer-deps
 ```
 
-## 📊 API Endpoints
+### Issue 4: Port 3000 Already in Use
+**Error:** `Error: listen EADDRINUSE: address already in use :::3000`
 
-### Health Endpoints
-- `GET /` - Welcome message
-- `GET /health/status` - API status and DB statistics
-- `GET /health/stats` - Chatbot performance stats
-- `GET /health/config` - Current API configuration
-
-### Chat Endpoints
-- `POST /chat/ask` - Main chatbot endpoint
-  ```json
-  Request: {"message": "What courses do you offer?"}
-  Response: {
-    "user_query": "What courses do you offer?",
-    "intent": "academics",
-    "confidence": 0.87,
-    "response": "Our academic programs are designed to meet international standards...",
-    "source": "knowledge_base"
-  }
-  ```
-
-- `GET /chat/logs` - Chat history (supports ?limit=50)
-- `GET /chat/intents` - Available intents
-
-## 🧪 Testing
-
-Run comprehensive test suite:
+**Solution:**
 ```bash
-pytest tests/
+# Find process using port 3000
+netstat -ano | findstr :3000
+
+# Kill process (replace PID with actual number)
+taskkill /PID <PID> /F
+
+# Or use different port
+npm run dev -- -p 3001
 ```
 
-Run specific test file:
+### Issue 5: API Key Not Working
+**Error:** `Error: API key not valid`
+
+**Solution:**
+1. Verify `.env.local` exists in project root (not subdirectory)
+2. Check API key format (should start with `AIza...`)
+3. Ensure no extra spaces: `GOOGLE_GENAI_API_KEY=key_here` (no spaces around `=`)
+4. Restart dev server after changing `.env.local`
+
+### Issue 6: Build Errors
+**Error:** `Failed to compile` or type errors
+
+**Solutions:**
 ```bash
-pytest tests/test_nlp.py -v
+# Clear Next.js cache
+rm -r .next
+npm run build
+
+# Check for TypeScript errors
+npx tsc --noEmit
+
+# Rebuild everything
+npm install
+npm run build
 ```
 
-Run with coverage:
+## 📊 Project Structure
+
+```
+collegewala/
+├── src/
+│   ├── app/
+│   │   ├── page.tsx              # Main page/layout
+│   │   ├── actions.ts            # Server actions (query handling)
+│   │   ├── globals.css           # Global styles
+│   │   └── layout.tsx            # Root layout
+│   ├── components/
+│   │   ├── ChatInterface.tsx      # Main chat component
+│   │   ├── ChatHistory.tsx        # Conversation history sidebar
+│   │   └── ui/                    # Radix UI components
+│   ├── data/
+│   │   └── json/
+│   │       ├── intents.json       # 18 college intents with Q&A
+│   │       ├── faq.json           # 20 frequently asked questions
+│   │       ├── clg.json           # College comprehensive data
+│   │       ├── learned_answers.json    # ML-learned responses
+│   │       ├── unanswered_questions.json # Queries to improve
+│   │       └── feedback.json      # User feedback logs
+│   ├── ai/
+│   │   ├── genkit.ts              # Genkit configuration
+│   │   └── flows/                 # AI flow definitions
+│   ├── lib/
+│   │   ├── similarity.ts          # Text similarity matching
+│   │   └── utils.ts               # Utility functions
+│   └── hooks/                     # Custom React hooks
+├── public/                        # Static assets
+├── .env.local                     # Environment variables (not committed)
+├── package.json                   # Dependencies and scripts
+├── tsconfig.json                  # TypeScript configuration
+├── tailwind.config.ts             # Tailwind CSS configuration
+├── next.config.js                 # Next.js configuration
+└── README.md                      # This file
+```
+
+## 💾 Data Files Explained
+
+### `intents.json`
+Contains 18 college-related intents with simplified, elaborated answers:
+- **admission_documents** - Required documents for admission
+- **admission_process** - Step-by-step application process
+- **campus_security** - Safety and security measures
+- **hostel_facility** - Accommodation details
+- **fee_structure** - Course fees and payment options
+- **placements** - Placement statistics and top companies
+- **contact_details** - All contact information
+- **courses_offered** - Available programs
+- ...and 10 more intents
+
+Each intent has:
+- Keywords for matching
+- Simple, step-by-step answer
+- Multiple question variations
+
+### `faq.json`
+20 frequently asked questions with comprehensive answers:
+- Structured with category tags
+- Real examples and numbers
+- Easy-to-understand language
+- Covers all major topics
+
+### `clg.json`
+Complete college information database:
+- College details (name, website, accreditation)
+- Campus infrastructure (buildings, labs, facilities)
+- Course offerings (B.Tech, MBA, MCA, B.Sc)
+- Faculty information (departments, qualifications)
+- Administration contacts
+- Key statistics (placement rate, alumni count)
+
+### `learned_answers.json`
+Dynamically stores new Q&A pairs learned from interactions:
+- Saves questions users ask
+- Stores AI-generated responses
+- Timestamp for tracking
+
+### `unanswered_questions.json`
+Tracks queries the chatbot couldn't answer well:
+- Identifies knowledge gaps
+- Used for continuous improvement
+- Helps expand knowledge base
+
+### `feedback.json`
+User feedback and interaction logs:
+- Chat history
+- User satisfaction (good/bad)
+- Conversation context
+- Used for analytics
+
+## 🎯 How the Chatbot Works
+
+```
+User Query
+    ↓
+[Text Preprocessing] - Remove punctuation, lowercase, tokenize
+    ↓
+[Intent Detection] - Identify query type (contact, location, etc.)
+    ↓
+[Similarity Matching] - Find best matching answer from knowledge base
+    ↓
+[AI Enhancement] - Generate contextual response using Google Gemini
+    ↓
+[Response Return] - Send answer with suggested follow-up questions
+    ↓
+[Learning] - Save new Q&A for future reference
+    ↓
+[Analytics] - Log interaction and user feedback
+```
+
+## 🚀 Available Commands
+
 ```bash
-pytest tests/ --cov=backend --cov=data
+# Development
+npm run dev              # Start dev server (hot reload)
+
+# Production
+npm run build            # Build optimized production build
+npm start                # Start production server
+
+# Code Quality
+npm run lint             # Run ESLint
+npm run typecheck        # Run TypeScript type checking (not configured yet)
+
+# Maintenance
+npm install              # Install all dependencies
+npm cache clean --force  # Clear npm cache
 ```
 
-Test coverage includes:
-- **Data Scraping** - Web scraping and parsing
-- **NLP Pipeline** - Preprocessing, tokenization, lemmatization
-- **ML Model** - Training, prediction, confidence scoring
-- **API Endpoints** - Request validation, error handling, response format
-- **Database** - Chat logging, statistics
+## 📈 Performance Metrics
 
-## 🔍 Monitoring & Analytics
+- **Build Time**: ~25-35 seconds
+- **Initial Load**: ~1-2 seconds
+- **Chat Response Time**: ~2-3 seconds (with AI generation)
+- **Bundle Size**: ~133 KB (First Load JS)
 
-### Chat Logs Database
-SQLite database stores all interactions:
-- Chat history with timestamps
-- Predicted intents and confidence scores
-- Response sources (Knowledge Base vs Fallback)
-- Low-confidence queries for analysis
+## 🧠 Understanding the Response System
 
-Access via API:
+### Similarity Threshold
+- **0.1 (10%)** - Minimum similarity to attempt answer
+- **Lower threshold** = More attempts, potential wrong answers
+- **Higher threshold** = More "I don't know" responses
+- **Current setting**: 0.1 (optimized for college queries)
+
+### Query Type Prioritization
+The system recognizes query types and prioritizes relevant answers:
+- **Contact queries** → Prioritize contact_details
+- **Location queries** → Prioritize campus_location
+- **Website queries** → Prioritize admission_process
+- **Greeting queries** → Return personalized welcome
+
+### Keyword Elaboration
+All responses use:
+- **Numbered steps** for clarity
+- **Real examples** with numbers
+- **Simple language** avoiding jargon
+- **Actionable information** users can use immediately
+
+## 🔐 Security Notes
+
+- **API Key**: Never commit `.env.local` to git (added to `.gitignore`)
+- **Sensitive Data**: Don't log API keys or personal information
+- **Input Validation**: All user inputs are sanitized
+- **Error Messages**: Generic error messages to prevent information leakage
+
+## 📝 Development Workflow
+
+### Adding New Knowledge
+1. Edit `src/data/json/intents.json` or `faq.json`
+2. Add new Q&A with keywords
+3. Run `npm run build`
+4. Test in dev mode: `npm run dev`
+
+### Fixing Responses
+1. Identify poor responses in `feedback.json`
+2. Update relevant intent/FAQ
+3. Clear browser cache
+4. Test again
+
+### Deploying Changes
 ```bash
-GET http://localhost:8000/chat/logs
+# Local verification
+npm run build
+npm run dev
+
+# When ready for deployment
+npm run build    # Creates production build
+npm start        # Start production server
 ```
 
-### Log Files
-- `backend/logs/chat_logs.txt` - Human-readable chat log
-- `backend/logs/low_confidence_queries.json` - Queries for improvement
+## 🐛 Debugging Tips
 
-### Statistics
-```bash
-GET http://localhost:8000/health/stats
-```
-Returns:
-- Total chats processed
-- Average confidence score
-- Low-confidence query count
-
-## 🎓 Continuous Improvement
-
-### Identify Low-Confidence Queries
-```bash
-GET http://localhost:8000/chat/logs?limit=100
-# Filter responses with confidence < 0.5
+### Enable Detailed Logging
+Edit `src/app/actions.ts` to add console logs:
+```typescript
+console.log('Query:', query);
+console.log('Best Match:', bestMatch);
+console.log('Confidence:', bestScore);
 ```
 
-### Evaluate Model Performance
-```bash
-python backend/ml/evaluator.py
-```
-Shows:
-- Model accuracy
-- Precision/recall per intent
-- Confusion matrix
+### Check Browser Console
+- Press `F12` to open DevTools
+- Go to Console tab
+- Look for API errors or client-side issues
 
-### Retrain Model with New Data
-```bash
-python backend/ml/retrain.py
-```
-Updates:
-- Intent mappings from knowledge base
-- Re-trains model with updated data
-- Saves improved model artifacts
-
-## 🛠️ Troubleshooting
-
-### Issue: "Models not loaded" error
-**Solution:** Train the model first
-```bash
-python backend/ml/train.py
-```
-
-### Issue: "Backend not reachable" in UI
-**Solution:** Ensure backend is running on localhost:8000
-```bash
-cd backend && python main.py
-```
-
-### Issue: Port 8000 already in use
-**Solution:** Use different port
-```bash
-uvicorn main:app --port 8001
-```
-Update `frontend/app.py` API_BASE_URL accordingly.
-
-### Issue: Dependencies installation fails
-**Solution:** Upgrade pip and retry
-```bash
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-## 📝 Development Phases
-
-The project follows an 8-phase development roadmap:
-
-1. ✅ **Phase 1** - Data Layer (Scraper & Data Preparation)
-2. ✅ **Phase 2** - NLP Pipeline (Preprocessing, Tokenization, Lemmatization)
-3. ✅ **Phase 3** - ML Model (Training & Prediction)
-4. ✅ **Phase 4** - Knowledge Base & Response Selection
-5. ✅ **Phase 5** - API & Backend Infrastructure
-6. ✅ **Phase 6** - Frontend UI (Streamlit)
-7. ✅ **Phase 7** - Testing, Requirements & Deployment
-8. ✅ **Phase 8** - ML Operations (Evaluation & Retraining)
-
-See `phase.md` for detailed implementation status.
+### Monitor Network Requests
+- DevTools → Network tab
+- Look for server action calls to `/api/`
+- Check response payloads
 
 ## 🤝 Contributing
 
-To extend the chatbot:
-
-1. **Add new intents:** Update `data/processed/_intents.json`
-2. **Improve NLP:** Enhance `backend/nlp/` modules
-3. **Retrain model:** Run `python backend/ml/retrain.py`
-4. **Test changes:** Add tests to `tests/` directory
-5. **Monitor performance:** Check `backend/logs/`
+To improve the chatbot:
+1. Identify poor responses from logs
+2. Edit relevant JSON data files
+3. Test thoroughly
+4. Verify all intents still work
+5. Check mobile responsiveness
 
 ## 📄 License
 
-This project is for educational purposes.
+This project is for Collegewala Institute of Engineering & Technology.
 
-## 👨‍💻 Support
+## 👨‍💻 Support & Troubleshooting
 
-For issues or questions:
-1. Check troubleshooting section above
-2. Review logs in `backend/logs/`
-3. Verify all dependencies are installed
-4. Ensure Python 3.9+ is being used
+1. **Check errors in browser console** (F12)
+2. **Verify `.env.local` is configured**
+3. **Ensure you built before running** (`npm run build` then `npm start`)
+4. **Check logs in** `src/data/json/unanswered_questions.json`
+5. **Try rebuilding**: `rm -r .next && npm run build`
+
+---
+
+**Last Updated**: December 2025  
+**Version**: 1.0.0  
+**Status**: Production Ready
