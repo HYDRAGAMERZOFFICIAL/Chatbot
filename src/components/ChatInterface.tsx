@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect, useTransition, useCallback } from 'react';
-import { Send, ThumbsDown, ThumbsUp, PlusCircle, GraduationCap } from 'lucide-react';
+import { Send, ThumbsDown, ThumbsUp, PlusCircle, ArrowUp } from 'lucide-react';
 import { Bot, User } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
@@ -323,49 +323,39 @@ export function ChatInterface() {
   };
 
   return (
-    <div className="flex h-full w-full flex-col bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
-      <div className="flex-1 overflow-hidden flex flex-col">
+    <div className="flex h-full w-full flex-col bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 gap-0">
+      <div className="flex-1 overflow-hidden flex flex-col min-h-0">
         <ScrollArea className="flex-1" ref={scrollAreaRef}>
           <div className="flex w-full justify-center h-full">
-            <div className="w-full space-y-4 px-4 py-4 max-w-7xl">
-              <div className="flex items-center gap-3 px-2 mb-2">
-                <div className="p-2 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-700">
-                  <GraduationCap className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <h2 className="font-bold text-lg bg-gradient-to-r from-blue-700 to-indigo-700 bg-clip-text text-transparent">Collegewala</h2>
-                  <p className="text-xs text-slate-500">AI College Assistant</p>
-                </div>
-              </div>
-              <div className="h-2" />
+            <div className="w-full space-y-2 px-3 py-3 max-w-4xl">
               {messages.map(m => (
                 <div 
                   key={m.id} 
-                  className={cn('flex gap-3 items-start animate-in fade-in slide-in-from-bottom-2 duration-300', m.role === 'user' && 'flex-row-reverse')}
+                  className={cn('flex gap-2 items-start animate-in fade-in slide-in-from-bottom-2 duration-300', m.role === 'user' && 'flex-row-reverse')}
                 >
                   <div className="shrink-0">
                     {m.role === 'bot' && (
-                      <Avatar className="h-9 w-9 border-2 border-indigo-200 shadow-md">
+                      <Avatar className="h-7 w-7 border border-indigo-200">
                         <AvatarFallback className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white text-xs font-bold">
-                          <Bot size={20} />
+                          <Bot size={16} />
                         </AvatarFallback>
                       </Avatar>
                     )}
                     {m.role === 'user' && (
-                      <Avatar className="h-9 w-9 border-2 border-blue-200 shadow-md">
+                      <Avatar className="h-7 w-7 border border-blue-200">
                         <AvatarFallback className="bg-gradient-to-br from-indigo-500 to-blue-600 text-white text-xs font-bold">
-                          <User size={20} />
+                          <User size={16} />
                         </AvatarFallback>
                       </Avatar>
                     )}
                   </div>
-                  <div className={cn('flex flex-col gap-3 max-w-2xl', m.role === 'user' && 'items-end')}>
+                  <div className={cn('flex flex-col gap-1.5 max-w-2xl', m.role === 'user' && 'items-end')}>
                     <div
                       className={cn(
-                        'rounded-2xl px-4 py-3 shadow-md break-words border transition-all duration-200',
+                        'rounded-lg px-3 py-2 shadow-sm break-words border transition-all duration-200',
                         m.role === 'user'
                           ? 'bg-gradient-to-r from-blue-600 to-indigo-700 text-white border-blue-500 rounded-br-none'
-                          : 'bg-white text-slate-800 border-slate-300 rounded-bl-none shadow-sm',
+                          : 'bg-white text-slate-800 border-slate-300 rounded-bl-none',
                       )}
                     >
                       <p className="whitespace-pre-wrap text-sm leading-relaxed">{m.text}</p>
@@ -375,62 +365,65 @@ export function ChatInterface() {
                 </div>
               ))}
               {isPending && (
-                <div className="flex gap-3 items-start animate-in fade-in slide-in-from-bottom-2 duration-300">
+                <div className="flex gap-2 items-start animate-in fade-in slide-in-from-bottom-2 duration-300">
                   <div className="shrink-0">
-                    <Avatar className="h-9 w-9 border-2 border-indigo-200 shadow-md">
+                    <Avatar className="h-7 w-7 border border-indigo-200">
                       <AvatarFallback className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white text-xs font-bold">
-                        <Bot size={20} />
+                        <Bot size={16} />
                       </AvatarFallback>
                     </Avatar>
                   </div>
-                  <div className="space-y-2 rounded-2xl bg-white p-4 shadow-md border border-slate-200/80 rounded-bl-none">
-                    <Skeleton className="h-4 w-48 bg-slate-200" />
-                    <Skeleton className="h-4 w-32 bg-slate-200" />
+                  <div className="space-y-1.5 rounded-lg bg-white p-2.5 border border-slate-200/80 rounded-bl-none">
+                    <Skeleton className="h-3 w-48 bg-slate-200" />
+                    <Skeleton className="h-3 w-32 bg-slate-200" />
                   </div>
                 </div>
               )}
-              <div className="h-4" />
+              <div className="h-1" />
             </div>
           </div>
         </ScrollArea>
       </div>
-      <div className="border-t border-slate-300 bg-white/60 backdrop-blur-md px-4 py-2 shadow-lg">
+      <div className="flex-shrink-0 border-t border-slate-300 bg-white/80 backdrop-blur-md px-3 py-2.5 shadow-lg">
         <div className="flex w-full justify-center">
           <form
             onSubmit={e => {
               e.preventDefault();
               handleSubmit();
             }}
-            className="flex w-full max-w-7xl items-end gap-3"
+            className="flex w-full max-w-4xl items-end gap-2"
           >
             <Button 
-              variant="ghost" 
-              size="icon" 
+              variant="outline" 
+              size="sm"
               onClick={startNewSession}
-              className="shrink-0 rounded-full hover:bg-blue-100 text-slate-600 hover:text-slate-900 transition-colors"
+              className="shrink-0 flex items-center gap-1.5 rounded-md border-blue-300 hover:bg-blue-50 text-slate-700 hover:text-blue-700 transition-all duration-200 font-medium text-xs"
               title="Start new chat"
             >
-              <PlusCircle className="h-6 w-6" />
-              <span className="sr-only">New Chat</span>
+              <PlusCircle className="h-4 w-4" />
+              <span className="hidden sm:inline">New Chat</span>
             </Button>
             <Textarea
               ref={inputRef}
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Ask me anything about Collegewala..."
-              className="flex-1 resize-none border-2 border-slate-300 rounded-2xl bg-white text-slate-900 shadow-md focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 placeholder:text-slate-500 transition-all duration-200 px-4 py-3"
+              placeholder="Ask me anything..."
+              className="flex-1 resize-none border border-slate-300 rounded-md bg-white text-sm text-slate-900 shadow-sm focus-visible:ring-1 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 placeholder:text-slate-400 transition-all duration-200 px-3 py-2"
               rows={1}
               disabled={isPending}
             />
             <Button 
               type="submit" 
-              size="icon" 
+              size="sm"
               disabled={isPending || !input.trim()}
-              className="shrink-0 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white shadow-md hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="shrink-0 rounded-md bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white shadow-sm hover:shadow-md transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed p-2"
             >
-              <Send size={20} />
-              <span className="sr-only">Send</span>
+              <ArrowUp size={18} className="sm:hidden" />
+              <span className="hidden sm:flex sm:items-center sm:gap-1.5">
+                <Send size={16} />
+                <span className="text-xs">Send</span>
+              </span>
             </Button>
           </form>
         </div>

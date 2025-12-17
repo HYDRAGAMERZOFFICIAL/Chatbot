@@ -690,5 +690,193 @@
     ],
     "feedback": "bad",
     "timestamp": "2025-12-17T15:00:37.504Z"
+  },
+  {
+    "history": [
+      {
+        "role": "bot",
+        "text": "Hello! I'm Collegewala. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?"
+      },
+      {
+        "role": "user",
+        "text": "Is hostel facility available?"
+      },
+      {
+        "role": "bot",
+        "text": "Yes! We have comfortable hostels for boys and girls separately. Each room has bed, study table, attached bathroom, WiFi, and 24/7 electricity. We provide nutritious meals, laundry service, and security guards on duty round the clock. Annual hostel fee is Rs. 50,000 to 75,000 depending on room type and amenities."
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "how many hours of college is conducted"
+      },
+      {
+        "role": "bot",
+        "text": "I'm sorry, but the information about the number of hours college is conducted is not available in the provided context."
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "What are the typical class hours or daily schedule at Collegewala?"
+      },
+      {
+        "role": "bot",
+        "text": "Top companies recruiting from us: TCS, Infosys, Wipro, Google, Amazon, Microsoft, IBM, Accenture, Cognizant, and many startups. We have 80+ industry partnerships and 25+ international collaborations. Companies visit campus regularly for recruitment drives. Our placement team helps you prepare for interviews and group discussions."
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "hello"
+      },
+      {
+        "role": "bot",
+        "text": "Hello! I'm Collegewala chatbot. I'm here to help you with any questions about our college - admissions, courses, fees, placements, facilities, and much more. What would you like to know?"
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "What is the fee structure?"
+      },
+      {
+        "role": "bot",
+        "text": "Annual fees: B.Tech - Rs. 2.5 lakhs, MBA - Rs. 4 lakhs, MCA - Rs. 3 lakhs, B.Sc - Rs. 1.5 lakhs. Hostel fees are separate: Rs. 50,000-75,000 per year. We offer scholarships for merit, need-based financial aid, SC/ST waivers (100%), and sports scholarships. Fees can be paid in installments - contact finance office for details."
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using Collegewala! Your feedback is valuable to us. How would you rate your experience?"
+      }
+    ],
+    "feedback": "good",
+    "timestamp": "2025-12-17T16:13:45.689Z"
+  },
+  {
+    "history": [
+      {
+        "role": "bot",
+        "text": "Hello! I'm Collegewala. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?"
+      },
+      {
+        "role": "user",
+        "text": "How can I apply for admission?"
+      },
+      {
+        "role": "bot",
+        "text": "Applying for admission to Collegewala is quite straightforward! You can either apply online or in person. To apply online, just visit our website at www.collegewala.edu, fill out the online application form with your details, upload your required documents like mark sheets and ID proof, pay the application fee, and then submit your form. You will receive the merit list within two weeks, and if you're selected, you can complete your admission at our office. If you prefer to apply in person, you can visit our college office during office hours, which are Monday to Friday, from 9 AM to 5 PM."
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using Collegewala! Your feedback is valuable to us. How would you rate your experience?"
+      },
+      {
+        "role": "user",
+        "text": "What are the eligibility criteria for admission to Collegewala?"
+      },
+      {
+        "role": "bot",
+        "text": "B.Tech: 12th pass with PCM (50% aggregate) + JEE Main score. MBA: Any bachelor's degree with 50% marks + CAT/MAT score. MCA: B.Sc/B.Tech with 50% marks. B.Sc: 12th pass with Science stream. Special relaxations available for SC/ST and differently-abled students. If you have concerns about meeting requirements, contact admissions office - they may consider your profile."
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "can you terll me about the faculty "
+      },
+      {
+        "role": "bot",
+        "text": "All our faculty members have PhDs from top universities in India and abroad. Average teaching experience is 10+ years. Teachers actively publish research papers in national and international journals and work on cutting-edge research projects. Student-to-faculty ratio is 12:1, ensuring personalized attention. Teachers are approachable and care about your overall development."
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using Collegewala! Your feedback is valuable to us. How would you rate your experience?"
+      }
+    ],
+    "feedback": "bad",
+    "timestamp": "2025-12-17T16:26:36.644Z"
+  },
+  {
+    "history": [
+      {
+        "role": "bot",
+        "text": "Hello! I'm Collegewala. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?"
+      },
+      {
+        "role": "user",
+        "text": "What courses are offered?"
+      },
+      {
+        "role": "bot",
+        "text": "Collegewala offers multiple programs: B.Tech in 5 branches (Computer Science, Electronics, Mechanical, Civil, Electrical) for 4 years, MBA for 2 years, MCA for 3 years, and B.Sc in Science streams for 3 years. All programs are highly respected and have 95%+ placement rate. Choose based on your interests and career goals."
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using Collegewala! Your feedback is valuable to us. How would you rate your experience?"
+      }
+    ],
+    "feedback": "bad",
+    "timestamp": "2025-12-17T16:35:46.094Z"
+  },
+  {
+    "history": [
+      {
+        "role": "bot",
+        "text": "Hello! I'm Collegewala. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?"
+      },
+      {
+        "role": "user",
+        "text": "What courses are offered?"
+      },
+      {
+        "role": "bot",
+        "text": "Collegewala offers multiple programs: B.Tech in 5 branches (Computer Science, Electronics, Mechanical, Civil, Electrical) for 4 years, MBA for 2 years, MCA for 3 years, and B.Sc in Science streams for 3 years. All programs are highly respected and have 95%+ placement rate. Choose based on your interests and career goals."
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using Collegewala! Your feedback is valuable to us. How would you rate your experience?"
+      },
+      {
+        "role": "bot",
+        "text": "Thanks for your feedback! If you have more questions, just ask."
+      },
+      {
+        "role": "user",
+        "text": "abcds"
+      },
+      {
+        "role": "bot",
+        "text": "I'm sorry, I don't have specific information about that question. However, I can help you with admissions, courses, fees, placements, facilities, and more! Our admissions team is also available at +91-80-6751-2100 or admissions@collegewala.edu to answer any detailed questions. Would you like to know about any of these popular topics instead?"
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "How do I contact the college?"
+      },
+      {
+        "role": "bot",
+        "text": "Contact us easily: Main Office - +91-80-6751-2345, Admissions - +91-80-6751-2100, Email - admissions@collegewala.edu, Website - www.collegewala.edu, Fax - +91-80-6751-2200. Office hours: 9 AM to 5 PM, Monday-Friday. Emergency line 24/7: +91-98765-43210. You can call, email, or visit in person - we're always happy to help!"
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using Collegewala! Your feedback is valuable to us. How would you rate your experience?"
+      }
+    ],
+    "feedback": "good",
+    "timestamp": "2025-12-17T16:36:18.385Z"
   }
 ]
