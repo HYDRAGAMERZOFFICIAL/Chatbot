@@ -4,14 +4,14 @@ Tests scraping logic
 import pytest
 import json
 from unittest.mock import Mock, patch, MagicMock
-from data.scraper.scrape_sfgc import SFGCScraper
+from data.scraper.scrape_sfgc import CollegewalaScraper
 from data.scraper.page_parser import PageParser
 
 
-class TestSFGCScraper:
+class TestCollegewalaScraper:
     @pytest.fixture
     def scraper(self):
-        return SFGCScraper(base_url="https://www.sfgc.ac.in")
+        return CollegewalaScraper(base_url="https://www.collegewala.edu.in")
     
     @patch('requests.Session.get')
     def test_get_page_success(self, mock_get, scraper):
@@ -20,7 +20,7 @@ class TestSFGCScraper:
         mock_response.raise_for_status = Mock()
         mock_get.return_value = mock_response
         
-        result = scraper.get_page("https://www.sfgc.ac.in/test")
+        result = scraper.get_page("https://www.collegewala.edu.in/test")
         
         assert result is not None
         assert result.title.string == "Test Page"
@@ -29,7 +29,7 @@ class TestSFGCScraper:
     def test_get_page_failure(self, mock_get, scraper):
         mock_get.side_effect = Exception("Connection error")
         
-        result = scraper.get_page("https://www.sfgc.ac.in/test")
+        result = scraper.get_page("https://www.collegewala.edu.in/test")
         
         assert result is None
     
@@ -95,7 +95,7 @@ class TestIntentMapper:
     def test_map_intents_from_data(self, mapper):
         sample_data = [
             {
-                "url": "https://www.sfgc.ac.in/admissions",
+                "url": "https://www.collegewala.edu.in/admissions",
                 "title": "Admissions",
                 "content": "Apply for admission",
                 "page_type": "admissions"

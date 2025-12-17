@@ -192,7 +192,7 @@ class TestDataLoader:
     
     def test_load_training_data(self, loader):
         try:
-            data = loader.load_training_data('data/processed/sfgc_intents.json')
+            data = loader.load_training_data('data/processed/collegewala_intents.json')
             assert data is not None
             assert isinstance(data, list)
         except FileNotFoundError:
@@ -200,7 +200,7 @@ class TestDataLoader:
     
     def test_prepare_training_data(self, loader):
         try:
-            X_train, y_train = loader.prepare_training_data('data/processed/sfgc_intents.json')
+            X_train, y_train = loader.prepare_training_data('data/processed/collegewala_intents.json')
             assert X_train is not None
             assert y_train is not None
         except Exception:

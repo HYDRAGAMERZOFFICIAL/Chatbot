@@ -1,5 +1,5 @@
 """
-Scrapes public pages of sfgc.ac.in
+Scrapes public pages of collegewala.edu.in
 """
 import requests
 from bs4 import BeautifulSoup
@@ -12,8 +12,8 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-class SFGCScraper:
-    def __init__(self, base_url: str = "https://www.sfgc.ac.in"):
+class CollegewalaScraper:
+    def __init__(self, base_url: str = "https://www.collegewala.edu.in"):
         self.base_url = base_url
         self.session = requests.Session()
         self.session.headers.update({
@@ -70,7 +70,7 @@ class SFGCScraper:
             return None
 
     def scrape_main_pages(self) -> List[Dict]:
-        """Scrape key pages from SFGC website"""
+        """Scrape key pages from Collegewala website"""
         pages = [
             ('/', 'home'),
             ('/about', 'about'),
@@ -103,9 +103,9 @@ class SFGCScraper:
 
 
 def main():
-    scraper = SFGCScraper()
+    scraper = CollegewalaScraper()
     scraper.scrape_main_pages()
-    scraper.save_to_json('data/raw/scraped_sfgc_data.json')
+    scraper.save_to_json('data/raw/scraped_collegewala_data.json')
     print(f"Scraped {len(scraper.scraped_data)} pages")
 
 

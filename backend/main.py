@@ -40,7 +40,7 @@ app.include_router(chat_api.router)
 async def root():
     """Welcome endpoint"""
     return {
-        "message": "Welcome to SFGC Chatbot API",
+        "message": "Welcome to Collegewala Chatbot API",
         "api_version": settings.API_VERSION,
         "docs": "/docs",
         "health": "/health/status"

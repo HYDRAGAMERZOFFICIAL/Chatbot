@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 
 class ResponseGenerator:
-    def __init__(self, intents_file: str = 'data/processed/sfgc_intents.json'):
+    def __init__(self, intents_file: str = 'backend/knowledge_base/collegewala_intents.json'):
         self.intents_file = intents_file
         self.intent_responses = {}
         self.load_intent_responses()

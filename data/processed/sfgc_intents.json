@@ -2,17 +2,17 @@
   {
     "intent": "about",
     "patterns": [
-      "About SFGC",
-      "Sri Satya Sai Group of Colleges was founded with a vision to provide excellent education.",
+      "About Collegewala",
+      "Collegewala was founded with a vision to provide excellent education.",
       "The institution has a strong faculty and excellent infrastructure.",
       "We have state-of-the-art laboratories and learning facilities."
     ],
     "responses": [
-      "Sri Satya Sai Group of Colleges was founded with a vision to provide excellent education. The institution has a strong faculty and excellent infrastructure."
+      "Collegewala was founded with a vision to provide excellent education. The institution has a strong faculty and excellent infrastructure."
     ],
     "context": [
       {
-        "url": "https://www.sfgc.ac.in/about",
+        "url": "https://www.collegewala.edu.in/about",
         "page_type": "about",
         "keywords": ["founded", "vision", "education", "institution", "faculty", "infrastructure"]
       }
@@ -21,7 +21,7 @@
   {
     "intent": "academics",
     "patterns": [
-      "Academics - SFGC",
+      "Academics - Collegewala",
       "Our academic programs are designed to meet international standards.",
       "We offer courses in Engineering, Management, and Science.",
       "Each program is designed to develop critical thinking and practical skills."
@@ -31,7 +31,7 @@
     ],
     "context": [
       {
-        "url": "https://www.sfgc.ac.in/academics",
+        "url": "https://www.collegewala.edu.in/academics",
         "page_type": "academics",
         "keywords": ["academic", "programs", "international", "standards", "engineering", "management"]
       }
@@ -40,7 +40,7 @@
   {
     "intent": "admissions",
     "patterns": [
-      "Admissions - SFGC",
+      "Admissions - Collegewala",
       "Admission process is simple and transparent.",
       "Students can apply online through our portal.",
       "Admission requirements include qualifying entrance exams and academic performance."
@@ -50,7 +50,7 @@
     ],
     "context": [
       {
-        "url": "https://www.sfgc.ac.in/admissions",
+        "url": "https://www.collegewala.edu.in/admissions",
         "page_type": "admissions",
         "keywords": ["admission", "process", "transparent", "apply", "online", "portal"]
       }
@@ -59,17 +59,17 @@
   {
     "intent": "contact",
     "patterns": [
-      "Contact Us - SFGC",
+      "Contact Us - Collegewala",
       "You can reach us at our campus located in the heart of the city.",
       "Phone: +91-XXXXXXXXXX",
-      "Email: info@sfgc.ac.in"
+      "Email: info@collegewala.edu.in"
     ],
     "responses": [
-      "You can reach us at our campus located in the heart of the city. Phone: +91-XXXXXXXXXX Email: info@sfgc.ac.in"
+      "You can reach us at our campus located in the heart of the city. Phone: +91-XXXXXXXXXX Email: info@collegewala.edu.in"
     ],
     "context": [
       {
-        "url": "https://www.sfgc.ac.in/contact",
+        "url": "https://www.collegewala.edu.in/contact",
         "page_type": "contact",
         "keywords": ["reach", "campus", "located", "heart", "city"]
       }
@@ -78,17 +78,17 @@
   {
     "intent": "general",
     "patterns": [
-      "SFGC - Sri Satya Sai Group of Colleges",
-      "Welcome to Sri Satya Sai Group of Colleges.",
+      "Collegewala - Your Education Partner",
+      "Welcome to Collegewala.",
       "We are committed to providing quality education and holistic development of students.",
       "Our institution offers various undergraduate and postgraduate courses."
     ],
     "responses": [
-      "Welcome to Sri Satya Sai Group of Colleges. We are committed to providing quality education and holistic development of students."
+      "Welcome to Collegewala. We are committed to providing quality education and holistic development of students."
     ],
     "context": [
       {
-        "url": "https://www.sfgc.ac.in/",
+        "url": "https://www.collegewala.edu.in/",
         "page_type": "home",
         "keywords": ["welcome", "committed", "providing", "quality", "education", "holistic"]
       }

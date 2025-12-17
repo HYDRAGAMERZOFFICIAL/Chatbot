@@ -64,7 +64,7 @@ def test_data_loading():
     try:
         from backend.pipeline.data_loader import DataLoader
         
-        loader = DataLoader('backend/knowledge_base/sfgc_intents.json')
+        loader = DataLoader('backend/knowledge_base/collegewala_intents.json')
         patterns, labels = loader.prepare_training_data()
         
         if patterns and labels:
@@ -119,7 +119,7 @@ def test_feature_engineering():
 
 def main():
     """Run all tests"""
-    logger.info("\n🧪 SFGC Chatbot - Import and Component Tests\n")
+    logger.info("\n🧪 Collegewala Chatbot - Import and Component Tests\n")
     
     results = []
     results.append(("Imports", test_imports()))

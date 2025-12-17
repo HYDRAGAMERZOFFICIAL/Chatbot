@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 
 class DataLoader:
-    def __init__(self, data_path: str = 'backend/knowledge_base/sfgc_intents.json'):
+    def __init__(self, data_path: str = 'backend/knowledge_base/collegewala_intents.json'):
         self.data_path = data_path
         self.intents = []
         self.patterns = []

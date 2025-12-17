@@ -79,7 +79,7 @@ class ResponseSelector:
     def get_contact_fallback(self) -> str:
         """Get contact information fallback"""
         return self.fallback_data.get('contact_fallback',
-                                      'Please contact: info@sfgc.ac.in')
+                                      'Please contact: info@collegewala.edu.in')
 
     def get_suggestion_message(self) -> str:
         """Get suggestion message for user"""

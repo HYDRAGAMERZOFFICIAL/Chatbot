@@ -12,7 +12,7 @@
     ],
     "context": [
       {
-        "url": "https://www.collegewala.edu.in/about",
+        "url": "https://www.sfgc.ac.in/about",
         "page_type": "about",
         "keywords": ["founded", "vision", "education", "institution", "faculty", "infrastructure"]
       }
@@ -31,7 +31,7 @@
     ],
     "context": [
       {
-        "url": "https://www.collegewala.edu.in/academics",
+        "url": "https://www.sfgc.ac.in/academics",
         "page_type": "academics",
         "keywords": ["academic", "programs", "international", "standards", "engineering", "management"]
       }
@@ -50,7 +50,7 @@
     ],
     "context": [
       {
-        "url": "https://www.collegewala.edu.in/admissions",
+        "url": "https://www.sfgc.ac.in/admissions",
         "page_type": "admissions",
         "keywords": ["admission", "process", "transparent", "apply", "online", "portal"]
       }
@@ -69,7 +69,7 @@
     ],
     "context": [
       {
-        "url": "https://www.collegewala.edu.in/contact",
+        "url": "https://www.sfgc.ac.in/contact",
         "page_type": "contact",
         "keywords": ["reach", "campus", "located", "heart", "city"]
       }
@@ -88,7 +88,7 @@
     ],
     "context": [
       {
-        "url": "https://www.collegewala.edu.in/",
+        "url": "https://www.sfgc.ac.in/",
         "page_type": "home",
         "keywords": ["welcome", "committed", "providing", "quality", "education", "holistic"]
       }

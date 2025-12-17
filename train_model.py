@@ -17,7 +17,7 @@ def main():
     """Main training function"""
     try:
         logger.info("=" * 60)
-        logger.info("SFGC Chatbot - Model Training Pipeline")
+        logger.info("Collegewala Chatbot - Model Training Pipeline")
         logger.info("=" * 60)
         
         logger.info("\n[Step 1/4] Importing dependencies...")
@@ -29,7 +29,7 @@ def main():
         logger.info("✓ Dependencies imported successfully")
         
         logger.info("\n[Step 2/4] Loading training data...")
-        data_loader = DataLoader('backend/knowledge_base/sfgc_intents.json')
+        data_loader = DataLoader('backend/knowledge_base/collegewala_intents.json')
         patterns, labels = data_loader.prepare_training_data()
         
         if not patterns or not labels:

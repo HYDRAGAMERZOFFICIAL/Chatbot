@@ -7,9 +7,9 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    API_TITLE: str = "SFGC Chatbot API"
+    API_TITLE: str = "Collegewala Chatbot API"
     API_VERSION: str = "1.0.0"
-    API_DESCRIPTION: str = "AI-powered chatbot for SFGC college information"
+    API_DESCRIPTION: str = "AI-powered chatbot for Collegewala college information"
 
     CONFIDENCE_THRESHOLD: float = 0.5
     MIN_CONFIDENCE: float = 0.3
@@ -21,7 +21,7 @@ class Settings(BaseSettings):
     LOGS_DIR: Path = BASE_DIR / "backend" / "logs"
     KNOWLEDGE_BASE_DIR: Path = BASE_DIR / "backend" / "knowledge_base"
 
-    INTENTS_FILE: Path = DATA_DIR / "processed" / "sfgc_intents.json"
+    INTENTS_FILE: Path = DATA_DIR / "processed" / "collegewala_intents.json"
     FALLBACK_FILE: Path = KNOWLEDGE_BASE_DIR / "fallback.json"
     INTENT_MODEL_FILE: Path = MODELS_DIR / "intent_model.pkl"
     VECTORIZER_FILE: Path = MODELS_DIR / "vectorizer.pkl"

@@ -1,9 +1,9 @@
 @echo off
-REM Windows batch file to run SFGC Chatbot: scraping → training → backend → UI
+REM Windows batch file to run Collegewala Chatbot: scraping → training → backend → UI
 REM This script automates the entire chatbot startup process
 
 echo ======================================
-echo SFGC AI College Chatbot - Startup
+echo Collegewala AI College Chatbot - Startup
 echo ======================================
 echo.
 
@@ -35,8 +35,8 @@ if errorlevel 1 (
 echo Dependencies installed successfully!
 echo.
 
-REM Scrape SFGC website
-echo [2/4] Scraping SFGC website...
+REM Scrape Collegewala website
+echo [2/4] Scraping Collegewala website...
 python data/scraper/scrape_sfgc.py
 if errorlevel 1 (
     echo Warning: Web scraping failed (may be network issue, continuing with existing data)
@@ -71,14 +71,14 @@ echo.
 
 REM Start backend in background
 echo Starting Backend API (port 8000)...
-start "SFGC Chatbot - Backend" cmd /k "cd backend && python main.py"
+start "Collegewala Chatbot - Backend" cmd /k "cd backend && python main.py"
 
 REM Wait a bit for backend to start
 timeout /t 3 /nobreak
 
 REM Start frontend
 echo Starting Frontend UI (port 8501)...
-start "SFGC Chatbot - Frontend" cmd /k "cd frontend && streamlit run app.py"
+start "Collegewala Chatbot - Frontend" cmd /k "cd frontend && streamlit run app.py"
 
 echo.
 echo All services started! Check the opened windows for logs.

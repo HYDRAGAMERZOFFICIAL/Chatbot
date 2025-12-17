@@ -16,14 +16,14 @@ from ui_components import (
 API_BASE_URL = "http://localhost:8000"
 
 st.set_page_config(
-    page_title="SFGC Chatbot",
+    page_title="Collegewala Chatbot",
     page_icon="🎓",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-st.title("🎓 SFGC College Chatbot")
-st.markdown("**Your AI-powered assistant for SFGC college information**")
+st.title("🎓 Collegewala Chatbot")
+st.markdown("**Your AI-powered assistant for Collegewala college information**")
 
 
 @st.cache_resource
@@ -125,7 +125,7 @@ def main():
 
         with col1:
             user_input = st.text_input(
-                "Ask me anything about SFGC...",
+                "Ask me anything about Collegewala...",
                 placeholder="e.g., What are the courses offered?",
                 label_visibility="collapsed"
             )
