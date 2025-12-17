@@ -98,5 +98,10 @@
       "answer": "Absolutely! Collegewala is fully recognized and accredited: (1) NAAC Accredited with A+ Grade - highest rating for academic quality, (2) NBA Accredited for Computer Science, Electronics, and Mechanical Engineering branches, (3) Recognized by Government of India, (4) Member of various educational bodies. Our degrees are valid nationwide and globally recognized. You can confidently pursue your studies here!",
       "category": "Recognition",
       "tags": ["accreditation", "recognition", "NAAC", "NBA", "quality", "certification", "validity"]
+    },
+    "What are the class hours and daily schedule?": {
+      "answer": "Collegewala follows a structured schedule: Morning classes 9:00 AM to 1:00 PM, lunch break 1:00-2:00 PM, afternoon classes 2:00-5:00 PM. Classes run Monday to Friday. Some labs may extend to 6:00 PM. Saturdays have optional seminars and workshops. Sundays are off. During exams, special schedules are announced. Final year students may have flexible timings due to projects and placements. Check the academic calendar for exact dates.",
+      "category": "Academics",
+      "tags": ["schedule", "class", "timing", "hours", "daily", "timetable", "when"]
     }
   }

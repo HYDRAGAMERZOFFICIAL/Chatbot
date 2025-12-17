@@ -90,11 +90,17 @@ export function ChatInterface() {
   }, []);
 
   const loadSession = (sessionId: string) => {
-    const history = JSON.parse(localStorage.getItem('chatHistory') || '{}');
-    if (history[sessionId]) {
-      setMessages(history[sessionId].messages);
-      setCurrentSessionId(sessionId);
-    } else {
+    try {
+      const chatHistoryStr = localStorage.getItem('chatHistory') || '{}';
+      const history = JSON.parse(chatHistoryStr);
+      if (history[sessionId]) {
+        setMessages(history[sessionId].messages);
+        setCurrentSessionId(sessionId);
+      } else {
+        startNewSession();
+      }
+    } catch (error) {
+      console.warn('Failed to load chat history, starting new session');
       startNewSession();
     }
   };
@@ -126,16 +132,44 @@ export function ChatInterface() {
   }, []);
 
   const saveChatHistory = (sessionId: string, title: string, messagesToSave: Message[]) => {
-    const history = JSON.parse(localStorage.getItem('chatHistory') || '{}');
-    const updatedSession: ChatSession = {
-        id: sessionId,
-        title: title,
-        messages: messagesToSave,
-        timestamp: history[sessionId]?.timestamp || new Date().toISOString(),
-    };
-    history[sessionId] = updatedSession;
-    localStorage.setItem('chatHistory', JSON.stringify(history));
-    window.dispatchEvent(new StorageEvent('storage', { key: 'chatHistory' }));
+    try {
+      const chatHistoryStr = localStorage.getItem('chatHistory') || '{}';
+      const history = JSON.parse(chatHistoryStr);
+      
+      if (typeof history !== 'object' || history === null) {
+        throw new Error('Invalid history format');
+      }
+
+      const maxStorageSize = 5242880;
+      const currentSize = new Blob([chatHistoryStr]).size;
+      
+      if (currentSize > maxStorageSize) {
+        const sessions = Object.keys(history).sort((a, b) => {
+          const timeA = new Date(history[a]?.timestamp || 0).getTime();
+          const timeB = new Date(history[b]?.timestamp || 0).getTime();
+          return timeA - timeB;
+        });
+        
+        while (sessions.length > 0 && new Blob([JSON.stringify(history)]).size > maxStorageSize * 0.8) {
+          const oldestSession = sessions.shift();
+          if (oldestSession) {
+            delete history[oldestSession];
+          }
+        }
+      }
+
+      const updatedSession: ChatSession = {
+          id: sessionId,
+          title: title,
+          messages: messagesToSave,
+          timestamp: history[sessionId]?.timestamp || new Date().toISOString(),
+      };
+      history[sessionId] = updatedSession;
+      localStorage.setItem('chatHistory', JSON.stringify(history));
+      window.dispatchEvent(new StorageEvent('storage', { key: 'chatHistory' }));
+    } catch (error) {
+      console.warn('Failed to save chat history:', error);
+    }
   };
 
   const handleSubmit = async (query?: string) => {
@@ -219,38 +253,66 @@ export function ChatInterface() {
   const renderMessageContent = (message: Message) => {
     if (message.endOfTurn === true) {
       return (
-        <div className="mt-3 space-y-2">
-           <p className="text-sm mb-2">Do you need more help?</p>
+        <div className="mt-4 space-y-3 pt-2 border-t border-slate-200/50">
+           <p className="text-sm font-medium">Was this helpful?</p>
           <div className="flex gap-2">
-            <Button variant="outline" size="sm" onClick={() => handleFollowUp(true)}>Yes</Button>
-            <Button variant="outline" size="sm" onClick={() => handleFollowUp(false)}>No</Button>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={() => handleFollowUp(true)}
+              className="flex-1 rounded-lg border-slate-300 hover:bg-blue-50 hover:border-blue-400 transition-colors"
+            >
+              ✓ Yes
+            </Button>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={() => handleFollowUp(false)}
+              className="flex-1 rounded-lg border-slate-300 hover:bg-red-50 hover:border-red-400 transition-colors"
+            >
+              ✗ No
+            </Button>
           </div>
         </div>
       );
     }
     if (message.endOfTurn === 'feedback' as any) {
       return (
-         <div className="mt-3 flex gap-2">
-            <Button variant="outline" size="icon" onClick={() => handleFeedbackSubmit('good')}>
-                <ThumbsUp />
+         <div className="mt-4 flex gap-2 pt-2 border-t border-slate-200/50">
+            <Button 
+              variant="outline" 
+              size="icon" 
+              onClick={() => handleFeedbackSubmit('good')}
+              className="rounded-lg border-slate-300 hover:bg-green-50 hover:border-green-400 transition-colors"
+              title="Helpful response"
+            >
+                <ThumbsUp size={18} />
             </Button>
-             <Button variant="outline" size="icon" onClick={() => handleFeedbackSubmit('bad')}>
-                <ThumbsDown />
+             <Button 
+              variant="outline" 
+              size="icon" 
+              onClick={() => handleFeedbackSubmit('bad')}
+              className="rounded-lg border-slate-300 hover:bg-red-50 hover:border-red-400 transition-colors"
+              title="Not helpful"
+            >
+                <ThumbsDown size={18} />
             </Button>
         </div>
       )
     }
     if (message.suggestions && message.suggestions.length > 0) {
       return (
-        <div className="mt-3 space-y-2">
+        <div className="mt-4 space-y-2 pt-2 border-t border-slate-200/50">
+          <p className="text-xs font-medium text-slate-500 uppercase tracking-wide">Suggested questions:</p>
           {message.suggestions.map((s, i) => (
             <Button
               key={i}
               variant="outline"
               size="sm"
-              className="h-auto w-full justify-start whitespace-normal text-left"
+              className="h-auto w-full justify-start whitespace-normal text-left rounded-lg border-slate-200 hover:border-indigo-400 hover:bg-indigo-50 transition-all duration-200 text-slate-700 hover:text-indigo-700"
               onClick={() => handleSuggestionClick(s)}
             >
+              <span className="text-indigo-500 mr-2">→</span>
               {s}
             </Button>
           ))}
@@ -261,74 +323,84 @@ export function ChatInterface() {
   };
 
   return (
-    <div className="flex h-full w-full flex-col bg-background">
+    <div className="flex h-full w-full flex-col bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       <div className="flex-1 overflow-hidden flex flex-col">
         <ScrollArea className="flex-1" ref={scrollAreaRef}>
           <div className="flex w-full justify-center">
-            <div className="w-full max-w-4xl space-y-4 px-4 py-6">
+            <div className="w-full max-w-4xl space-y-4 px-4 py-8">
               {messages.map(m => (
-                <div key={m.id} className={cn('flex gap-3 items-start', m.role === 'user' && 'flex-row-reverse')}>
+                <div 
+                  key={m.id} 
+                  className={cn('flex gap-3 items-start animate-in fade-in slide-in-from-bottom-2 duration-300', m.role === 'user' && 'flex-row-reverse')}
+                >
                   <div className="shrink-0">
                     {m.role === 'bot' && (
-                      <Avatar className="h-8 w-8 border">
-                        <AvatarFallback className="bg-primary text-primary-foreground text-xs">
-                          <Bot size={18} />
+                      <Avatar className="h-9 w-9 border-2 border-indigo-200 shadow-md">
+                        <AvatarFallback className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white text-xs font-bold">
+                          <Bot size={20} />
                         </AvatarFallback>
                       </Avatar>
                     )}
                     {m.role === 'user' && (
-                      <Avatar className="h-8 w-8 border">
-                        <AvatarFallback className="bg-accent text-accent-foreground text-xs">
-                          <User size={18} />
+                      <Avatar className="h-9 w-9 border-2 border-blue-200 shadow-md">
+                        <AvatarFallback className="bg-gradient-to-br from-indigo-500 to-blue-600 text-white text-xs font-bold">
+                          <User size={20} />
                         </AvatarFallback>
                       </Avatar>
                     )}
                   </div>
-                  <div className={cn('flex flex-col gap-2 max-w-md', m.role === 'user' && 'items-end')}>
+                  <div className={cn('flex flex-col gap-3 max-w-md', m.role === 'user' && 'items-end')}>
                     <div
                       className={cn(
-                        'rounded-lg p-3 shadow-sm break-words',
+                        'rounded-2xl px-4 py-3 shadow-md break-words border transition-all duration-200',
                         m.role === 'user'
-                          ? 'bg-primary text-primary-foreground'
-                          : 'bg-card text-card-foreground',
+                          ? 'bg-gradient-to-r from-blue-500 to-indigo-600 text-white border-blue-400/50 rounded-br-none'
+                          : 'bg-white text-slate-900 border-slate-200/80 rounded-bl-none',
                       )}
                     >
-                      <p className="whitespace-pre-wrap text-sm">{m.text}</p>
+                      <p className="whitespace-pre-wrap text-sm leading-relaxed">{m.text}</p>
                       {renderMessageContent(m)}
                     </div>
                   </div>
                 </div>
               ))}
               {isPending && (
-                <div className="flex gap-3 items-start">
+                <div className="flex gap-3 items-start animate-in fade-in slide-in-from-bottom-2 duration-300">
                   <div className="shrink-0">
-                    <Avatar className="h-8 w-8 border">
-                      <AvatarFallback className="bg-primary text-primary-foreground text-xs">
-                        <Bot size={18} />
+                    <Avatar className="h-9 w-9 border-2 border-indigo-200 shadow-md">
+                      <AvatarFallback className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white text-xs font-bold">
+                        <Bot size={20} />
                       </AvatarFallback>
                     </Avatar>
                   </div>
-                  <div className="space-y-2 rounded-lg bg-card p-3 shadow-sm">
-                    <Skeleton className="h-4 w-48" />
-                    <Skeleton className="h-4 w-32" />
+                  <div className="space-y-2 rounded-2xl bg-white p-4 shadow-md border border-slate-200/80 rounded-bl-none">
+                    <Skeleton className="h-4 w-48 bg-slate-200" />
+                    <Skeleton className="h-4 w-32 bg-slate-200" />
                   </div>
                 </div>
               )}
+              <div className="h-4" />
             </div>
           </div>
         </ScrollArea>
       </div>
-      <div className="border-t bg-card/50 px-4 py-3">
+      <div className="border-t border-slate-200/50 bg-white/50 backdrop-blur-sm px-4 py-4 shadow-lg">
         <div className="flex w-full justify-center">
           <form
             onSubmit={e => {
               e.preventDefault();
               handleSubmit();
             }}
-            className="flex w-full max-w-4xl items-end gap-2"
+            className="flex w-full max-w-4xl items-end gap-3"
           >
-            <Button variant="ghost" size="icon" onClick={startNewSession} className="shrink-0">
-              <PlusCircle className="h-5 w-5" />
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={startNewSession}
+              className="shrink-0 rounded-full hover:bg-blue-100 text-slate-600 hover:text-slate-900 transition-colors"
+              title="Start new chat"
+            >
+              <PlusCircle className="h-6 w-6" />
               <span className="sr-only">New Chat</span>
             </Button>
             <Textarea
@@ -336,12 +408,17 @@ export function ChatInterface() {
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Ask a question..."
-              className="flex-1 resize-none border rounded-md bg-background shadow-sm focus-visible:ring-1"
+              placeholder="Ask me anything about Collegewala..."
+              className="flex-1 resize-none border-2 border-slate-200/80 rounded-2xl bg-white text-slate-900 shadow-md focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:border-indigo-400 placeholder:text-slate-400 transition-all duration-200 px-4 py-3"
               rows={1}
               disabled={isPending}
             />
-            <Button type="submit" size="icon" disabled={isPending || !input.trim()} className="shrink-0">
+            <Button 
+              type="submit" 
+              size="icon" 
+              disabled={isPending || !input.trim()}
+              className="shrink-0 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white shadow-md hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
               <Send size={20} />
               <span className="sr-only">Send</span>
             </Button>

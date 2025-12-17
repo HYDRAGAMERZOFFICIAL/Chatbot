@@ -203,6 +203,18 @@
           "What's the course duration?",
           "Are programs accredited?"
         ]
+      },
+      {
+        "intent": "class_schedule",
+        "keywords": ["schedule", "class", "timing", "time", "hours", "when do classes", "daily schedule", "timetable"],
+        "answer": "Collegewala has well-structured class schedules: (1) Morning classes: 9:00 AM to 1:00 PM, (2) Lunch break: 1:00 PM to 2:00 PM, (3) Afternoon classes: 2:00 PM to 5:00 PM, (4) Classes are held Monday to Friday, (5) Some practical labs may extend to 6:00 PM, (6) Saturday: Seminars, workshops, and extra classes (optional), (7) Sunday: Off for students, (8) During examination period: Special schedule is announced in advance. Timings may vary for final year students based on projects and placements. Check the official academic calendar for exact dates and any changes.",
+        "questions": [
+          "What are the class hours?",
+          "What's the daily schedule?",
+          "When do classes start?",
+          "Are there morning and evening batches?",
+          "What's the class timing?"
+        ]
       }
     ]
   }
