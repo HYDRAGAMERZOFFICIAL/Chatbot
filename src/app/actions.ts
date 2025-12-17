@@ -2,9 +2,9 @@
 'use server';
 
 import { findBestMatch } from '@/lib/similarity';
-import intentsData from '../../data.json';
-import faqData from '../../faq.json';
-import collegeData from '../../clg.json';
+import intentsData from '@/data/json/intents.json';
+import faqData from '@/data/json/faq.json';
+import collegeData from '@/data/json/clg.json';
 import learnedAnswersData from '@/data/json/learned_answers.json';
 import { logUnansweredQuestion } from '@/ai/flows/unanswered-questions-flow';
 import { generateAnswer, type GenerateAnswerInput } from '@/ai/flows/generate-answer-flow';
@@ -13,7 +13,6 @@ import { saveLearnedAnswer } from '@/ai/flows/save-learned-answer-flow';
 
 import {
   suggestFAQ,
-  type AIPoweredFAQSuggestionsInput,
 } from '@/ai/flows/ai-powered-faq-suggestions';
 
 interface Intent {
@@ -91,25 +90,6 @@ const extractSearchableText = (obj: any): {text: string, answer: string}[] => {
   }
   return results;
 };
-
-// Function to process faculty data
-const extractFacultyData = (data: any): {text: string, answer: string}[] => {
-    let results: {text: string, answer: string}[] = [];
-    if (data && data.departments) {
-        for (const deptName in data.departments) {
-            const department = data.departments[deptName];
-            if (Array.isArray(department)) {
-                department.forEach(faculty => {
-                    const searchableText = `${faculty.name} ${faculty.designation} ${faculty.department} ${faculty.specialization.join(' ')} ${faculty.research_interests.join(' ')}`;
-                    const answerText = `${faculty.name} is a ${faculty.designation} in the ${faculty.department} department. Qualification: ${faculty.qualification}. Specializes in ${faculty.specialization.join(', ')}. Email: ${faculty.email}.`;
-                    results.push({ text: searchableText, answer: answerText });
-                });
-            }
-        }
-    }
-    return results;
-};
-
 
 const collegeSearchCorpus = extractSearchableText(collegeData);
 const facultySearchCorpus: {text: string, answer: string}[] = [];

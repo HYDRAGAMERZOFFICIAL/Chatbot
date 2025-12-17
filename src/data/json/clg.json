@@ -1,0 +1,61 @@
+{
+  "college": {
+    "name": "Tech Institute of Engineering",
+    "code": "TIE2024",
+    "description": "A premier engineering institute focused on innovation and research.",
+    "overview": "Established in 1995, Tech Institute of Engineering has been a leader in technical education.",
+    "mission": "To foster innovation and excellence in engineering education.",
+    "vision": "To be a globally recognized center for technical education and research.",
+    "facilities": ["Library", "Labs", "Hostel", "Sports Complex", "Cafeteria"],
+    "activities": ["Tech Fest", "Cultural Fest", "Hackathons", "Sports Meet"],
+    "courses": [
+      {
+        "name": "Computer Science Engineering",
+        "code": "CSE",
+        "duration_years": 4,
+        "eligibility": "10+2 with Physics, Chemistry, Math",
+        "description": "Focuses on software development, AI, and algorithms."
+      },
+      {
+        "name": "Electronics and Communication",
+        "code": "ECE",
+        "duration_years": 4,
+        "eligibility": "10+2 with Physics, Chemistry, Math",
+        "description": "Focuses on circuits, communication systems, and embedded systems."
+      }
+    ]
+  },
+  "departments": {
+    "CSE": [
+      {
+        "name": "Dr. Alan Turing",
+        "designation": "Professor",
+        "department": "CSE",
+        "specialization": ["Artificial Intelligence", "Algorithms"],
+        "research_interests": ["Machine Learning", "Data Science"],
+        "qualification": "Ph.D. in Computer Science",
+        "email": "alan.turing@tie.edu"
+      },
+      {
+        "name": "Prof. Ada Lovelace",
+        "designation": "Associate Professor",
+        "department": "CSE",
+        "specialization": ["Software Engineering", "Programming Languages"],
+        "research_interests": ["Software Architecture", "Compiler Design"],
+        "qualification": "Ph.D. in Software Engineering",
+        "email": "ada.lovelace@tie.edu"
+      }
+    ],
+    "ECE": [
+      {
+        "name": "Dr. Heinrich Hertz",
+        "designation": "Professor",
+        "department": "ECE",
+        "specialization": ["Electromagnetics", "Wireless Communication"],
+        "research_interests": ["Antenna Design", "Signal Processing"],
+        "qualification": "Ph.D. in Electronics",
+        "email": "heinrich.hertz@tie.edu"
+      }
+    ]
+  }
+}
