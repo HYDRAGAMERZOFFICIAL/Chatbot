@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 class CollegewalaScraper:
-    def __init__(self, base_url: str = "https://www.collegewala.edu.in"):
+    def __init__(self, base_url: str = "https://www.sfgc.ac.in"):
         self.base_url = base_url
         self.session = requests.Session()
         self.session.headers.update({

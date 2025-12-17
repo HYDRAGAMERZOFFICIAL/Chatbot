@@ -11,7 +11,7 @@ from data.scraper.page_parser import PageParser
 class TestCollegewalaScraper:
     @pytest.fixture
     def scraper(self):
-        return CollegewalaScraper(base_url="https://www.collegewala.edu.in")
+        return CollegewalaScraper(base_url="https://www.sfgc.ac.in")
     
     @patch('requests.Session.get')
     def test_get_page_success(self, mock_get, scraper):
