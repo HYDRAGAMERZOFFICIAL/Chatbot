@@ -1000,5 +1000,163 @@
     ],
     "feedback": "bad",
     "timestamp": "2025-12-18T06:58:13.510Z"
+  },
+  {
+    "history": [
+      {
+        "role": "bot",
+        "text": "Hello! I'm Collegewala. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?"
+      },
+      {
+        "role": "user",
+        "text": "what are the interships "
+      },
+      {
+        "role": "bot",
+        "text": "Hello! I'm Collegewala chatbot. I'm here to help you with any questions about our college - admissions, courses, fees, placements, facilities, and much more. What would you like to know?"
+      },
+      {
+        "role": "user",
+        "text": "How can I apply for admission?"
+      },
+      {
+        "role": "bot",
+        "text": "Applying for admission to Collegewala is quite straightforward! You can either apply online or in person. To apply online, just visit our website at www.collegewala.edu, fill out the online application form with your details, upload your required documents like mark sheets and ID proof, pay the application fee, and then submit your form. You will receive the merit list within two weeks, and if you're selected, you can complete your admission at our office. If you prefer to apply in person, you can visit our college office during office hours, which are Monday to Friday, from 9 AM to 5 PM."
+      },
+      {
+        "role": "bot",
+        "text": "How would you rate your experience?"
+      }
+    ],
+    "feedback": "good",
+    "timestamp": "2025-12-18T07:15:19.242Z"
+  },
+  {
+    "history": [
+      {
+        "role": "bot",
+        "text": "Hello! I'm Collegewala. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?"
+      },
+      {
+        "role": "user",
+        "text": "what are the interships "
+      },
+      {
+        "role": "bot",
+        "text": "Hello! I'm Collegewala chatbot. I'm here to help you with any questions about our college - admissions, courses, fees, placements, facilities, and much more. What would you like to know?"
+      },
+      {
+        "role": "user",
+        "text": "How can I apply for admission?"
+      },
+      {
+        "role": "bot",
+        "text": "Applying for admission to Collegewala is quite straightforward! You can either apply online or in person. To apply online, just visit our website at www.collegewala.edu, fill out the online application form with your details, upload your required documents like mark sheets and ID proof, pay the application fee, and then submit your form. You will receive the merit list within two weeks, and if you're selected, you can complete your admission at our office. If you prefer to apply in person, you can visit our college office during office hours, which are Monday to Friday, from 9 AM to 5 PM."
+      },
+      {
+        "role": "bot",
+        "text": "How would you rate your experience?"
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for your feedback! If you have more questions, just ask."
+      },
+      {
+        "role": "user",
+        "text": "what are internships offered"
+      },
+      {
+        "role": "bot",
+        "text": "Hello! I'm Collegewala chatbot. I'm here to help you with any questions about our college - admissions, courses, fees, placements, facilities, and much more. What would you like to know?"
+      },
+      {
+        "role": "bot",
+        "text": "How would you rate your experience?"
+      }
+    ],
+    "feedback": "bad",
+    "timestamp": "2025-12-18T07:17:26.335Z"
+  },
+  {
+    "history": [
+      {
+        "role": "bot",
+        "text": "Hello! I'm Collegewala. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?"
+      },
+      {
+        "role": "user",
+        "text": "How can I apply for admission?"
+      },
+      {
+        "role": "bot",
+        "text": "Applying for admission to Collegewala is quite straightforward! You can either apply online or in person. To apply online, just visit our website at www.collegewala.edu, fill out the online application form with your details, upload your required documents like mark sheets and ID proof, pay the application fee, and then submit your form. You will receive the merit list within two weeks, and if you're selected, you can complete your admission at our office. If you prefer to apply in person, you can visit our college office during office hours, which are Monday to Friday, from 9 AM to 5 PM."
+      },
+      {
+        "role": "bot",
+        "text": "How would you rate your experience?"
+      }
+    ],
+    "feedback": "good",
+    "timestamp": "2025-12-18T07:18:21.840Z"
+  },
+  {
+    "history": [
+      {
+        "role": "bot",
+        "text": "Hello! I'm Collegewala. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?"
+      },
+      {
+        "role": "user",
+        "text": "How can I apply for admission?"
+      },
+      {
+        "role": "bot",
+        "text": "Master of Business Administration\n\nDuration: 2 years\nSeats: 60\nFees: ₹4,00,000/year/year\n\nEligibility: Bachelor's degree + CAT/GMAT entrance exam, minimum 50% marks in graduation\n\nAverage Package: ₹18,00,000 LPA\nHighest Package: ₹45,00,000 LPA\nPlacement Rate: 99%\n\nCore Subjects: Finance, Marketing, Operations, Strategic Management, Business Analytics, Entrepreneurship, Leadership\n\nRecruiter Companies: Goldman Sachs, JP Morgan, McKinsey, Boston Consulting Group, Deloitte, Amazon, Microsoft, Google\n\nInternship Opportunities: Summer Internship, Semester Internship\n\nFacilities: Business simulation lab, Digital learning center, Case study room, Networking events\n\nDescription: 2-year MBA program with focus on leadership, innovation, and global business management."
+      },
+      {
+        "role": "user",
+        "text": "what is admission process"
+      },
+      {
+        "role": "bot",
+        "text": "Apply in two simple ways: (1) Online: Visit www.collegewala.edu, fill the application form, upload documents, pay fee, submit. Merit list comes in 2 weeks. (2) Offline: Visit our office with documents. After merit list is announced, complete your admission at our office with original documents. We'll help guide you through every step!"
+      },
+      {
+        "role": "bot",
+        "text": "How would you rate your experience?"
+      }
+    ],
+    "feedback": "good",
+    "timestamp": "2025-12-18T07:27:01.976Z"
+  },
+  {
+    "history": [
+      {
+        "role": "bot",
+        "text": "Hello! I'm Collegewala. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?"
+      },
+      {
+        "role": "user",
+        "text": "What courses are offered?"
+      },
+      {
+        "role": "bot",
+        "text": "Collegewala offers diverse courses for different interests: (1) B.Tech (4 years): Computer Science, Electronics, Mechanical, Civil, Electrical Engineering with 120-60 seats each, (2) MBA (2 years): Business management and leadership with 60 seats, (3) MCA (3 years): Advanced computing and software with 60 seats, (4) B.Sc (3 years): Physics, Chemistry, Math/Biology with 100 seats, (5) All programs are NAAC accredited (highest standard), (6) NBA accreditation for engineering branches. Each course has practical labs, projects, and industry exposure. Choose based on your interest and career goal. Placement support available after graduation."
+      },
+      {
+        "role": "user",
+        "text": "fees structure"
+      },
+      {
+        "role": "bot",
+        "text": "Here's the fee structure at Collegewala: (1) B.Tech courses: Rs. 2,50,000 per year, (2) MBA: Rs. 4,00,000 per year, (3) MCA: Rs. 3,00,000 per year, (4) B.Sc: Rs. 1,50,000 per year. Hostel fees are separate: Rs. 50,000 to Rs. 75,000 per year. We offer scholarships for deserving students - merit-based (10-50% discount), need-based financial aid, SC/ST scholarships (100% waiver), and sports scholarships. Fees can be paid in installments. Contact our fees office for more details."
+      },
+      {
+        "role": "bot",
+        "text": "How would you rate your experience?"
+      }
+    ],
+    "feedback": "good",
+    "timestamp": "2025-12-18T07:37:17.962Z"
   }
 ]

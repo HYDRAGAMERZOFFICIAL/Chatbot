@@ -1,15 +1,14 @@
 
 'use server';
 
-import { findBestMatch } from '@/lib/similarity';
-import intentsData from '@/data/json/intents.json';
-import faqData from '@/data/json/faq.json';
-import collegeData from '@/data/json/clg.json';
-import extData from '@/data/json/ext.json';
-import failedQueriesData from '@/data/json/failed_queries_training.json';
-import learnedAnswersData from '@/data/json/learned_answers.json';
-import internshipsData from '@/data/json/internships.json';
-import programsData from '@/data/json/programs.json';
+import {
+  buildTrainingCorpus,
+  findBestTrainingMatches,
+  type TrainingItem,
+} from '@/lib/training-data';
+import {
+  findByKeyword,
+} from '@/lib/keyword-response-map';
 import { logUnansweredQuestion } from '@/ai/flows/unanswered-questions-flow';
 import { generateAnswer, type GenerateAnswerInput } from '@/ai/flows/generate-answer-flow';
 import { logFeedback } from '@/ai/flows/log-feedback-flow';
@@ -19,167 +18,14 @@ import {
   suggestFAQ,
 } from '@/ai/flows/ai-powered-faq-suggestions';
 
-interface Intent {
-  intent: string;
-  keywords: string[];
-  answer: string;
-  questions: string[];
-}
+let trainingCorpus: TrainingItem[] | null = null;
 
-interface FaqItem {
-  question: string;
-  answer: string;
-  category: string;
-  tags: string[];
-}
-
-interface LearnedAnswerItem {
-    question: string;
-    answer: string;
-}
-
-interface Program {
-  id: string;
-  name: string;
-  degree: string;
-  specialization: string;
-  duration: string;
-  seats: string;
-  fees: string;
-  eligibility: string;
-  admission: string;
-  coreSubjects: string[];
-  specializations: string[];
-  placementRate: string;
-  averagePackage: string;
-  highestPackage: string;
-  recruiterCompanies: string[];
-  internshipOpportunities: string[];
-  facilities: string[];
-  description: string;
-}
-
-interface Internship {
-  id: string;
-  name: string;
-  duration: string;
-  timeline: string;
-  stipend: string;
-  eligibility: string;
-  domains: string[];
-  partnerCompanies: string[];
-  benefits: string[];
-  applicationProcess: string;
-  description: string;
-}
-
-const intents: Intent[] = (intentsData as { intents: Intent[] }).intents;
-const faqs: FaqItem[] = Object.entries(faqData).map(([question, details]) => ({
-  question,
-  ...(details as Omit<FaqItem, 'question'>),
-}));
-const learnedAnswers: LearnedAnswerItem[] = learnedAnswersData as LearnedAnswerItem[];
-const programs: Program[] = (programsData as { programs: Program[] }).programs;
-const internships: Internship[] = (internshipsData as { internships: Internship[] }).internships;
-
-
-// Function to recursively extract searchable text from the college data
-const extractSearchableText = (obj: unknown): {text: string, answer: string}[] => {
-  let results: {text: string, answer: string}[] = [];
-  if (obj && typeof obj === 'object') {
-    // For arrays, iterate over items
-    if (Array.isArray(obj)) {
-      obj.forEach(item => {
-        results = results.concat(extractSearchableText(item));
-      });
-    } else {
-      // For objects, create a text representation and an answer
-      const textParts: string[] = [];
-      let answer = '';
-      
-      if ('q' in obj && 'a' in obj) { // FAQ format
-         const objWithQA = obj as { q: string; a: string };
-         return [{text: objWithQA.q, answer: objWithQA.a}];
-      }
-      
-      const searchableKeys = ['name', 'code', 'description', 'eligibility', 'duration_years', 'overview', 'mission', 'vision', 'facilities', 'activities'];
-      
-      const currentAnswerParts : string[] = [];
-      const objRecord = obj as Record<string, unknown>;
-
-      for(const key in objRecord) {
-          if(typeof objRecord[key] === 'string' || typeof objRecord[key] === 'number') {
-              if(searchableKeys.includes(key)) {
-                  textParts.push(String(objRecord[key]));
-              }
-              currentAnswerParts.push(`${key}: ${objRecord[key]}`);
-          }
-      }
-
-      answer = currentAnswerParts.join(', ');
-
-      if(textParts.length > 0) {
-           results.push({
-               text: textParts.join(' '),
-               answer: answer
-           });
-      }
-
-      // Recurse into nested objects/arrays
-      Object.values(obj).forEach(value => {
-        results = results.concat(extractSearchableText(value));
-      });
-    }
+const getTrainingCorpus = (): TrainingItem[] => {
+  if (!trainingCorpus) {
+    trainingCorpus = buildTrainingCorpus();
   }
-  return results;
+  return trainingCorpus;
 };
-
-const collegeSearchCorpus = extractSearchableText(collegeData);
-const extSearchCorpus = extractSearchableText(extData);
-const failedQueriesCorpus = Object.entries(failedQueriesData).map(([question, details]) => ({
-  text: `${question} ${(details as { tags: string[] }).tags.join(' ')}`,
-  answer: (details as { answer: string }).answer
-}));
-const facultySearchCorpus: {text: string, answer: string}[] = [];
-
-const findMatchingProgram = (query: string): Program | null => {
-  const queryLower = query.toLowerCase();
-  return programs.find(p => 
-    queryLower.includes(p.name.toLowerCase()) ||
-    queryLower.includes(p.degree.toLowerCase()) ||
-    queryLower.includes(p.specialization.toLowerCase()) ||
-    p.specializations.some(s => queryLower.includes(s.toLowerCase()))
-  ) || null;
-};
-
-const findMatchingInternship = (query: string): Internship | null => {
-  const queryLower = query.toLowerCase();
-  return internships.find(i =>
-    queryLower.includes(i.name.toLowerCase()) ||
-    i.domains.some(d => queryLower.includes(d.toLowerCase()))
-  ) || null;
-};
-
-const formatProgramAnswer = (program: Program): string => {
-  return `${program.name}\n\nDuration: ${program.duration}\nSeats: ${program.seats}\nFees: ${program.fees}/year\n\nEligibility: ${program.eligibility}\n\nAverage Package: ${program.averagePackage}\nHighest Package: ${program.highestPackage}\nPlacement Rate: ${program.placementRate}\n\nCore Subjects: ${program.coreSubjects.join(', ')}\n\nRecruiter Companies: ${program.recruiterCompanies.join(', ')}\n\nInternship Opportunities: ${program.internshipOpportunities.join(', ')}\n\nFacilities: ${program.facilities.join(', ')}\n\nDescription: ${program.description}`;
-};
-
-const formatInternshipAnswer = (internship: Internship): string => {
-  return `${internship.name}\n\nDuration: ${internship.duration}\nTimeline: ${internship.timeline}\nStipend: ${internship.stipend}\n\nEligibility: ${internship.eligibility}\n\nDomains: ${internship.domains.join(', ')}\n\nPartner Companies: ${internship.partnerCompanies.join(', ')}\n\nBenefits: ${internship.benefits.join(', ')}\n\nApplication Process: ${internship.applicationProcess}\n\nDescription: ${internship.description}`;
-};
-
-const searchCorpus: { text: string; answer: string }[] = [
-  ...learnedAnswers.map(l => ({ text: l.question, answer: l.answer})),
-  ...intents.map(i => ({ text: `${i.intent} ${i.keywords.join(' ')} ${i.questions.join(' ')}`, answer: i.answer })),
-  ...programs.map(p => ({ text: `${p.name} ${p.degree} ${p.specialization} ${p.specializations.join(' ')} ${p.coreSubjects.join(' ')}`, answer: formatProgramAnswer(p) })),
-  ...internships.map(int => ({ text: `${int.name} ${int.domains.join(' ')}`, answer: formatInternshipAnswer(int) })),
-  ...faqs.map(f => ({ text: `${f.question} ${f.tags.join(' ')}`, answer: f.answer })),
-  ...collegeSearchCorpus,
-  ...extSearchCorpus,
-  ...failedQueriesCorpus,
-  ...facultySearchCorpus
-];
-
 const SIMILARITY_THRESHOLD = 0.4;
 
 const queryTypeMap = {
@@ -216,107 +62,96 @@ export async function handleUserQuery(query: string): Promise<{ answer: string; 
     };
   }
 
-  const matchingProgram = findMatchingProgram(query);
-  if (matchingProgram) {
-    return {
-      answer: formatProgramAnswer(matchingProgram),
-      suggestions: [
-        "Tell me about other programs",
-        "What's the placement rate?",
-        "How can I apply?",
-        "What are the internship opportunities?"
-      ],
-    };
-  }
-
-  const matchingInternship = findMatchingInternship(query);
-  if (matchingInternship) {
-    return {
-      answer: formatInternshipAnswer(matchingInternship),
-      suggestions: [
-        "Tell me about other internships",
-        "What are the eligibility requirements?",
-        "How do I apply?",
-        "What programs are available?"
-      ],
-    };
-  }
-  
-  let prioritizeKeyword = '';
-  for (const [type, keywords] of Object.entries(queryTypeMap)) {
-    if (keywords.some(kw => queryLower.includes(kw))) {
-      prioritizeKeyword = type;
-      break;
-    }
-  }
-  
-  let searchItems = searchCorpus;
-  if (prioritizeKeyword) {
-    searchItems = searchCorpus.sort((a, b) => {
-      const keywords = queryTypeMap[prioritizeKeyword as keyof typeof queryTypeMap];
-      const aScore = keywords?.filter((kw: string) => a.text.toLowerCase().includes(kw)).length || 0;
-      const bScore = keywords?.filter((kw: string) => b.text.toLowerCase().includes(kw)).length || 0;
-      return bScore - aScore;
-    });
-  }
-  
-  const { bestMatch, bestScore } = findBestMatch(query, searchItems, (item) => item.text);
-
-  if (bestMatch && bestScore > SIMILARITY_THRESHOLD) {
-    try {
-      const generateAnswerInput: GenerateAnswerInput = {
-        question: query,
-        context: bestMatch.answer,
-      };
-      
-      const [generatedAnswer, suggestedFaqs] = await Promise.all([
-        generateAnswer(generateAnswerInput),
-        suggestFAQ({
-          userQuestion: query,
-          previousAnswer: bestMatch.answer,
-        }),
-      ]);
-
-      // Save the newly generated answer for future use
-      if (bestScore < 0.95) { // Don't save if it's a very close match to existing data
-        await saveLearnedAnswer({ question: query, answer: generatedAnswer.answer });
-      }
-
-      return {
-        answer: generatedAnswer.answer,
-        suggestions: suggestedFaqs.suggestedQuestions,
-      };
-    } catch (error) {
-      console.error('AI processing failed:', error);
-      // Fallback to returning the direct answer without suggestions on AI error
-      return {
-        answer: bestMatch.answer,
-        suggestions: [],
-      };
-    }
-  }
-
   try {
-    // If no good match is found, try to generate an answer from the whole context
-    // This is a "self-healing" attempt.
-    const fullContext = searchCorpus.map(item => item.answer).join('\n\n');
-     const generatedAnswer = await generateAnswer({
-        question: query,
-        context: `Could not find a specific answer. Attempt to answer the user's question based on the following general knowledge of the college:\n${fullContext}`
-     });
+    const keywordMatch = findByKeyword(query);
+    
+    if (keywordMatch) {
+      try {
+        const generateAnswerInput: GenerateAnswerInput = {
+          question: query,
+          context: keywordMatch.answer,
+        };
+        
+        const [generatedAnswer, suggestedFaqs] = await Promise.all([
+          generateAnswer(generateAnswerInput),
+          suggestFAQ({
+            userQuestion: query,
+            previousAnswer: keywordMatch.answer,
+          }),
+        ]);
 
-    if (generatedAnswer && generatedAnswer.answer) {
-        // Save this newly generated answer
+        await saveLearnedAnswer({ question: query, answer: generatedAnswer.answer });
+
+        return {
+          answer: generatedAnswer.answer,
+          suggestions: suggestedFaqs.suggestedQuestions,
+        };
+      } catch (error) {
+        console.error('AI processing failed:', error);
+        return {
+          answer: keywordMatch.answer,
+          suggestions: [],
+        };
+      }
+    }
+
+    const corpus = getTrainingCorpus();
+    const trainingMatches = findBestTrainingMatches(query, corpus, 3);
+    
+    if (trainingMatches.length > 0 && trainingMatches[0].score > SIMILARITY_THRESHOLD) {
+      const bestMatch = trainingMatches[0].item;
+      
+      try {
+        const generateAnswerInput: GenerateAnswerInput = {
+          question: query,
+          context: bestMatch.answer,
+        };
+        
+        const [generatedAnswer, suggestedFaqs] = await Promise.all([
+          generateAnswer(generateAnswerInput),
+          suggestFAQ({
+            userQuestion: query,
+            previousAnswer: bestMatch.answer,
+          }),
+        ]);
+
+        if (trainingMatches[0].score < 0.95) {
+          await saveLearnedAnswer({ question: query, answer: generatedAnswer.answer });
+        }
+
+        return {
+          answer: generatedAnswer.answer,
+          suggestions: suggestedFaqs.suggestedQuestions,
+        };
+      } catch (error) {
+        console.error('AI processing failed:', error);
+        return {
+          answer: bestMatch.answer,
+          suggestions: [],
+        };
+      }
+    }
+
+    try {
+      const topMatches = corpus.slice(0, 10).map(item => item.answer).join('\n\n');
+      const generatedAnswer = await generateAnswer({
+        question: query,
+        context: `Could not find a specific answer. Attempt to answer the user's question based on the following general knowledge of the college:\n${topMatches}`
+      });
+
+      if (generatedAnswer && generatedAnswer.answer) {
         await saveLearnedAnswer({ question: query, answer: generatedAnswer.answer });
         return {
-            answer: generatedAnswer.answer,
-            suggestions: [], // Suggestions might not be relevant here
+          answer: generatedAnswer.answer,
+          suggestions: [],
         };
-    }
-  } catch (aiError) {
+      }
+    } catch (aiError) {
       console.error('Generative self-healing failed:', aiError);
+    }
+  } catch (error) {
+    console.error('Error in query processing:', error);
   }
-
 
   try {
     await logUnansweredQuestion({ question: query });
