@@ -6,6 +6,7 @@ import intentsData from '@/data/json/intents.json';
 import faqData from '@/data/json/faq.json';
 import collegeData from '@/data/json/clg.json';
 import extData from '@/data/json/ext.json';
+import failedQueriesData from '@/data/json/failed_queries_training.json';
 import learnedAnswersData from '@/data/json/learned_answers.json';
 import { logUnansweredQuestion } from '@/ai/flows/unanswered-questions-flow';
 import { generateAnswer, type GenerateAnswerInput } from '@/ai/flows/generate-answer-flow';
@@ -96,6 +97,10 @@ const extractSearchableText = (obj: unknown): {text: string, answer: string}[] =
 
 const collegeSearchCorpus = extractSearchableText(collegeData);
 const extSearchCorpus = extractSearchableText(extData);
+const failedQueriesCorpus = Object.entries(failedQueriesData).map(([question, details]) => ({
+  text: `${question} ${(details as { tags: string[] }).tags.join(' ')}`,
+  answer: (details as { answer: string }).answer
+}));
 const facultySearchCorpus: {text: string, answer: string}[] = [];
 
 const searchCorpus: { text: string; answer: string }[] = [
@@ -104,6 +109,7 @@ const searchCorpus: { text: string; answer: string }[] = [
   ...learnedAnswers.map(l => ({ text: l.question, answer: l.answer})),
   ...collegeSearchCorpus,
   ...extSearchCorpus,
+  ...failedQueriesCorpus,
   ...facultySearchCorpus
 ];
 
