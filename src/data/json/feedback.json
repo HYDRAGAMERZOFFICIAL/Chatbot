@@ -924,5 +924,47 @@
     ],
     "feedback": "good",
     "timestamp": "2025-12-17T16:45:17.916Z"
+  },
+  {
+    "history": [
+      {
+        "role": "bot",
+        "text": "Hello! I'm Collegewala. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?"
+      },
+      {
+        "role": "user",
+        "text": "What is the fee structure?"
+      },
+      {
+        "role": "bot",
+        "text": "Annual fees: B.Tech - Rs. 2.5 lakhs, MBA - Rs. 4 lakhs, MCA - Rs. 3 lakhs, B.Sc - Rs. 1.5 lakhs. Hostel fees are separate: Rs. 50,000-75,000 per year. We offer scholarships for merit, need-based financial aid, SC/ST waivers (100%), and sports scholarships. Fees can be paid in installments - contact finance office for details."
+      },
+      {
+        "role": "user",
+        "text": "detailed fee structure"
+      },
+      {
+        "role": "bot",
+        "text": "Annual fees: B.Tech - Rs. 2.5 lakhs, MBA - Rs. 4 lakhs, MCA - Rs. 3 lakhs, B.Sc - Rs. 1.5 lakhs. Hostel fees are separate: Rs. 50,000-75,000 per year. We offer scholarships for merit, need-based financial aid, SC/ST waivers (100%), and sports scholarships. Fees can be paid in installments - contact finance office for details."
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "internship oppurtunities"
+      },
+      {
+        "role": "bot",
+        "text": "Hello! I'm Collegewala chatbot. I'm here to help you with any questions about our college - admissions, courses, fees, placements, facilities, and much more. What would you like to know?"
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using Collegewala! Your feedback is valuable to us. How would you rate your experience?"
+      }
+    ],
+    "feedback": "bad",
+    "timestamp": "2025-12-18T04:09:55.374Z"
   }
 ]

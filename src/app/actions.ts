@@ -5,6 +5,7 @@ import { findBestMatch } from '@/lib/similarity';
 import intentsData from '@/data/json/intents.json';
 import faqData from '@/data/json/faq.json';
 import collegeData from '@/data/json/clg.json';
+import extData from '@/data/json/ext.json';
 import learnedAnswersData from '@/data/json/learned_answers.json';
 import { logUnansweredQuestion } from '@/ai/flows/unanswered-questions-flow';
 import { generateAnswer, type GenerateAnswerInput } from '@/ai/flows/generate-answer-flow';
@@ -94,6 +95,7 @@ const extractSearchableText = (obj: unknown): {text: string, answer: string}[] =
 };
 
 const collegeSearchCorpus = extractSearchableText(collegeData);
+const extSearchCorpus = extractSearchableText(extData);
 const facultySearchCorpus: {text: string, answer: string}[] = [];
 
 const searchCorpus: { text: string; answer: string }[] = [
@@ -101,10 +103,11 @@ const searchCorpus: { text: string; answer: string }[] = [
   ...faqs.map(f => ({ text: `${f.question} ${f.tags.join(' ')}`, answer: f.answer })),
   ...learnedAnswers.map(l => ({ text: l.question, answer: l.answer})),
   ...collegeSearchCorpus,
+  ...extSearchCorpus,
   ...facultySearchCorpus
 ];
 
-const SIMILARITY_THRESHOLD = 0.1;
+const SIMILARITY_THRESHOLD = 0.4;
 
 const queryTypeMap = {
   contact: ['contact', 'phone', 'number', 'call', 'email', 'reach', 'reach out', 'telephone', 'call college', 'speak'],
