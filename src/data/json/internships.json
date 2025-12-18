@@ -1,0 +1,82 @@
+{
+  "internships": [
+    {
+      "id": "summer-internship",
+      "name": "Summer Internship",
+      "duration": "8-10 weeks",
+      "timeline": "May-July",
+      "stipend": "₹10,000-20,000/month",
+      "eligibility": "2nd and 3rd year students, minimum 7.0 CGPA",
+      "domains": ["Software Development", "Data Science", "AI/ML", "Web Development", "DevOps", "Cloud Computing"],
+      "partnerCompanies": ["Google", "Microsoft", "Amazon", "TCS", "Infosys", "Cognizant", "Accenture", "Capgemini"],
+      "benefits": ["Hands-on project experience", "Mentorship from industry experts", "Certificate of completion", "Networking opportunities", "Potential PPO (Pre-Placement Offer)"],
+      "applicationProcess": "Online application portal → Technical assessment → Interview → Selection",
+      "description": "Ideal for gaining industry experience during summer break, open to 2nd and 3rd year students with competitive stipend and potential for conversion to PPO."
+    },
+    {
+      "id": "semester-internship",
+      "name": "Semester Internship",
+      "duration": "12-16 weeks",
+      "timeline": "January-April or August-November",
+      "stipend": "₹15,000-25,000/month",
+      "eligibility": "Final year students, minimum 7.5 CGPA, PPO conversion eligible",
+      "domains": ["Software Development", "Data Science", "AI/ML", "Web Development", "DevOps", "Cloud Computing", "Full Stack"],
+      "partnerCompanies": ["Google", "Microsoft", "Amazon", "TCS", "Infosys", "Cognizant", "Accenture", "Capgemini", "IBM"],
+      "benefits": ["Extended project engagement", "Mentorship from industry experts", "Certificate of completion", "Networking opportunities", "High PPO conversion rate (60-70%)", "Flexible work arrangements"],
+      "applicationProcess": "Online application portal → Technical assessment → Interview → Selection",
+      "description": "Longer internship duration for final year students with higher stipend and strong PPO conversion opportunity."
+    },
+    {
+      "id": "research-internship",
+      "name": "Research Internship",
+      "duration": "4-6 months",
+      "timeline": "Flexible (January-June or July-December)",
+      "stipend": "₹8,000-15,000/month",
+      "eligibility": "All years, minimum 8.5 CGPA, research interest required",
+      "domains": ["AI/ML Research", "Data Science", "Computer Vision", "Natural Language Processing", "IoT", "Quantum Computing"],
+      "partnerCompanies": ["CSIR", "ISRO", "IIT Research Labs", "Microsoft Research", "Google Research", "Adobe Research"],
+      "benefits": ["Publication opportunities", "Research paper co-authorship", "Certificate of completion", "PhD track eligibility", "Advanced learning", "Innovation exposure"],
+      "applicationProcess": "Research proposal submission → Technical interview → Research fit assessment → Selection",
+      "description": "Perfect for students interested in research, with opportunities for publication and PhD preparation."
+    },
+    {
+      "id": "startup-internship",
+      "name": "Startup Internship",
+      "duration": "3-6 months",
+      "timeline": "Flexible",
+      "stipend": "₹5,000-15,000/month or equity/ESOP",
+      "eligibility": "All years, entrepreneurial mindset required, can pursue during any semester",
+      "domains": ["Product Development", "Full Stack Development", "Marketing", "Business Development", "UI/UX Design", "Sales"],
+      "partnerCompanies": ["Flipkart", "Swiggy", "OYO", "Razorpay", "PhonePe", "Paytm", "Unacademy", "Various Seed-stage Startups"],
+      "benefits": ["Startup experience and culture", "Equity/ESOP options available", "Direct founder mentorship", "Fast learning curve", "Potential co-founder opportunities", "Early-stage innovation exposure"],
+      "applicationProcess": "Profile submission → Founder interview → Culture fit assessment → Offer",
+      "description": "Ideal for students interested in entrepreneurship and startup ecosystems with flexible terms and equity options."
+    },
+    {
+      "id": "final-year-project",
+      "name": "Final Year Project as Internship",
+      "duration": "12-16 weeks",
+      "timeline": "7th-8th semester (January-May or August-November)",
+      "stipend": "₹10,000-20,000/month",
+      "eligibility": "Final year students (7th-8th semester), minimum 6.5 CGPA",
+      "domains": ["Software Development", "Embedded Systems", "IoT", "AI/ML", "Web Development", "Robotics"],
+      "partnerCompanies": ["Industry partners across all sectors"],
+      "benefits": ["Industry-aligned project learning", "Academic credit + stipend", "Mentorship from industry experts", "Portfolio building", "Internship certificate", "Placement opportunity"],
+      "applicationProcess": "Project registration → Company allocation → Weekly mentorship → Evaluation",
+      "description": "Combine final year project requirements with industry internship for dual benefits of academic credit and professional experience."
+    },
+    {
+      "id": "international-internship",
+      "name": "International Internship",
+      "duration": "6-12 weeks",
+      "timeline": "Summer (May-July) or winter (December-January)",
+      "stipend": "$800-2,000/month USD",
+      "eligibility": "Final year students, minimum 7.5 CGPA, valid passport, visa sponsorship provided",
+      "domains": ["Software Development", "Data Science", "AI/ML", "Web Development", "Cloud Computing", "Mobile Development"],
+      "partnerCompanies": ["Google Singapore", "Microsoft India", "Amazon Europe", "JPMorgan Chase", "Goldman Sachs", "Accenture Global", "Capgemini India"],
+      "benefits": ["Global experience and culture exposure", "Higher stipend in USD", "Visa sponsorship provided", "Certificate of completion", "Networking with international teams", "Resume enhancement", "Cultural learning"],
+      "applicationProcess": "Online application → Technical assessment → Video interview → Background check → Visa processing",
+      "description": "Unique opportunity to work internationally with visa sponsorship, higher stipend, and global experience."
+    }
+  ]
+}

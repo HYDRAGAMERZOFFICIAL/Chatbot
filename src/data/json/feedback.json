@@ -966,5 +966,39 @@
     ],
     "feedback": "bad",
     "timestamp": "2025-12-18T04:09:55.374Z"
+  },
+  {
+    "history": [
+      {
+        "role": "bot",
+        "text": "Hello! I'm Collegewala. I can help you with questions about admissions, courses, fees, and more. How can I assist you today?"
+      },
+      {
+        "role": "user",
+        "text": "What courses are offered?"
+      },
+      {
+        "role": "bot",
+        "text": "Collegewala offers multiple programs: B.Tech in 5 branches (Computer Science, Electronics, Mechanical, Civil, Electrical) for 4 years, MBA for 2 years, MCA for 3 years, and B.Sc in Science streams for 3 years. All programs are highly respected and have 95%+ placement rate. Choose based on your interests and career goals."
+      },
+      {
+        "role": "bot",
+        "text": "How can I help you?"
+      },
+      {
+        "role": "user",
+        "text": "internship "
+      },
+      {
+        "role": "bot",
+        "text": "Hello! I'm Collegewala chatbot. I'm here to help you with any questions about our college - admissions, courses, fees, placements, facilities, and much more. What would you like to know?"
+      },
+      {
+        "role": "bot",
+        "text": "Thank you for using Collegewala! Your feedback is valuable to us. How would you rate your experience?"
+      }
+    ],
+    "feedback": "bad",
+    "timestamp": "2025-12-18T06:58:13.510Z"
   }
 ]

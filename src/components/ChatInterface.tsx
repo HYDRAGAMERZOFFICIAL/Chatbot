@@ -41,6 +41,12 @@ const initialMessages: Message[] = [
   },
 ];
 
+const autoExpandTextarea = (textarea: HTMLTextAreaElement) => {
+  textarea.style.height = 'auto';
+  const newHeight = Math.min(textarea.scrollHeight, 120);
+  textarea.style.height = newHeight + 'px';
+};
+
 export function ChatInterface() {
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [input, setInput] = useState('');
@@ -128,7 +134,10 @@ export function ChatInterface() {
   }, [messages, currentSessionId]);
   
   useEffect(() => {
-    inputRef.current?.focus();
+    if (inputRef.current) {
+      inputRef.current.focus();
+      autoExpandTextarea(inputRef.current);
+    }
   }, []);
 
   const saveChatHistory = (sessionId: string, title: string, messagesToSave: Message[]) => {
@@ -200,21 +209,29 @@ export function ChatInterface() {
   };
 
   const handleFollowUp = (positive: boolean) => {
-    setMessages(prev => prev.map(m => ({ ...m, endOfTurn: false }))); // Hide buttons
-
     if (positive) {
-      const botMessage: Message = {
-        id: `bot-follow-up-${Date.now()}`,
-        role: 'bot',
-        text: "How can I help you?",
-      };
-      setMessages(prev => [...prev, botMessage]);
+      setMessages(prev => {
+        let lastBotIdx = -1;
+        for (let i = prev.length - 1; i >= 0; i--) {
+          if (prev[i].role === 'bot') {
+            lastBotIdx = i;
+            break;
+          }
+        }
+        if (lastBotIdx !== -1 && prev[lastBotIdx].suggestions) {
+          return prev.map((m, idx) => 
+            idx === lastBotIdx ? { ...m, endOfTurn: false } : { ...m, endOfTurn: false }
+          );
+        }
+        return prev.map(m => ({ ...m, endOfTurn: false }));
+      });
     } else {
+      setMessages(prev => prev.map(m => ({ ...m, endOfTurn: false })));
       const botMessage: Message = {
         id: `bot-feedback-prompt-${Date.now()}`,
         role: 'bot',
-        text: "Thank you for using Collegewala! Your feedback is valuable to us. How would you rate your experience?",
-        endOfTurn: 'feedback' as unknown as boolean, // Special state for feedback
+        text: "How would you rate your experience?",
+        endOfTurn: 'feedback' as unknown as boolean,
       };
       setMessages(prev => [...prev, botMessage]);
     }
@@ -233,7 +250,8 @@ export function ChatInterface() {
       const thankYouMessage: Message = {
         id: `bot-feedback-thanks-${Date.now()}`,
         role: 'bot',
-        text: "Thanks for your feedback! If you have more questions, just ask.",
+        text: "Thank you for your feedback! If you have more questions, just ask.",
+        suggestions: [],
       };
       setMessages(prev => [...prev, thankYouMessage]);
     }
@@ -406,10 +424,13 @@ export function ChatInterface() {
             <Textarea
               ref={inputRef}
               value={input}
-              onChange={e => setInput(e.target.value)}
+              onChange={e => {
+                setInput(e.target.value);
+                autoExpandTextarea(e.target);
+              }}
               onKeyDown={handleKeyDown}
               placeholder="Ask me anything..."
-              className="flex-1 resize-none border border-slate-300 rounded-md bg-white text-sm text-slate-900 shadow-sm focus-visible:ring-1 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 placeholder:text-slate-400 transition-all duration-200 px-3 py-2"
+              className="flex-1 resize-none border border-slate-300 rounded-md bg-white text-sm text-slate-900 shadow-sm focus-visible:ring-1 focus-visible:ring-indigo-500 focus-visible:border-indigo-500 placeholder:text-slate-400 transition-all duration-200 px-3 py-2 overflow-hidden"
               rows={1}
               disabled={isPending}
             />

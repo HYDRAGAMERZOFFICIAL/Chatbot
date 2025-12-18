@@ -8,6 +8,8 @@ import collegeData from '@/data/json/clg.json';
 import extData from '@/data/json/ext.json';
 import failedQueriesData from '@/data/json/failed_queries_training.json';
 import learnedAnswersData from '@/data/json/learned_answers.json';
+import internshipsData from '@/data/json/internships.json';
+import programsData from '@/data/json/programs.json';
 import { logUnansweredQuestion } from '@/ai/flows/unanswered-questions-flow';
 import { generateAnswer, type GenerateAnswerInput } from '@/ai/flows/generate-answer-flow';
 import { logFeedback } from '@/ai/flows/log-feedback-flow';
@@ -36,12 +38,49 @@ interface LearnedAnswerItem {
     answer: string;
 }
 
+interface Program {
+  id: string;
+  name: string;
+  degree: string;
+  specialization: string;
+  duration: string;
+  seats: string;
+  fees: string;
+  eligibility: string;
+  admission: string;
+  coreSubjects: string[];
+  specializations: string[];
+  placementRate: string;
+  averagePackage: string;
+  highestPackage: string;
+  recruiterCompanies: string[];
+  internshipOpportunities: string[];
+  facilities: string[];
+  description: string;
+}
+
+interface Internship {
+  id: string;
+  name: string;
+  duration: string;
+  timeline: string;
+  stipend: string;
+  eligibility: string;
+  domains: string[];
+  partnerCompanies: string[];
+  benefits: string[];
+  applicationProcess: string;
+  description: string;
+}
+
 const intents: Intent[] = (intentsData as { intents: Intent[] }).intents;
 const faqs: FaqItem[] = Object.entries(faqData).map(([question, details]) => ({
   question,
   ...(details as Omit<FaqItem, 'question'>),
 }));
 const learnedAnswers: LearnedAnswerItem[] = learnedAnswersData as LearnedAnswerItem[];
+const programs: Program[] = (programsData as { programs: Program[] }).programs;
+const internships: Internship[] = (internshipsData as { internships: Internship[] }).internships;
 
 
 // Function to recursively extract searchable text from the college data
@@ -103,10 +142,38 @@ const failedQueriesCorpus = Object.entries(failedQueriesData).map(([question, de
 }));
 const facultySearchCorpus: {text: string, answer: string}[] = [];
 
+const findMatchingProgram = (query: string): Program | null => {
+  const queryLower = query.toLowerCase();
+  return programs.find(p => 
+    queryLower.includes(p.name.toLowerCase()) ||
+    queryLower.includes(p.degree.toLowerCase()) ||
+    queryLower.includes(p.specialization.toLowerCase()) ||
+    p.specializations.some(s => queryLower.includes(s.toLowerCase()))
+  ) || null;
+};
+
+const findMatchingInternship = (query: string): Internship | null => {
+  const queryLower = query.toLowerCase();
+  return internships.find(i =>
+    queryLower.includes(i.name.toLowerCase()) ||
+    i.domains.some(d => queryLower.includes(d.toLowerCase()))
+  ) || null;
+};
+
+const formatProgramAnswer = (program: Program): string => {
+  return `${program.name}\n\nDuration: ${program.duration}\nSeats: ${program.seats}\nFees: ${program.fees}/year\n\nEligibility: ${program.eligibility}\n\nAverage Package: ${program.averagePackage}\nHighest Package: ${program.highestPackage}\nPlacement Rate: ${program.placementRate}\n\nCore Subjects: ${program.coreSubjects.join(', ')}\n\nRecruiter Companies: ${program.recruiterCompanies.join(', ')}\n\nInternship Opportunities: ${program.internshipOpportunities.join(', ')}\n\nFacilities: ${program.facilities.join(', ')}\n\nDescription: ${program.description}`;
+};
+
+const formatInternshipAnswer = (internship: Internship): string => {
+  return `${internship.name}\n\nDuration: ${internship.duration}\nTimeline: ${internship.timeline}\nStipend: ${internship.stipend}\n\nEligibility: ${internship.eligibility}\n\nDomains: ${internship.domains.join(', ')}\n\nPartner Companies: ${internship.partnerCompanies.join(', ')}\n\nBenefits: ${internship.benefits.join(', ')}\n\nApplication Process: ${internship.applicationProcess}\n\nDescription: ${internship.description}`;
+};
+
 const searchCorpus: { text: string; answer: string }[] = [
-  ...intents.map(i => ({ text: `${i.intent} ${i.keywords.join(' ')} ${i.questions.join(' ')}`, answer: i.answer })),
-  ...faqs.map(f => ({ text: `${f.question} ${f.tags.join(' ')}`, answer: f.answer })),
   ...learnedAnswers.map(l => ({ text: l.question, answer: l.answer})),
+  ...intents.map(i => ({ text: `${i.intent} ${i.keywords.join(' ')} ${i.questions.join(' ')}`, answer: i.answer })),
+  ...programs.map(p => ({ text: `${p.name} ${p.degree} ${p.specialization} ${p.specializations.join(' ')} ${p.coreSubjects.join(' ')}`, answer: formatProgramAnswer(p) })),
+  ...internships.map(int => ({ text: `${int.name} ${int.domains.join(' ')}`, answer: formatInternshipAnswer(int) })),
+  ...faqs.map(f => ({ text: `${f.question} ${f.tags.join(' ')}`, answer: f.answer })),
   ...collegeSearchCorpus,
   ...extSearchCorpus,
   ...failedQueriesCorpus,
@@ -145,6 +212,32 @@ export async function handleUserQuery(query: string): Promise<{ answer: string; 
         "How can I apply for admission?",
         "Is hostel facility available?",
         "What is the fee structure?"
+      ],
+    };
+  }
+
+  const matchingProgram = findMatchingProgram(query);
+  if (matchingProgram) {
+    return {
+      answer: formatProgramAnswer(matchingProgram),
+      suggestions: [
+        "Tell me about other programs",
+        "What's the placement rate?",
+        "How can I apply?",
+        "What are the internship opportunities?"
+      ],
+    };
+  }
+
+  const matchingInternship = findMatchingInternship(query);
+  if (matchingInternship) {
+    return {
+      answer: formatInternshipAnswer(matchingInternship),
+      suggestions: [
+        "Tell me about other internships",
+        "What are the eligibility requirements?",
+        "How do I apply?",
+        "What programs are available?"
       ],
     };
   }
