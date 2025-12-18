@@ -2,106 +2,284 @@
   "Can you tell me about the college?": {
     "answer": "Seshadripuram First Grade College (SFGC) is a prestigious private institution established in 1992, affiliated with Bengaluru City University. We are NAAC A+ Grade accredited, reflecting our commitment to quality education. SFGC offers diverse undergraduate and postgraduate programs in business, commerce, computer applications, and science. Our 3.5-acre campus features modern infrastructure with 272 computers, 44 classrooms, comprehensive library, and sports facilities. We have 1,111 enrolled students with 95%+ placement rate in top companies like Google, Microsoft, Amazon, Infosys, and Accenture.",
     "category": "College Overview",
-    "tags": ["tell me about college", "college summary", "college overview", "college details", "about", "college info"]
+    "tags": [
+      "tell me about college",
+      "college summary",
+      "college overview",
+      "college details",
+      "about",
+      "college info"
+    ]
   },
   "Give me a short summary about the college": {
     "answer": "SFGC is a NAAC A+ accredited college in Bengaluru offering UG and PG programs. Highlights: 95%+ placement rate, top recruiters (Google, Microsoft, Amazon, Infosys), diverse courses (BBA, B.Com, BCA, B.Sc, M.Com), modern 3.5-acre campus, experienced faculty, excellent infrastructure, and comprehensive student support systems including NSS, NCC, and placement assistance.",
     "category": "College Overview",
-    "tags": ["summary", "short summary", "brief", "college summary", "overview", "quick info"]
+    "tags": [
+      "summary",
+      "short summary",
+      "brief",
+      "college summary",
+      "overview",
+      "quick info"
+    ]
   },
   "Tell me about the location of the college": {
     "answer": "Seshadripuram First Grade College is located at C.A. Site No. 26, Yelahanka New Town, Bengaluru, Karnataka 560064, India. Yelahanka New Town is a prime location in North Bengaluru with excellent connectivity. The campus is easily accessible by public transport including buses and autos. The area has good infrastructure and amenities. You can visit us during office hours: 9:30 AM to 4:00 PM, Monday to Saturday. For directions or queries, call 080-22955369.",
     "category": "Contact & Location",
-    "tags": ["location", "college location", "where is college", "situated", "yelahanka", "address", "area"]
+    "tags": [
+      "location",
+      "college location",
+      "where is college",
+      "situated",
+      "yelahanka",
+      "address",
+      "area"
+    ]
   },
   "What is the college location?": {
     "answer": "SFGC is located in Yelahanka New Town, Bengaluru at C.A. Site No. 26, Yelahanka New Town, Bengaluru, Karnataka 560064. This is a prime location with good connectivity and accessible by public transport. The campus area spans 3.5 acres with modern facilities.",
     "category": "Contact & Location",
-    "tags": ["location", "where", "area", "place", "situated"]
+    "tags": [
+      "location",
+      "where",
+      "area",
+      "place",
+      "situated"
+    ]
   },
   "On which website can I get the application form?": {
     "answer": "You can get the SFGC application form from our official website: www.sfgc.ac.in. The application is available in online format. Visit the Admissions section on the website, fill out the online form with your details and educational background, upload required documents (mark sheets, ID proof, certificates), pay the application fee, and submit. You can also visit our office at C.A. Site No. 26, Yelahanka New Town during office hours (9:30 AM - 4:00 PM, Mon-Sat) to get the form in person or get guidance.",
     "category": "Admissions",
-    "tags": ["application form", "where to apply", "application website", "online form", "apply online"]
+    "tags": [
+      "application form",
+      "where to apply",
+      "application website",
+      "online form",
+      "apply online"
+    ]
   },
   "How many hours is college conducted?": {
     "answer": "SFGC regular classes are conducted from 9:00 AM to 4:00 PM, Monday to Saturday. Total daily class hours are typically 7 hours. This 7-hour schedule includes classroom lectures, laboratory sessions, practical training, and breaks. The timing allows for comprehensive learning while providing time for co-curricular activities, self-study, and relaxation. Library is open 8:30 AM-4:00 PM, and computer labs have extended hours until 5:00 PM for additional study.",
     "category": "Facilities",
-    "tags": ["class hours", "college hours", "duration", "how many hours", "daily hours", "schedule"]
+    "tags": [
+      "class hours",
+      "college hours",
+      "duration",
+      "how many hours",
+      "daily hours",
+      "schedule"
+    ]
   },
   "What are the typical class hours at the college?": {
     "answer": "SFGC operates on the following schedule: Classes: 9:00 AM to 4:00 PM (Mon-Sat), total 7 hours per day. Library: 8:30 AM to 4:00 PM (working days). Computer Labs: 9:00 AM to 5:00 PM (Mon-Sat). Office: 9:30 AM to 4:00 PM (Mon-Sat). Sports Complex: 4:00 PM to 6:00 PM (student timings). This schedule ensures comprehensive learning and access to all campus facilities.",
     "category": "Facilities",
-    "tags": ["class hours", "daily schedule", "timing", "hours", "schedule", "routine"]
+    "tags": [
+      "class hours",
+      "daily schedule",
+      "timing",
+      "hours",
+      "schedule",
+      "routine"
+    ]
   },
   "Are transport facilities available at the college?": {
     "answer": "SFGC is located in Yelahanka New Town, Bengaluru, which has excellent public transportation connectivity including buses and local transport options. While we don't provide college buses, the campus is easily accessible via: Public Buses - Multiple bus routes pass through Yelahanka area. Auto-rickshaws - Available throughout the locality. Personal Transport - Parking available on campus for cars and two-wheelers. For hostel students, we provide hostel facilities with accommodation options. For detailed information about transport or carpooling options, contact the office at 080-22955369.",
     "category": "Facilities",
-    "tags": ["transport", "bus", "transportation", "parking", "commute", "travel"]
+    "tags": [
+      "transport",
+      "bus",
+      "transportation",
+      "parking",
+      "commute",
+      "travel"
+    ]
   },
   "Tell me about internship opportunities": {
     "answer": "SFGC offers excellent internship opportunities through industry partnerships: Summer Internships (May-July) with leading companies including Infosys, Accenture, TATA, First Source, Omega Healthcare. Semester Internships during academic breaks. Internship Benefits: Monthly stipends Rs. 8,000-15,000 depending on specialization. Industry experience with real projects. Certification upon completion. Opportunity to convert internships into full-time job offers. Final year projects as paid internships with real-world industry problems. Our placement cell facilitates internship placements and provides mentoring. Contact placement office for current internship openings.",
     "category": "Academics",
-    "tags": ["internship", "internship opportunities", "industry experience", "training", "summer internship", "paid internship"]
+    "tags": [
+      "internship",
+      "internship opportunities",
+      "industry experience",
+      "training",
+      "summer internship",
+      "paid internship"
+    ]
   },
   "What are the internship opportunities available?": {
     "answer": "SFGC facilitates diverse internship programs: Types: Summer internships (May-July), Semester internships (during breaks), Final year project internships. Duration: 2-6 months. Compensation: Rs. 8,000-15,000 per month. Partners: Infosys, Accenture, TATA, First Source, Omega Healthcare, and 50+ other companies. Benefits: Live project experience, industry mentoring, certification, letter of recommendation, placement conversion opportunities. Application: Contact placement cell or visit college office for internship registration and available opportunities.",
     "category": "Academics",
-    "tags": ["internship", "opportunities", "placements", "training", "industry"]
+    "tags": [
+      "internship",
+      "opportunities",
+      "placements",
+      "training",
+      "industry"
+    ]
   },
   "Hello": {
     "answer": "Hello! I'm Collegewala chatbot, your SFGC information assistant. I'm here to help you with any questions about Seshadripuram First Grade College. I can provide information about admissions, courses, fees, placements, facilities, campus life, and much more. What would you like to know?",
     "category": "Greeting",
-    "tags": ["hello", "hi", "hey", "greeting", "start"]
+    "tags": [
+      "hello",
+      "hi",
+      "hey",
+      "greeting",
+      "start"
+    ]
   },
   "Hey": {
     "answer": "Hi there! Welcome to SFGC chatbot. I'm here to assist you with information about Seshadripuram First Grade College. Feel free to ask me about admissions, programs, placements, facilities, internships, scholarships, or anything else about our college. How can I help you today?",
     "category": "Greeting",
-    "tags": ["hey", "hi", "hello", "greeting"]
+    "tags": [
+      "hey",
+      "hi",
+      "hello",
+      "greeting"
+    ]
   },
   "Location?": {
     "answer": "SFGC is located at C.A. Site No. 26, Yelahanka New Town, Bengaluru, Karnataka 560064, India. Easy to reach with public transport connectivity. Office hours: 9:30 AM-4:00 PM, Mon-Sat. Call 080-22955369 for directions.",
     "category": "Contact & Location",
-    "tags": ["location", "address", "where", "situated"]
+    "tags": [
+      "location",
+      "address",
+      "where",
+      "situated"
+    ]
   },
   "What about the college environment?": {
     "answer": "SFGC provides an excellent college environment featuring: Safe and Secure Campus - 24/7 CCTV surveillance, trained security guards, strict anti-ragging policy. Academic Excellence - Quality teaching, experienced faculty, modern labs. Diverse Community - Students from multiple states creating multicultural atmosphere. Vibrant Activities - Sports, cultural events, tech fests, NSS, NCC programs. Supporting Infrastructure - Comfortable hostels, comprehensive library, modern facilities. Student Welfare - Mentoring, counseling, placement support, health services. Collaborative Atmosphere - Peer learning and teamwork encouraged.",
     "category": "College Overview",
-    "tags": ["campus environment", "atmosphere", "culture", "student life", "community"]
+    "tags": [
+      "campus environment",
+      "atmosphere",
+      "culture",
+      "student life",
+      "community"
+    ]
   },
   "Tell me about the college facilities": {
     "answer": "SFGC's 3.5-acre campus offers comprehensive facilities: Academic - 44 classrooms, 272 computer systems, modern labs, library with 15,000+ books. Sports - Cricket ground, football field, badminton courts, tennis court, volleyball court, table tennis, athletics track, gymnastics area. Support - Hostel for boys and girls, cafeteria, medical center. Recreational - Auditorium for events, common rooms, sports complex. Technology - WiFi throughout campus, digital library access, online resources. All facilities are maintained to international standards for student comfort and development.",
     "category": "Facilities",
-    "tags": ["facilities", "amenities", "infrastructure", "campus facilities", "resources"]
+    "tags": [
+      "facilities",
+      "amenities",
+      "infrastructure",
+      "campus facilities",
+      "resources"
+    ]
   },
   "Are there any special programs or clubs?": {
     "answer": "Yes! SFGC offers diverse programs and clubs: Sports Clubs - Cricket, Football, Badminton, Tennis, Table Tennis, Volleyball, Athletics, Gymnastics. Cultural - Music, Dance, Drama, Film Society, Art Club. Technical - Coding Club, Data Science, Web Development, Robotics. Professional - Business Club, Entrepreneurship, Finance Club. Service - NSS (community service), NCC (leadership training), Environment Club. Academic - Research groups in each department. All clubs provide leadership development, skill building, and personality development opportunities.",
     "category": "Events",
-    "tags": ["clubs", "programs", "special programs", "activities", "groups"]
+    "tags": [
+      "clubs",
+      "programs",
+      "special programs",
+      "activities",
+      "groups"
+    ]
   },
   "How is the faculty quality?": {
     "answer": "SFGC has highly qualified and dedicated faculty members: Qualifications - Most hold PhDs from top universities in India and abroad. Experience - Average 10+ years of teaching and industry experience. Engagement - Active in research, conference participation, and publication. Industry Connection - Maintain strong ties with industry for curriculum relevance. Teaching Approach - Interactive and student-centric methodologies. Mentoring - Dedicated mentors for academic and personal guidance. Professional Development - Regular workshops and training for continuous improvement. Student Ratio - Low student-to-faculty ratio (12:1) ensures personalized attention.",
     "category": "Academics",
-    "tags": ["faculty", "professors", "teachers", "instructors", "quality", "teaching"]
+    "tags": [
+      "faculty",
+      "professors",
+      "teachers",
+      "instructors",
+      "quality",
+      "teaching"
+    ]
   },
   "What documents do I need for admission?": {
     "answer": "For SFGC admission, you'll need: Educational Documents - 10th mark sheet, 12th mark sheet. Identity Proof - Aadhar card, passport, or voter ID. Address Proof - Electricity bill, ration card, or residence proof. Transfer Certificate - From previous school/college. Photographs - 4 passport-size color photos. Character Certificate - From previous institution. Caste Certificate - If applicable (for SC/ST reservations). Application Form - Filled and signed. All documents should be originals and clearly legible. For detailed requirements by program, contact admissions office: 080-22955369.",
     "category": "Admissions",
-    "tags": ["documents", "required documents", "admission documents", "papers", "certificates"]
+    "tags": [
+      "documents",
+      "required documents",
+      "admission documents",
+      "papers",
+      "certificates"
+    ]
   },
   "Tell me about the admission process step by step": {
     "answer": "SFGC admission process: Step 1 - Register on website www.sfgc.ac.in or visit office. Step 2 - Fill application form with personal and educational details. Step 3 - Upload documents (mark sheets, ID proof, photos, certificates). Step 4 - Pay application fee online or at office. Step 5 - Submit application form. Step 6 - Wait for merit list announcement (within 2 weeks). Step 7 - Check merit list on website. Step 8 - Report to office with original documents for verification. Step 9 - Complete fee payment. Step 10 - Attend orientation and register for classes. For assistance, contact admissions: 080-22955369.",
     "category": "Admissions",
-    "tags": ["admission process", "step by step", "how to apply", "procedure", "process"]
+    "tags": [
+      "admission process",
+      "step by step",
+      "how to apply",
+      "procedure",
+      "process"
+    ]
   },
   "Is SFGC a good college?": {
     "answer": "Yes! SFGC is an excellent choice for higher education: Accreditation - NAAC A+ Grade certification. Placements - 95%+ placement rate with top companies. Rankings - Recognized among top colleges in Bengaluru. Faculty - Highly qualified with industry experience. Infrastructure - State-of-the-art facilities on 3.5-acre campus. Diversity - Students from multiple states and backgrounds. Career Support - Comprehensive placement and mentoring. Student Welfare - Safety, health, and support systems. Alumni Success - Graduates in leadership positions at major companies. Overall, SFGC provides quality education with excellent career prospects.",
     "category": "College Overview",
-    "tags": ["good college", "quality", "best", "excellent", "why choose", "reputation"]
+    "tags": [
+      "good college",
+      "quality",
+      "best",
+      "excellent",
+      "why choose",
+      "reputation"
+    ]
   },
   "What makes SFGC unique?": {
     "answer": "SFGC's unique strengths: NAAC A+ Accreditation - Quality certified by national body. High Placement Rate - 95%+ with Google, Microsoft, Amazon, Infosys. Industry Partnerships - Direct connections enabling internships and placements. Modern Infrastructure - 3.5 acres with cutting-edge facilities. Experienced Faculty - PhD holders with 10+ years experience. Holistic Education - Academics plus sports, culture, and personality development. Student-Centric - Low faculty ratio for personalized attention. Affordable Excellence - Quality education with competitive fees. Safe Campus - Comprehensive security and support systems. Vibrant Community - Diverse student body from multiple states.",
     "category": "College Overview",
-    "tags": ["unique", "special", "unique features", "what makes", "advantages", "strengths"]
+    "tags": [
+      "unique",
+      "special",
+      "unique features",
+      "what makes",
+      "advantages",
+      "strengths"
+    ]
+  },
+  "location": {
+    "answer": "Seshadripuram First Grade College is located at C.A. Site No. 26, Yelahanka New Town, Bengaluru, Karnataka 560064, India. The college is easily accessible by public transport and is in a prime location in Bengaluru. You can visit us during office hours: 9:30 AM to 4:00 PM, Monday to Saturday. For directions or any location-related queries, call us at 080-22955369.",
+    "category": "Contact & Location",
+    "tags": [
+      "location"
+    ]
+  },
+  "contact info of college": {
+    "answer": "You can contact SFGC through multiple channels: Phone: 080-22955369, 080-22955370, 080-22955371. Email: info@sfgc.ac.in (general queries), pgdept@sfgc.ac.in (postgraduate queries). Website: https://www.sfgc.ac.in/. Visit us physically at C.A. Site No. 26, Yelahanka New Town, Bengaluru, Karnataka 560064. Office hours: 9:30 AM to 4:00 PM, Monday to Saturday.",
+    "category": "Contact & Location",
+    "tags": [
+      "contact",
+      "info",
+      "college"
+    ]
+  },
+  "can you tell about the college": {
+    "answer": "SFGC has highly qualified and experienced faculty members with backgrounds in industry and academics. Our faculty engage in regular professional development through workshops and training programs. They bring practical industry experience into classroom teaching, conduct research, publish papers, and mentor students for academic excellence. Faculty maintain strong industry connections and facilitate internship placements. The student-to-faculty ratio ensures personalized attention and quality education.",
+    "category": "Academics",
+    "tags": [
+      "tell",
+      "college",
+      "information"
+    ]
+  },
+  "where is the college located": {
+    "answer": "Seshadripuram First Grade College is located at C.A. Site No. 26, Yelahanka New Town, Bengaluru, Karnataka 560064, India. The college is easily accessible by public transport and is in a prime location in Bengaluru. You can visit us during office hours: 9:30 AM to 4:00 PM, Monday to Saturday. For directions or any location-related queries, call us at 080-22955369.",
+    "category": "Contact & Location",
+    "tags": [
+      "college",
+      "located",
+      "location"
+    ]
+  },
+  "what is the collge location]": {
+    "answer": "Seshadripuram First Grade College is located at C.A. Site No. 26, Yelahanka New Town, Bengaluru, Karnataka 560064, India. The college is easily accessible by public transport and is in a prime location in Bengaluru. You can visit us during office hours: 9:30 AM to 4:00 PM, Monday to Saturday. For directions or any location-related queries, call us at 080-22955369.",
+    "category": "Contact & Location",
+    "tags": [
+      "collge",
+      "location",
+      "information"
+    ]
   }
 }
